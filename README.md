@@ -25,7 +25,7 @@ The full plugin includes four skills and the Notion template:
 | **brand-os-handover** | Structured session close with formatted resume prompts. Called automatically. |
 | **session-handover** | Generic session log for any focused work session. |
 
-**[Purchase Brand OS →](YOUR_LEMONSQUEEZY_URL)**
+**[Purchase Brand OS →](https://atmostudio.lemonsqueezy.com/checkout/buy/78fc0906-c7df-4891-86bf-fe833f0056bf)**
 
 One-time purchase. Includes lifetime updates — re-download from your LemonSqueezy account at any time.
 
