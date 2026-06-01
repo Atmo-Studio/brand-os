@@ -1,7 +1,3 @@
 # System
 .DS_Store
 **/.DS_Store
-
-# No plugin binaries in the public repo — distribute via LemonSqueezy only
-*.plugin
-*.zip

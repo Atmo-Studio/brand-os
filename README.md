@@ -1,120 +1,94 @@
 # Brand OS
 
-**Agent-powered brand operating system.** A structured knowledge base that captures your brand strategy — built in Notion, activated by an agent.
+**Agent-powered brand operating system.** A Notion workspace that serves as your business's living brand knowledge base — activated by an agent that guides discovery and keeps your brand context current.
 
-Brand OS guides you through a complete brand discovery interview across 11 pages: purpose, values, ideal customer profiles, competitive positioning, brand personality, visual identity, brand story, voice & tone, messaging pillars, and taglines. The results live in a Notion workspace your agent can read at any time.
-
----
-
-## Free: workspace-setup
-
-**workspace-setup** is included in this repository at no cost. It helps you design and build your Claude project architecture — projects, custom instructions, and context documents — so every conversation starts from the right context.
-
-→ [Install workspace-setup](#install-workspace-setup-free)
+Brand OS works in any agent environment: Claude Cowork, Claude Code, Cursor, Hermes, OpenClaw, or any harness that supports skills and Notion MCP.
 
 ---
 
-## Brand OS Plugin
+## What you get
 
-The full plugin includes four skills and the Notion template:
+**Four skills:**
 
-| Skill | What it does |
-|-------|-------------|
-| **brand-discovery** | Guided brand interview across 11 Notion pages. Resumes exactly where your last session ended. |
-| **workspace-setup** | Designs and builds your agent project architecture. |
-| **brand-os-handover** | Structured session close with formatted resume prompts. Called automatically. |
-| **session-handover** | Generic session log for any focused work session. |
+- **workspace-setup** — Designs and builds your agent project structure. Works for first-time setup or adding Brand OS to an existing workspace.
+- **brand-discovery** — Guides you through a structured brand interview across 11 Notion pages. Covers purpose, values, customers, positioning, personality, visual identity, story, voice, messaging, and taglines. Resumes exactly where the last session ended.
+- **brand-os-handover** — Called automatically by brand-discovery to close sessions and generate resume prompts.
+- **session-handover** — Generic session log for any focused work session.
 
-**[Purchase Brand OS →](https://atmostudio.lemonsqueezy.com/checkout/buy/78fc0906-c7df-4891-86bf-fe833f0056bf)**
+**One Notion template:**
 
-One-time purchase. Includes lifetime updates — re-download from your LemonSqueezy account at any time.
+The Brand OS Notion workspace is the knowledge base layer. Duplicate it before running the agent. → [Brand OS on Notion](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)
 
 ---
 
 ## Prerequisites
 
-Before installing either option, you'll need:
-
-1. An agent environment that supports skills — Claude Cowork, Claude Code, or any harness using `.claude/skills/`
-2. A Notion account with the Notion MCP connected
-3. The [Brand OS Notion template](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143) duplicated to your workspace (required for the full plugin; not needed for workspace-setup alone)
+1. An agent environment that supports skills (`.claude/skills/` or equivalent)
+2. A Notion account with the Notion MCP connected (see below)
+3. The Brand OS Notion template duplicated to your workspace
 
 ---
 
-## Install: workspace-setup (free)
+## Install
 
-1. Copy `skills/workspace-setup/` into your agent's skills directory
+### Option A — Cowork plugin (Claude desktop app)
 
-   Most harnesses use `.claude/skills/` — check your harness documentation if unsure.
+**[Download brand-os.plugin](https://gitlab.com/atmo-studio/brand-os/-/raw/main/brand-os-v0.2.2.plugin)**
 
-2. Run `workspace-setup` in your agent
+Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**. Skills are loaded automatically.
 
-**Note:** workspace-setup optionally uses `session-handover` when long sessions hit a project limit. The Brand OS plugin includes it; for standalone use, the skill will still work and will simply tell you to start a new session manually.
+Skip to [Step 2: Duplicate the Notion template](#step-2-duplicate-the-notion-template).
 
----
+### Option B — Universal (manual)
 
-## Install: Brand OS Plugin (paid)
-
-After purchasing, download `brand-os.plugin` from your LemonSqueezy account.
-
-**Option A — Cowork (Claude desktop app)**
-
-Drag `brand-os.plugin` into Cowork's plugin browser, or use **Install from file**. Skills load automatically.
-
-Skip to [Notion setup](#notion-setup).
-
-**Option B — Universal (manual)**
+**Step 1: Copy the skills**
 
 Copy all four folders from `skills/` into your agent's skills directory.
 
-For workspace-default setup (Brand OS as your primary agent context): also copy `CLAUDE.md` to your agent's global system prompt or workspace-level context file.
+Most harnesses use `.claude/skills/` — check your harness documentation if unsure.
 
-For project-scoped setup: copy `CLAUDE.md` to that project's root folder.
+For **workspace-default setup** (Brand OS as your primary agent environment): copy `CLAUDE.md` to your agent's global system prompt or workspace-level context file.
 
-Continue with [Notion setup](#notion-setup).
+For **project-scoped setup** (Brand OS active in one project): copy `CLAUDE.md` to that project's root folder or context file.
+
+workspace-setup will detect which mode you're in and adapt accordingly.
+
+**Step 2: Connect Notion MCP**
+
+Add the Notion MCP to your agent settings. Most harnesses have a first-party MCP settings menu — search for "Notion" and follow the prompts.
+
+For manual config, a reference `.mcp.json` is included in this package. Replace `YOUR_NOTION_API_KEY` with a Notion integration token from [notion.so/my-integrations](https://www.notion.so/my-integrations).
+
+> **Recommended companion:** [notion-attachment-urls-mcp](https://github.com/skip-group/notion-attachment-urls-mcp) — enables loading Section Instructions directly from Notion attachment URLs.
 
 ---
 
-## Notion Setup
-
-**Step 1: Connect the Notion MCP**
-
-Add the Notion MCP in your agent's settings. Search for "Notion" in the MCP settings menu, or configure it manually — a reference `.mcp.json` is included in the plugin package.
-
-**Step 2: Duplicate the template**
+## Step 2: Duplicate the Notion template
 
 → [Open Brand OS template](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)
 
-Press **Duplicate** to add it to your Notion workspace.
-
-**Step 3: Add your database ID**
-
-Copy the database ID from your Brand OS database URL. Add it to `CLAUDE.md`:
+Press **Duplicate** to add it to your Notion workspace. Once duplicated, copy the database ID from the Brand OS database URL and add it to `CLAUDE.md`:
 
 ```
 Brand OS database ID: [paste your database ID here]
 ```
 
-**Step 4: Run workspace-setup**
+---
 
-Run `workspace-setup` to configure your agent environment and connect Brand OS to your project.
+## Step 3: Start
 
-Once setup is complete, run `brand-discovery` to begin the brand interview.
+Run **workspace-setup** to configure your agent environment for the first time, or to add Brand OS to an existing workspace.
+
+Once setup is complete, run **brand-discovery** to begin the brand interview.
 
 ---
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md) for full release history.
-
----
-
-## License
-
-See [LICENSE.md](./LICENSE.md). workspace-setup is free for personal and commercial use. The Brand OS plugin (brand-discovery and related skills) is a commercial product.
+See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
 
 ---
 
 ## About
 
-Built by [Atmo Studio](https://atmo.studio).
+Built by [Atmo Studio](https://atmo.studio). Brand OS is an Atmo product.

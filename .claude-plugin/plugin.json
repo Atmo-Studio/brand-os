@@ -1,0 +1,10 @@
+{
+  "name": "brand-os",
+  "version": "0.2.2",
+  "description": "Agent-powered brand operating system. Guided brand discovery, structured knowledge base, and workspace setup — built for any agent environment.",
+  "author": {
+    "name": "Atmo Studio"
+  },
+  "homepage": "https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143",
+  "keywords": ["brand", "brand-strategy", "notion", "brand-discovery", "workspace-setup"]
+}

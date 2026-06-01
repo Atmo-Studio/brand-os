@@ -1,10 +1,24 @@
 # Changelog
 
+## v0.2.2 — Notion Connect + Agent Persona
+*Released 2026-06-01*
+
+### New skills
+- **notion-connect** — Dedicated Notion setup skill. Handles template duplication, Brand OS database discovery, and workspace customization. Extracted from brand-discovery so the interview stays focused on brand — not infrastructure.
+- **agent-persona** — Archetype-based personality setup. Runs a short interview across four archetypes (Strategist, Collaborator, Operator, Mentor), then rewrites your agent's `## Core Character` and adds an `## Engagement Mode` block to SOUL.md. Shapes default vibe and engagement tendencies for the whole workspace.
+
+### Brand-discovery improvements
+- **Startup cache** — Resumed sessions now read a handover file before making any Notion calls. All 11 Notion row fetches are skipped when resuming. Sessions continue in seconds, not after a full workspace scan.
+- **3-tier database resolution** — Phase 1 now resolves the Brand OS database ID in priority order: handover file → `workspace-config.md` → Notion title search. Resumed sessions never prompt for the database again.
+- **Phase 1 restructured** — Workspace customization and Notion setup moved to notion-connect. Phase 1 is now: handover check → DB resolution → context load → orient. Leaner entry, cleaner handoff.
+
+---
+
 ## v0.2.1 — Public Release
 *Released 2026-05-27*
 
 - Published to [gitlab.com/atmo-studio/brand-os](https://gitlab.com/atmo-studio/brand-os)
-- Repo restructured as a distribution package: root mirrors the installable plugin, dev files separated
+- Repo restructured as a distribution package: root mirrors the installable plugin, dev files separated into `dev/`
 
 ---
 
@@ -18,15 +32,15 @@
 
 ### Improvements to brand-discovery
 - **conversation-notes** — Handover now captures in-flight conversational state (working candidates, interview position, decisions not yet in Notion, open questions) and embeds it directly in the resume prompt. Sessions no longer restart from scratch.
-- **Context window management** — Explicit 70% check at the start of each page. If context is at or above threshold, the skill completes the current page, writes to Notion, and invokes handover before proceeding.
-- **Status routing** — Status → `In Progress` is now step 0 of each page interview.
-- **Database session lock** — If the user provides a Notion database URL at session start, it is accepted as the confirmed selection and the discovery search is skipped.
-- **Selective context loading** — Completed pages from the current section load automatically at session start.
-- **Stuck-state protocol** — Two-loop-type handling: conceptual loops and language loops, each with defined resolution paths.
-- **Skip guard** — Skipping a page interview requires explicit user instruction.
-- **Advance gate timing** — The page-advance gate only appears after an analytical pass is fully closed.
-- **Candidate extraction** — Round 0 candidates must be grounded in explicit language from prior pages.
-- **All-complete moment** — Rewrote the Voice & Messaging completion response as a genuine milestone.
+- **Context window management** — Explicit 70% check at the start of each page. If context is at or above threshold, the skill completes the current page, writes to Notion, and invokes handover before proceeding. Post-compaction fallback: if the check is missed and compaction fires, the skill surfaces the problem and asks the user to paste the last draft rather than reconstructing from a lossy summary.
+- **Status routing** — Status → `In Progress` is now step 0 of each page interview. Required write, not implied.
+- **Database session lock** — If the user provides a Notion database URL at session start, it is accepted as the confirmed selection and the discovery search is skipped. The confirmed database ID is locked for all reads and writes in the session.
+- **Selective context loading** — Completed pages from the current section load automatically at session start. Pages from prior sections load on demand when the current Section Instructions reference them.
+- **Stuck-state protocol** — Two-loop-type handling: conceptual loops (3 rounds without resolution → reframe from source material with a structurally different approach) and language loops (3 rounds of wording feedback → surface the risk of eroding the original core idea before continuing).
+- **Skip guard** — Skipping a page interview requires explicit user instruction. Never inferred from context pressure, fatigue signals, or perceived sufficiency of prior content.
+- **Advance gate timing** — The page-advance gate only appears after an analytical pass is fully closed, not immediately after.
+- **Candidate extraction** — Round 0 candidates must be grounded in explicit language from prior pages. No inferred candidates.
+- **All-complete moment** — Rewrote the Voice & Messaging completion response as a genuine milestone: celebrates the effort, educates the founder on what they now have, and surfaces concrete next steps and available modules.
 
 ---
 

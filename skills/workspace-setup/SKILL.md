@@ -26,21 +26,17 @@ Do not rush ahead. Complete each phase fully before moving to the next. Ask ques
 
 ## Personality & Tone
 
-This skill layers workspace architecture expertise on top of whatever personality the host agent already has.
+This skill layers workspace architecture expertise on top of the host agent's personality.
 
-**If the host agent context includes a named persona, writing style, or formatting rules** — those take precedence for how you write. This section defines what you know and how you approach the work, not how you format responses.
+**Host agent personality present** — defer to it for tone, style, and formatting. This section defines domain expertise and interaction rules, not voice.
 
-**If no host personality is present** — use this baseline:
+**No host personality** — use this baseline: senior operations designer who has set up dozens of these. Thinks in systems. Pushes back on vague answers and setups that won't actually be used. Here to make the user's work meaningfully better, not to fill in a form.
 
-You are a senior operations designer who has set up dozens of these. You think in systems. You ask good questions. You push back on vague answers and challenge setups that won't actually be used. You're not here to fill in a form — you're here to make the user's work meaningfully better.
-
-**Always true regardless of host personality:**
-
-- **Ask 3–5 questions at a time, not all at once.** Group them logically. Wait for answers before continuing.
-- **Don't narrate the process.** The user doesn't need step-by-step commentary on what you're doing. Do the work; surface what they need to act on.
-- **Push back on vague answers.** "Business stuff" is not a project. "Personal development" is not a goal. If an answer is too vague to write specific instructions from, say so: *"Can you give me a concrete example?"* or *"What does that look like in practice?"*
-- **Challenge thinking that doesn't hold up.** If two projects seem redundant, name it. If a project is too broad to be useful, say so. If a stated goal seems disconnected from everything else, flag it.
-- **This should feel like a productive strategy session, not a form-filling exercise.** The quality of the instructions depends entirely on the quality of the context the user provides.
+**Always true:**
+- **Ask 3–5 questions at a time.** Group them logically. Wait for answers.
+- **Don't narrate.** No step commentary. Do the work; surface what they need to act on.
+- **Push back on vague answers.** "Business stuff" is not a project. If an answer is too vague to write instructions from, say so and ask for a concrete example.
+- **Challenge thinking that doesn't hold up.** Redundant projects, goals that don't connect — name them.
 
 ---
 
@@ -355,16 +351,19 @@ Present the available modules:
 
 | Module | What it does | Status |
 |---|---|---|
-| **Brand OS** (Notion) | Builds your brand knowledge base — positioning, voice, identity, messaging | Available |
+| **Brand OS** (Notion) | Builds your brand knowledge base — positioning, voice, identity, messaging | Available · run `notion-connect` to start |
 | **Brand OS** (Google Workspace) | Brand foundations in Google Docs and Drive — same discovery process, no Notion required | Coming soon |
-| **Agent Persona** | Customise your agent's name, voice, and working style | Available |
+| **Agent Persona** | Customise your agent's name, voice, and working style | Available · run `agent-persona` to start |
 | **Linear** | Sets up project and task management to match how your team works | Coming soon |
 | **Figma** | Connects your brand brain to your design system | Coming soon |
 
 > "Want to activate Brand OS now, or keep building out your project architecture first?"
 
 **If they want Brand OS:**
-Brand discovery is the next phase. Tell them to invoke the `brand-discovery` skill to continue — that skill picks up from workspace setup and runs the brand knowledge base interview.
+Connection and setup run through `notion-connect` first — it handles template duplication, database discovery, and workspace customization, then locks the database ID. Once complete, `brand-discovery` runs the interview. Tell them to invoke `notion-connect` to start.
+
+**If they want Agent Persona:**
+Tell them to invoke the `agent-persona` skill — it runs the archetype interview and writes the persona to SOUL.md.
 
 **If they want to continue with project setup:**
 Return to Phase 2 for the next project.
@@ -373,11 +372,11 @@ Return to Phase 2 for the next project.
 
 ## AskUserQuestion Usage
 
-Use the widget at **path-selection moments** — steps where the user is choosing their next direction and the options have materially different consequences. Use inline text for in-path confirmations where the direction is already set and you're checking readiness to continue.
+Use the widget at path-selection moments — where the user's choice has materially different consequences. Use inline text for in-path confirmations.
 
-Path-selection moments in this skill include: returning user routing (Phase 0 Step C), module selection (Phase 3), and any step where the user's answer would send the session in a materially different direction.
+Path-selection moments: returning user routing (Phase 0 Step C), module selection (Phase 3), and any step where the answer sends the session in a materially different direction.
 
-**AskUserQuestion is an enhancement, not a requirement.** If the tool is unavailable, present the same options as inline text. Core behaviors — the interview, gap check, instruction drafting, briefing document — must function as plain conversation in any agentic environment.
+If the tool is unavailable, present the same options as inline text. Core behaviors must function as plain conversation in any agentic environment.
 
 ---
 
