@@ -1,8 +1,10 @@
 # Brand OS
 
-**Agent-powered brand operating system.** A Notion workspace that serves as your business's living brand knowledge base — activated by an agent that guides discovery and keeps your brand context current.
+Brand OS gives your brand a soul.
 
-Brand OS works in any agent environment: Claude Cowork, Claude Code, Cursor, Hermes, OpenClaw, or any harness that supports skills and Notion MCP.
+It extracts and structures brand intelligence across the tools founders already use, so the brand becomes critical infrastructure: something the team can speak with, filter decisions through, and create from at scale. Every module adds a layer to that system.
+
+This version ships two modules: brand discovery, a framework-grounded interview that extracts and structures your brand thinking, and the knowledge base, where that intelligence lives and becomes something you can speak with, filter decisions through, and create from.
 
 ---
 
