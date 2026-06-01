@@ -8,18 +8,29 @@ This version ships two modules: brand discovery, a framework-grounded interview 
 
 ---
 
-## What you get
+## Modules
 
-**Four skills:**
+### Core
 
-- **workspace-setup** — Designs and builds your agent project structure. Works for first-time setup or adding Brand OS to an existing workspace.
-- **brand-discovery** — Guides you through a structured brand interview across 11 Notion pages. Covers purpose, values, customers, positioning, personality, visual identity, story, voice, messaging, and taglines. Resumes exactly where the last session ended.
-- **brand-os-handover** — Called automatically by brand-discovery to close sessions and generate resume prompts.
-- **session-handover** — Generic session log for any focused work session.
+The brand's base layer. Core configures your agent workspace, sets the brand's personality, and maintains continuity across sessions. You start here. The brand becomes present, responsive, and yours.
 
-**One Notion template:**
+*Skills: workspace-setup, agent-persona, session-handover*
 
-The Brand OS Notion workspace is the knowledge base layer. Duplicate it before running the agent. → [Brand OS on Notion](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)
+### Memory
+
+Your brand intelligence begins compounding. Memory connects your knowledge base and gives the brand a structured, living record you and your team operate from. New hires onboard from it. Agents read from it. You stop re-explaining everything from scratch.
+
+*Skills: notion-connect*
+*Resources: [Knowledge Base](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)*
+*Connections required: Notion*
+
+### Worldview
+
+The brand develops conviction. A framework-grounded interview extracts your thinking across eleven sections and writes it into the knowledge base. Purpose, values, positioning, personality, voice, story. The instincts you carry become infrastructure your team can operate from without you in the room.
+
+*Skills: brand-discovery, brand-os-handover*
+*Resources: [Knowledge Base](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)*
+*Connections required: Notion*
 
 ---
 
