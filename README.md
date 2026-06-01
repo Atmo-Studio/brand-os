@@ -6,6 +6,8 @@ It extracts and structures brand intelligence across the tools founders already 
 
 This version ships two modules: brand discovery, a framework-grounded interview that extracts and structures your brand thinking, and the knowledge base, where that intelligence lives and becomes something you can speak with, filter decisions through, and create from.
 
+![Brand OS](docs/brand-os_hero_2x1.png)
+
 ---
 
 ## Modules
