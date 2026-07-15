@@ -1,17 +1,30 @@
 # Visual Identity · BRND-7
 *Brand Character · Page 2 of 2*
 
-**Fills:** Logo variants table, Color system table, Typography system table, Imagery direction
-**Frameworks:** Brand Identity System (Wheeler, 2017) → `brand-strategy/frameworks.md §14`; Design Token Hierarchy (Nathan Curtis, 2016) → `brand-strategy/frameworks.md §15`
+**Fills:** Lifecycle Phase, Concept Hypothesis, Personality → Visual Bridge, Decided Constraints, Signature Device, Consolidated Guardrails, Open Forks, Existing Assets (conditional)
+**Frameworks:** Brand Identity System (Wheeler, 2017) → `frameworks.md §14`; Design Token Hierarchy (Nathan Curtis, 2016) → `frameworks.md §15`
+
+---
+
+## Lifecycle Phase
+
+BRND-7 is the *first step* toward a complete visual identity, not the identity itself. The page carries a phase marker so everyone — founder, designer, agent — knows what they're reading:
+
+- **`brief`** — the identity hasn't been designed yet. The page is a constraint spec that feeds an identity brief. This is where a first interview lands.
+- **`developed`** — design rounds have produced an approved concept. The page's open forks are resolved; constraints reflect the chosen direction.
+- **`delivered`** — the identity shipped (logo, palette, type, assets exist as decided artifacts). The page is the high-level entry point; specs live in the design file and the `brand/` library.
+
+**Set the phase at the top of the page on every write.** On a fresh interview, it's `brief`.
+
+**Re-run path:** if the page is `brief` or `developed` but the founder says the identity has since been designed or delivered ("we got our branding done," "the logo's finished"), don't re-run the interview from zero. Say: *"Your identity got designed since we wrote this page — let's upgrade it."* Then: confirm which open forks were resolved and how, convert the winning decisions into decided constraints, refresh the guardrails against the delivered identity, and advance the phase marker. Without this, the page silently goes stale the moment real design work happens.
 
 ---
 
 ## Failure Modes
-- Treating this page as the design system — it's not. This page captures *principles and roles*; Figma is the production source of truth for specs, assets, and components. The page should make design decisions navigable, not replace the design file.
-- Listing colors without roles — hex codes without usage guidance are decoration, not a system. Every color needs a job description.
-- Describing imagery with vague adjectives — "modern, clean, authentic" is not a photography brief. Imagery direction needs to be specific enough that a photographer or stock searcher could make a selection based on it alone.
-- Confusing what exists with what's decided — founders often have a logo and colors but haven't made intentional decisions about them. This page should surface whether the current visual identity is *deliberate* or *inherited*, and whether it still serves the brand.
-- Over-engineering for a brand that isn't there yet — early-stage brands may have a logo and two colors. Don't force a full design system if the raw material isn't ready. Capture what exists, note what's missing, and frame it as something to build toward.
+- Documenting what exists instead of capturing what's *decided* — the core trap. BRND-7 is an **artifact of decisions** that feeds the identity brief, not an inventory of current assets and not a design system. If the founder has a logo and two colors but hasn't made intentional decisions about them, that's an open fork, not a filled-in constraint. Surface whether each element is *deliberate* or *inherited*, and leave specs (hex, scale, tokens, components) to the design file and later the `brand/` library.
+- Constraints that don't constrain — "modern, clean, authentic" bounds nothing. A real constraint rules things out: "illustration-led, never photographic; the mark must hold on a busy background." If a line could apply to any brand, it isn't a constraint yet.
+- Soft don'ts — a don't that names a category but not the trap is weak. "Don't be corporate" barely steers; "must not read as the nearest competitor's palette," "should feel like it belongs on a specialist's shelf, not in a generic app store" are hard don'ts that actually direct a generator or designer.
+- Over-engineering for a brand that isn't there yet — early-stage brands may have only an anchor color and a reference or two. Capture the real decisions, name the rest as open forks, and don't manufacture a full constraint set from thin material.
 
 ---
 
@@ -19,31 +32,41 @@
 
 This page connects directly to BRND-6 (Brand Personality). The visual identity should *express* the personality — a casual, warm brand looks different from a formal, authoritative one.
 
-- From BRND-6: the personality spectrum positions and "we are / we are not" guardrails should inform visual choices. If the brand personality is "grounded and quiet confidence," the visual identity shouldn't be neon gradients and bold display type.
+- From BRND-6: the personality spectrum positions and "we are / we are not" guardrails should inform the decided constraints and the hard don'ts. If the brand personality is "grounded and quiet confidence," the constraints shouldn't point at neon gradients and bold display type.
+- The **open forks** are seeded by BRND-6's most tension-loaded axis when it's present (often something like restraint ↔ warmth, or heritage ↔ modern). When BRND-6 is absent, infer the tension from BRND-4 + call notes and write it down for confirmation — do not edit BRND-6.
 
-*If BRND-6 is incomplete, proceed — visual identity can be documented from existing materials. But flag during the gap check if the visual identity and personality feel misaligned.*
+*If BRND-6 is incomplete, proceed — the constraint spec can be built from existing materials and the founder's stated preferences. But flag during the gap check if the constraints and personality feel misaligned.*
 
 ---
 
 ## Context Check
 
 `AskUserQuestion`
-> "Before we start — what visual assets do you currently have? Check all that apply."
+> "Before we start — what visual assets and decisions do you already have? Check all that apply."
 - Logo and brand colors exist (even if informal)
 - We have a Figma file or design system
 - We have a brand guidelines doc with visual specs
 - Starting from scratch — no established visual identity
 
-*If they have existing assets: don't re-interview from zero. Read what they have, assess its completeness against the template structure (logo variants, color roles, type hierarchy, imagery direction), and focus the interview on gaps and decisions that haven't been made yet. Surface your read: "You have a logo and three colors, but there's no guidance on when to use each color or what your type hierarchy is. Let me focus on those gaps."*
+*If they have existing assets: don't re-interview from zero, but don't confuse having assets with having decided. Read what they have, then separate the deliberate decisions from the inherited defaults: "You have a logo and three colors — but were those chosen for this brand, or inherited? Which of them are you actually committed to?" What's committed becomes a constraint; what's unexamined becomes an open fork.*
 
-*If starting from scratch: this page becomes a brief for future design work, not a documentation exercise. Frame it: "We're going to define the principles and roles your visual identity should fill — not design it right now. This becomes the brief a designer works from."*
+*If starting from scratch: this page becomes the constraint spec that feeds the brief, not a documentation exercise. Frame it: "We're going to lock the decisions you've actually made and name the ones still open — this becomes the brief the agent or a designer works from. We're not designing it here."*
 
 ---
 
 ## Interview Rounds
 
-**Round 1 · Logo System**
-*Extract: What logo variants exist (or should exist), and the usage rules for each.*
+**Round 0 · Personality → Visual Bridge**
+*Extract: each BRND-6 axis position translated into a visual implication — the machinery that makes "the identity should express the personality" real instead of aspirational.*
+
+If BRND-6 is `Complete`, do this before asking anything: take each spectrum position and its "never go past" marker and draft a one-line visual implication across five levers — **contrast level, color temperature, density, type voice, composition energy**. Example: "quiet confidence, never past understated" → *high whitespace, restrained contrast, one accent used as punctuation, no display-type shouting.* Present the drafted bridge as a short table and ask the founder to react — confirm, adjust, or flag the axis that doesn't translate cleanly (that axis is usually the open fork).
+
+If BRND-6 is skipped or incomplete: do not improvise silently. Infer the personality read from BRND-4, uploaded materials, and call notes — then **write the inference down and have the founder confirm it** before proceeding. The bridge must exist on the page either way; an unconfirmed inference is exactly the kind of invisible assumption that derails design rounds later. Do not edit BRND-6.
+
+*Advance when: every axis (or the confirmed inference) has a visual implication the founder has reacted to, and the most tension-loaded axis is identified — it seeds the open forks in Round 6's territory.*
+
+**Round 1 · Logo & Identity Approach**
+*Extract: the identity-approach decision — photography-driven vs. illustration vs. wordmark-led, and whether the logo must work overlaid on imagery — plus what logo material exists or is deliberately deferred.*
 
 - Walk me through your logo. How many versions do you have — a primary, a reversed version for dark backgrounds, a standalone mark?
 - When do you use each version? Are there situations where the full logo doesn't work — small sizes, social avatars, app icons?
@@ -51,21 +74,21 @@ This page connects directly to BRND-6 (Brand Personality). The visual identity s
 
 *Technique — the inventory before the rules:* Don't ask founders to articulate logo usage rules in the abstract. Start by asking what variants exist, then work backward: "You have a full logo and a mark. When would someone use the mark alone?" This produces practical rules, not theoretical ones.
 
-*Advance when: you can fill the Logo table — variant name, when to use each. If only one version exists, note what's missing: "You have a primary logo but no reversed version or standalone mark. That's fine for now — note it as something to address when the visual system matures."*
+*Advance when: you can state the identity approach as a decision ("wordmark-led; the logo must hold on a busy background; a distinctive mark deferred to a pro") — or name it as an open fork. Capture any logo misuses as guardrails. Logo specifics beyond the approach are not this page's job.*
 
-**Round 2 · Color System**
-*Extract: The colors in use, what role each plays, and any explicit restrictions.*
+**Round 2 · Color Direction**
+*Extract: the color-direction decision — the anchor color(s) and the rule that governs them — plus any hard color don'ts. Not a full role'd palette.*
 
 - What are your brand colors? Walk me through each one — not just the hex code, but what you use it for. Which one is your primary? Which ones are supporting?
 - Do any of your colors have specific jobs — like one that's always used for calls to action, or one that's reserved for backgrounds?
 - Are there any color combinations you avoid? Colors that clash with the brand or create the wrong association?
 
-*Technique — the role audit:* Many founders have colors they "use" but haven't assigned roles. Walk through the template roles (Primary, Secondary, Accent, Neutral, Background) and ask: "Which of your colors fills this role? If none does, is that a gap you want to fill or a role you don't need?"
+*Technique — the role audit:* Many founders have colors they "use" but haven't assigned roles. Walk through the template roles (Primary, Secondary, Accent, Neutral, Background) and ask: "Which of your colors fills this role? If none does, is that a gap you want to fill or a role you don't need?" — but capture the *direction*, not the finished palette.
 
-*Advance when: each color has a name, a hex value, a defined role, and a usage description. If there are gaps (e.g., no accent color, no defined neutral), note them explicitly rather than skipping them.*
+*Advance when: you have an anchor color and its governing rule ("one saturated accent, used sparingly, never tinted toward pastel"), plus any hard color don'ts. A full role'd palette with value scales is the design file's job — this page states the direction.*
 
 **Round 3 · Typography**
-*Extract: The type families in use, their roles, and any restrictions.*
+*Extract: any typographic decision or restriction actually made — a personality direction for type, a locked face, a hard "never." Most early brands haven't decided type; that's fine — capture the direction and note it open.*
 
 - What fonts does your brand use? Walk me through the hierarchy — is there a display font for headlines, a different one for body text, a monospace or caption font?
 - How did you choose these fonts? Was it a deliberate decision or an inherited default? Do they still feel right for where the brand is now?
@@ -73,10 +96,10 @@ This page connects directly to BRND-6 (Brand Personality). The visual identity s
 
 *Technique — the four-role test:* The template defines four type roles (Display, Heading, Body, Caption/Label). Most brands have 1–2 font families covering all four. Map what the founder describes to these roles: "It sounds like [Family A] handles display and headings, and [Family B] handles body and captions. Does that match how you think about it?"
 
-*Advance when: each type role has a font family assigned (even if one family covers multiple roles), and there's at least one "don't" — a substitution or usage to avoid.*
+*Advance when: you have at least the type *direction* (the personality the type should express) or a locked decision, plus any type don't — or you've explicitly named type as an open fork. Don't force a full type system onto a brand that hasn't chosen one.*
 
-**Round 4 · Imagery Direction**
-*Extract: The visual world the brand inhabits — specific enough to guide a photo selection or illustration brief.*
+**Round 4 · Asset Base & Imagery Direction**
+*Extract: the asset-base decision (the visual raw material the brand builds on — e.g., a founder's photo archive, an existing illustration set, or licensed stock) and an imagery direction specific enough to guide a selection.*
 
 - What does the visual world of your brand look like? If someone were choosing photos for your website — what are they looking for? Candid or staged? Bright or moody? People or abstract?
 - What's the emotional quality the imagery should carry? Not "professional" — more specific. Warm? Energetic? Contemplative? Precise?
@@ -84,35 +107,87 @@ This page connects directly to BRND-6 (Brand Personality). The visual identity s
 
 *Technique — the stock photo test:* Show the founder (or ask them to imagine) three different stock photos of the same subject. Ask: "Which one feels like your brand and why?" This surfaces aesthetic preferences faster than abstract questions about "visual direction." If working asynchronously, ask: "Find me one image that feels like your brand and one that doesn't — tell me why for each."
 
-*Advance when: the imagery direction is specific enough to guide a search — "candid, natural light, focused on hands or process, warm tones, never stock-corporate or posed" is useful. "Modern and clean" is not.*
+*Advance when: you can name the asset base and an imagery direction that rules things in and out — "candid, natural light, focused on hands or process, warm tones, never stock-corporate or posed" is useful; "modern and clean" is not. Capture imagery-to-avoid as guardrails.*
+
+**Round 5 · Signature Device**
+*Extract: the one distinctive visual device the brand could own — a hypothesis, not a finished mark. A recurring crop, a signal color used as punctuation, a stamp or seal, a distinctive grid behavior, a repeated motif. Something a generator or designer can realize and the brand can be recognized by.*
+
+- Is there one visual move you keep coming back to — a thing you'd want people to recognize before they read the name? A mark, a color behavior, a way of cropping, a recurring motif?
+- Think of the brands you admire: what's the one device that makes each instantly theirs — a signal color, the way they frame scale, a specific crop? What's the equivalent instinct for yours?
+- If you had to bet on a single signature element for the next six months, what would it be — and what would it absolutely not be?
+
+*Technique — steal from the references:* Founders name a signature device faster by pointing at someone else's than by inventing their own. Anchor on their reference brands (that's why this round follows imagery): "That brand has one unmistakable move people recognize on sight — what's yours?" Capture it as a hypothesis to test in generation, explicitly labelled as not-yet-final.
+
+*Advance when: you have a one-line signature-device hypothesis specific enough to attempt — "one accent element used as scarce punctuation against a restrained field; scarcity is the point" — or an honest "none yet, generate options." Never force a device the founder doesn't feel.*
+
+**Round 6 · Hard Don'ts**
+*Extract: the brand-identity-level "what this is NOT" — the category traps and adjacencies the identity must avoid, above the element-level don'ts already gathered in Rounds 1–4.*
+
+- When you picture this brand going wrong, what does it look like? What adjacent category or competitor would make you cringe to be mistaken for?
+- Are there whole aesthetics that are off the table — "looks like a tech startup," "reads as a wellness brand," "feels like private equity"? Name the ones that are non-negotiable.
+- What's the shelf test — where should this feel at home, and where would it feel wrong? (A specialist's shelf, a trade show, a phone home screen?)
+
+*Technique — the mistaken-identity test:* Don'ts land hardest as concrete mis-reads, not abstract adjectives. Push past "not corporate" to the specific brand or category the founder fears being confused with. "Not soft" → "not approachable in a generic wellness sense." "Not tech" → "nothing that reads as a SaaS dashboard; it should feel like a physical product, not an app." These specific exclusions are what most sharpen a generator.
+
+*Advance when: you have 3–6 hard don'ts stated as concrete mis-reads or category exclusions, each specific enough to rule out real design choices. Combined with the element-level don'ts from Rounds 1–4, these compose the consolidated guardrails block.*
 
 ---
 
 ## Gap Check
 
-Run all three internally. Surface the single strongest concern.
+Run all six internally. Surface the single strongest concern.
 
-- [ ] Completeness test: are there obvious gaps in the visual system — missing logo variants, colors without roles, type roles without families? These aren't failures, but they should be explicitly noted as gaps to fill later rather than silently skipped.
-- [ ] Personality alignment test: does the visual identity express the personality captured in BRND-6? If the personality is warm and casual but the visual identity is monochrome and geometric, either the personality description or the visual identity needs to shift.
-- [ ] Actionability test: could a designer or content creator use this page to make a visual decision without asking for clarification? If the imagery direction is too vague or the color roles are ambiguous, it's not ready.
+- [ ] Decidedness test: does each constraint reflect a real decision the founder made, or an inherited default dressed as a decision? Inherited-but-unexamined items should be surfaced as open forks, not locked constraints.
+- [ ] Constraint-strength test: is each constraint specific enough to rule something out? A constraint that excludes nothing isn't a constraint. Run the "modern and clean" test on every line.
+- [ ] Personality-alignment test: do the constraints express the personality captured in BRND-6? If the personality is warm and casual but the constraints point monochrome and geometric, one of them needs to shift.
+- [ ] Fork-honesty test: are the open forks genuinely open — a real tension the brief will resolve into two directions — and are there no more than one or two? A page that's all forks made no decisions; a page with zero forks probably over-claimed.
+- [ ] Actionability test: could a designer or the agentic generator pick this page up and produce a strong brief — make real visual decisions — without coming back for clarification? If the constraints are too vague, the guardrails too soft, or the forks fuzzy, it's not ready.
+- [ ] Token-readiness test: every color the page mentions carries a hex (the founder's "our blue" becomes a specific `#RRGGBB` — ask for it, or pull it from their site/assets and confirm); every type direction names a family, or at minimum a genre + case + weight intent ("grotesque sans, all-caps labels, medium weight"). "Warm and modern" fails. This is the minimum specificity a generator can act on — full scales and token systems stay in the design file, but named values must be pinned here.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'Your colors are documented but none of them have assigned roles — there's no guidance on which is for CTAs, which is for backgrounds, which is the accent. Want to assign roles now, or note it as a gap to address when you work with a designer?']"
-- Looks solid — write it
+> "Before we lock this — [state the single strongest concern as a direct question, e.g., 'Your anchor color is decided, but whether the identity runs minimal-and-restrained or warm-and-textured is still open — that's the fork the brief will split into two directions. Lock it as open, or do you already know which way you lean?']"
+- Looks solid — lock it
 - Let me revisit [element]
 
 ---
 
 ## Fill Targets
 
+This page fills one artifact of decisions across four Notion sections. The content is decisions and constraints, not spec tables — a decision with its governing rule, never a value scale. Under **Decided Constraints**, fill each field below the founder has actually decided (one bullet each); omit or mark "open" the rest. That block maps 1:1 to the identity brief's "Constraints (Decided)."
+
 | Field | Notion section | Format |
 |---|---|---|
-| Logo | `# Logo` table | Table: Variant \| When to use. Rows: Primary, Reversed, Mark only (minimum). Each "when to use" is a specific context, not a generic restatement of the variant name. |
-| Color | `# Color` table | Table: Role \| Name \| Hex \| Used for. Rows: Primary, Secondary, Accent, Neutral, Background (some may be empty — mark as "not yet defined"). Followed by `Color don'ts` field with specific combinations or uses to avoid. |
-| Typography | `# Typography` table | Table: Role \| Family \| Used for. Rows: Display, Heading, Body, Caption/Label. One family can fill multiple roles. Followed by `Type don'ts` field with specific substitutions or uses to avoid. |
-| Imagery | `# Imagery` | Three fields: Direction (2–3 sentences describing the visual world — specific enough for a photo search), Mood (the emotional quality — one precise phrase, not a list of adjectives), What to avoid (specific imagery types, styles, or associations to steer clear of). |
+| Lifecycle Phase | Top of page | One line: `Phase: brief` (or `developed` / `delivered`) + date last advanced. |
+| Concept Hypothesis | `# Concept Hypothesis` | 2–3 sentences naming the visual idea in the register of "one bright mark against everything else." Grounded in BRND-6 personality language — not a mood, a bet. Draft it **last**, after the constraints are locked: it's the synthesis, not an interview answer. |
+| Personality → Visual Bridge | `# Personality → Visual Bridge` | One line per BRND-6 axis (or per confirmed inference if BRND-6 was skipped): axis position → implication across contrast, color temperature, density, type voice, composition energy. From Round 0. |
+| Color direction | `# Decided Constraints` | Anchor color(s) **with hex** + the rule that governs them — e.g., "one saturated accent (specific hex), used sparingly, never tinted toward pastel." |
+| Identity approach | `# Decided Constraints` | Photography- / illustration- / wordmark-led; whether the logo must hold on a busy background. |
+| Asset base | `# Decided Constraints` | The visual raw material the brand builds from. |
+| Tone words | `# Decided Constraints` | 2–4 precise words — specific, not "professional." |
+| Reference brands | `# Decided Constraints` | Named brands that triangulate the target, each with a one-line reason. |
+| Guiding principle *(optional)* | `# Decided Constraints` | Any overarching rule the identity obeys. |
+| Signature Device | `# Signature Device` | One line naming the device the brand could own, flagged as a hypothesis for generation/design to realize — or "none yet — generate options." Seeds the signature device the `visual-identity` phase builds. |
+| Consolidated Guardrails | `# Guardrails` | Every "don't" in one block, each a concrete exclusion (not an adjective): brand-level hard don'ts (Round 6) + element-level don'ts from Rounds 1–4 (logo misuses, color combos to avoid, type substitutions, imagery to steer clear of). Seeds the generation guardrails the `visual-identity` phase enforces. |
+| Open Forks | `# Open Forks` | The one or two genuinely unresolved tensions the brief resolves into two named directions (e.g., restraint ↔ warmth). Each a real either/or, not a to-do. If BRND-6 is present, read the fork from its most tension-loaded axis (surfaced in Round 0); if absent, infer from references + call notes and write it down for confirmation — do not edit BRND-6. |
+| Existing Assets *(only if assets exist)* | `# Existing Assets` | Short inventory: what exists, where it lives, and — per item — **deliberate or inherited** (from the Context Check separation). Omit the section entirely for from-scratch brands. |
 
-*Logo: "when to use" is contextual — "small-scale applications like favicons and social avatars" not "when needed."*
-*Color: every color has a role. If a color exists without a defined role, surface it as a question, not a gap to skip.*
-*Typography: map to the four-role hierarchy even if one family covers multiple roles. Don'ts are more useful than dos.*
-*Imagery: fails the "modern and clean" test — if the direction could apply to any brand, it's not specific enough.*
+*Decided vs. open is the core discipline — a decision reads as locked; anything unexamined is a fork. Never dress an inherited default as a decision.*
+*Constraints must rule things out. If a line could apply to any brand, it isn't a constraint yet.*
+*Don'ts are concrete mis-reads, not adjectives — "must not read as the category's default blue," not "don't be generic."*
+*This page is high-level by design. Named anchor values (hexes, families) are pinned here per the token-readiness rule — but systems (value scales, token sets, components) live in the design file and later the `brand/` library. BRND-7 points at them; it doesn't hold them.*
+
+---
+
+## Exit Actions
+
+After the page is written and marked `Complete`, surface the next move — one line, before the section handover fires. Which exit applies depends on the phase:
+
+**Phase `brief` → offer the identity brief.**
+> "Your visual identity page is a working constraint spec now. When you're ready to develop the identity, I can compile it into a full creative brief — two named directions built from your open fork, ready for a designer or an AI design round. Just say 'generate the identity brief.'"
+
+If the user asks for it (now or any later session), compile from the page: input assessment (which BRND pages exist, what was inferred) → constraints (decided) → brand foundation digest synthesized from BRND-1–5 → the concept hypothesis, expanded → **two named directions** (each: positioning line, visual personality, how it interprets the constraints, what it unlocks) → comparison & decision frame → gaps for creative development. The two-directions structure is load-bearing — it converts the open forks into a real choice instead of a mood soup. Write it as a document to the user's workspace (or Documents database if connected).
+
+**Phase `developed` or `delivered` → point at the library.**
+> "The identity exists now — the natural next step is packaging it as a `brand/` library (DESIGN.md + tokens + asset manifest) that any agent or codebase can generate from. That's a Brand OS module on the roadmap; for now, keep this page as the entry point and link your design file from it."
+
+Do not attempt to generate the `brand/` library from this skill — it's a delivery-phase artifact with its own contract, not an interview output.

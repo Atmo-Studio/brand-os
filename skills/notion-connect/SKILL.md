@@ -1,6 +1,5 @@
 ---
 name: notion-connect
-version: 0.1.0
 description: Connects a Notion workspace to Brand OS — verifies the Notion MCP
   connection, guides the user through duplicating the template (if needed),
   discovers the Brand OS database, runs workspace customization, and locks the
@@ -8,7 +7,11 @@ description: Connects a Notion workspace to Brand OS — verifies the Notion MCP
   Use when the user is ready to install Brand OS in Notion. Triggers on
   "connect my Notion", "set up Brand OS", "connect the template",
   "I need to install Brand OS in Notion", or invocation from workspace-setup
-  Phase 3.
+  Phase 3. Runs standalone — no prior workspace-setup required.
+license: MIT
+metadata:
+  author: Atmo Studio
+  version: "0.2.3"
 ---
 
 # `notion-connect`
@@ -39,13 +42,14 @@ This is a setup skill — it runs once. After it completes, the user invokes `br
 ## PHASE 1 — Setup
 
 **Print once at session start:**
-*Notion Connect v0.1.0 loaded.*
+*Notion Connect v0.2.3 loaded.*
+(Release rule: match `metadata.version` in this file's frontmatter.)
 
 ### Step 0 · Resume Check
 
 Look for `workspace-config.md` in the user's workspace. Read it silently.
 
-**If a `modules.brand_os` block exists with a `db_id` already set:**
+**If `modules.brand_os` already has an entry with a `notion_db_id` set** (for the current project, if projects are defined):
 
 Surface as chat text:
 > "Your Brand OS workspace is already connected. Database ID is locked. You can invoke `brand-discovery` to begin your first session, or re-run this setup if something has changed."
@@ -55,7 +59,7 @@ Surface as chat text:
 - Start `brand-discovery` — *close; tell them to invoke it*
 - Re-run setup — *proceed to Step 1, overwriting the existing block at the end*
 
-**If no `modules.brand_os` block or no `db_id`:** proceed to Step 1.
+**If `modules.brand_os` is empty, or has no connected entry for this project:** proceed to Step 1.
 
 ---
 
@@ -85,7 +89,7 @@ Stop. Do not proceed until the connection is confirmed.
 
 > "Here's how to get the template:
 >
-> 1. Open the Brand OS template link (your plugin documentation has the URL)
+> 1. Open the Brand OS template: https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client
 > 2. Click **Duplicate** in the top-right corner of the Notion page
 > 3. Choose the workspace and location where you want it to live
 > 4. Come back here once it's duplicated"
@@ -107,8 +111,8 @@ If the user provided a Notion URL in their session-start prompt, treat it as the
 
 1. Call `notion-search` with query `"Brand OS"`. Filter to database-type results only; discard page-type matches.
 2. For each database candidate, call `notion-fetch` and inspect its schema. The Brand OS property signature:
-   - `Name` · `Section` · `Order` · `Status` · `Section Instructions`
-   A candidate is a structural match only if it carries the full property signature.
+   - `Name` · `Section` · `Order` · `Status`
+   A candidate is a structural match only if it carries all four properties. (Older template versions also had a `Section Instructions` property; it was removed, so do **not** require it — requiring it produces a false "not found" on current installs.)
 3. Resolve based on match count:
    - **Zero structural matches.** Use the AskUserQuestion fallback below.
    - **Exactly one structural match.** Confirm with the user (surface parent page / teamspace context so they can verify it's the right workspace). Lock that database ID.
@@ -152,15 +156,22 @@ Once the database is confirmed, surface the default workspace configuration as c
 
 ## STEP 5 · Lock and Hand Off
 
-Write the locked database ID and setup metadata to `workspace-config.md` under `modules.brand_os`:
+`modules.brand_os` is a **list** of brand instances — a workspace can run Brand OS for more than one brand — so **append** a new entry; do not overwrite entries for other brands:
 
 ```yaml
 modules:
   brand_os:
-    db_id: "[locked database ID]"
-    connected_at: "[ISO date]"
-    template_verified: true
+    - project_id: "[current project id, or 'default' if no projects are defined]"
+      status: active
+      notion_db_id: "[locked database ID]"
+      page_prefix: "[from Step 4 — default BRND]"
+      connected_at: "[ISO date]"
+      template_verified: true
 ```
+
+If an entry already exists for this project (e.g., re-running setup), update it in place rather than adding a duplicate.
+
+**If `workspace-config.md` doesn't exist:** create it at the workspace root as a minimal config — YAML frontmatter with `schema_version: "1.1"`, `created_at`, and a `modules.brand_os` list containing the single entry above; nothing else. Tell the user in one line: *"I've created `workspace-config.md` to remember your connection — if you later run `workspace-setup`, it builds on this file."* Do not send them to workspace-setup first; connecting Notion must work standalone.
 
 Then close:
 
@@ -173,7 +184,7 @@ Then close:
 ## AskUserQuestion Usage
 
 Required at:
-- Resume check (Step 0, if db_id already exists)
+- Resume check (Step 0, if a connected `brand_os` entry already exists)
 - Template check (Step 2)
 - Database disambiguation (Step 3, if multiple structural matches)
 - Database fallback (Step 3, if no matches)
@@ -188,5 +199,5 @@ Inline text for: MCP failure message (Step 1), template duplication instructions
 - **Database discovery is title search + agent-side schema verification.** Never hardcode database URLs or IDs — every user has a different duplicated workspace.
 - **Lock means lock.** Once the database ID is confirmed, write it to workspace-config.md. Do not re-search.
 - **Brand OS database rows are read-only as structure.** This skill only reads structure; it does not write content to Brand OS pages.
-- **workspace-config.md write is required before closing.** Do not hand off to `brand-discovery` without confirming the write succeeded.
-- **If workspace-config.md doesn't exist:** Tell the user — it is created by `workspace-setup`. They should run workspace-setup first, then return here.
+- **workspace-config.md write is required before closing.** Do not hand off to `brand-discovery` without confirming the write succeeded. If the file doesn't exist, create the minimal config (Step 5) — never block the connection on workspace-setup having run first.
+- **If no file-write tools are available** (chat-only runtime): print the `modules.brand_os` block as a code block and ask the user to save it into `workspace-config.md` at their workspace root — then close as normal.

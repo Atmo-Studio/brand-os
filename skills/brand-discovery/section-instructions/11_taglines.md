@@ -2,7 +2,7 @@
 *Voice & Messaging · Page 4 of 4*
 
 **Fills:** Active Taglines table, Retired Taglines table
-**Frameworks:** Tagline Architecture (Ries & Trout, 1981) → `brand-strategy/frameworks.md §25`; Sticky Message Principles (Heath & Heath, 2007) → `brand-strategy/frameworks.md §26`
+**Frameworks:** Tagline Architecture (Ries & Trout, 1981) → `frameworks.md §25`; Sticky Message Principles (Heath & Heath, 2007) → `frameworks.md §26`
 
 ---
 

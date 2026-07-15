@@ -24,7 +24,7 @@ Your brand intelligence begins compounding. Memory connects your knowledge base 
 
 *Skills: notion-connect*
 
-*Resources: [Knowledge Base](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)*
+*Resources: [Knowledge Base](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)*
 
 *Connections: Notion*
 
@@ -34,9 +34,9 @@ Your brand intelligence begins compounding. Memory connects your knowledge base 
 
 The brand develops conviction. A framework-grounded interview extracts your thinking across eleven sections and writes it into the knowledge base. Purpose, values, positioning, personality, voice, story. The instincts you carry become infrastructure your team can operate from without you in the room.
 
-*Skills: brand-discovery, brand-os-handover*
+*Skills: brand-discovery*
 
-*Resources: [Knowledge Base](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)*
+*Resources: [Knowledge Base](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)*
 
 *Connections: Notion*
 
@@ -48,7 +48,7 @@ You need two things: an agent environment that supports skills (`.claude/skills/
 
 ### Option A: Cowork plugin (Claude desktop app)
 
-**[Download brand-os.plugin](https://gitlab.com/atmo-studio/brand-os/-/raw/main/brand-os-v0.2.2.plugin)**
+**[Download brand-os.plugin](https://gitlab.com/atmo-studio/brand-os/-/raw/main/brand-os-v0.2.3.plugin)**
 
 Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**. Skills load automatically. Skip to [Set up the Knowledge Base](#set-up-the-knowledge-base).
 
@@ -56,9 +56,7 @@ Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**
 
 Copy all folders from `skills/` into your agent's skills directory. Most harnesses use `.claude/skills/`.
 
-For **workspace-default setup** (Brand OS as your primary agent environment): copy `CLAUDE.md` to your agent's global system prompt or workspace-level context file.
-
-For **project-scoped setup** (Brand OS active in one project): copy `CLAUDE.md` to that project's root folder or context file.
+Brand OS also ships a baseline agent character in `SOUL.md`. If you don't already have your own agent workspace, copy `SOUL.md` into your agent's workspace-level context so the skills have a personality layer to run on. If you already have a CLAUDE.md/AGENTS.md of your own, skip this — your setup takes precedence and the skills layer on top.
 
 workspace-setup will detect which mode you're in and adapt accordingly.
 
@@ -66,23 +64,19 @@ workspace-setup will detect which mode you're in and adapt accordingly.
 
 Add the Notion MCP to your agent settings. Most harnesses have a first-party MCP settings menu. Search for "Notion" and follow the prompts.
 
-For manual config, a reference `.mcp.json` is included in this package. Replace `YOUR_NOTION_API_KEY` with a Notion integration token from [notion.so/my-integrations](https://www.notion.so/my-integrations).
+Only if your agent has **no** built-in Notion connector, add the Notion MCP server (`@notionhq/notion-mcp-server`) to *your agent's own* MCP config, using a token from [notion.so/my-integrations](https://www.notion.so/my-integrations).
 
-> **Recommended companion:** [notion-attachment-urls-mcp](https://github.com/skip-group/notion-attachment-urls-mcp) for loading Section Instructions directly from Notion attachment URLs.
+> ⚠️ **Do not create a `.mcp.json` file inside the plugin folder.** Some agents auto-load it, and a config with a placeholder token will silently override a Notion connection you already have working — breaking it with no obvious cause. Configure Notion in your agent's own settings, not in the plugin.
 
 ### Set up the Knowledge Base
 
-→ [Open the Knowledge Base template](https://atmo-studio.notion.site/BRAND-Home-358d14426511801e906eca1fc22181eb?pvs=143)
+→ [Open the Knowledge Base template](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)
 
-Press **Duplicate** to add it to your Notion workspace. Once duplicated, copy the database ID from the Brand OS database URL and add it to `CLAUDE.md`:
-
-```
-Brand OS database ID: [paste your database ID here]
-```
+Press **Duplicate** to add it to your Notion workspace. You don't need to copy any IDs by hand — run **notion-connect** (below) and it finds the database, verifies it, and records the ID for you.
 
 ### Start
 
-Run **workspace-setup** to configure your agent environment. Once setup is complete, run **brand-discovery** to begin building your brand's worldview.
+Run **workspace-setup** to configure your agent environment (optional if you already have one). Then run **notion-connect** to link your duplicated template, and **brand-discovery** to begin building your brand's worldview.
 
 ---
 
@@ -95,3 +89,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
 ## About
 
 Built by [Atmo Studio](https://atmo.studio). Brand OS is an Atmo product.
+
+## License
+
+MIT — see [LICENSE](./LICENSE). Free to use, modify, and build on.

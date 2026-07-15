@@ -2,7 +2,7 @@
 *Audience & Market · Page 3 of 3*
 
 **Fills:** Audience Truth, Competitive Alternatives table, Unique Value table, Market Category, Positioning Statement
-**Frameworks:** Obviously Awesome Positioning (Dunford, 2019) → `brand-strategy/frameworks.md §8`; Positioning Statement (Moore, 1991) → `brand-strategy/frameworks.md §9`; Brand Pyramid (Keller, 2013) → `brand-strategy/frameworks.md §10`
+**Frameworks:** Obviously Awesome Positioning (Dunford, 2019) → `frameworks.md §8`; Positioning Statement (Moore, 1991) → `frameworks.md §9`; Brand Pyramid (Keller, 2013) → `frameworks.md §10`
 
 ---
 

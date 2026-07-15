@@ -1,13 +1,17 @@
 ---
 name: agent-persona
-version: 0.1.0
 description: Personalizes the workspace agent by guiding the user through an
   archetype-first interview that sets Core Character, then adds four situational
   Engagement Modes to SOUL.md. Use when the user wants to name their agent,
   customize its personality, set up their agent's persona, or give their agent
   a working style. Triggers on "customize my agent", "name my agent", "set up
   my agent's persona", "give my agent a personality", or invocation from
-  workspace-setup Phase 3.
+  workspace-setup Phase 3. Not for defining the brand's personality — that's
+  BRND-6 in brand-discovery; this skill shapes the agent, not the brand.
+license: MIT
+metadata:
+  author: Atmo Studio
+  version: "0.2.3"
 ---
 
 # `agent-persona`
@@ -49,7 +53,8 @@ Three parts, in order:
 ## PHASE 1 — Setup
 
 **Print once at session start:**
-*Agent Persona v0.1.0 loaded.*
+*Agent Persona v0.2.3 loaded.*
+(Release rule: match `metadata.version` in this file's frontmatter.)
 
 ### Step 0 · Workspace Check
 
@@ -172,6 +177,8 @@ Find the `## Core Character` section in SOUL.md. Replace it entirely with the co
 
 Find the `## Mode Switching` section. Add a new `## Engagement Mode` section immediately after it (before `## Persona Layering Rules`).
 
+**If either anchor heading is missing** (the user's SOUL.md has been customized and no longer matches the plugin baseline): don't guess at placement. Append the missing block(s) at the end of the file and tell the user in one line what you added and where, so they can reposition it if they care about ordering. Never rewrite sections you weren't asked to touch.
+
 Write this block, substituting the archetype's default tendency in the final line:
 
 ```markdown
@@ -231,6 +238,6 @@ Refinement questions (Phase 3) are inline — in-path confirmations, not branchi
 
 - **SOUL.md writes are surgical.** Rewrite `## Core Character` only. Add `## Engagement Mode` after `## Mode Switching`. Do not touch any other section.
 - **If SOUL.md doesn't exist:** Tell the user — SOUL.md ships with the Brand OS plugin. Provide the Core Character block and Engagement Mode section as text for manual addition.
-- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, tell the user — it is created by `workspace-setup`.
+- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, create it as a minimal config — YAML frontmatter with `schema_version: "1.1"`, `created_at`, and the `persona` block; nothing else — and tell the user in one line. Running `workspace-setup` later builds on this file.
 - **The new persona takes effect next session.** Do not attempt to reload SOUL.md mid-session. Tell the user at close.
 - **Brand personality sync (future).** After brand-discovery completes, the agent can be synced to the brand: pull Voice & Tone (BRND-9) and Brand Personality (BRND-6) and update Core Character accordingly. Not built here — flag it at close as a next step for when brand-discovery is complete.

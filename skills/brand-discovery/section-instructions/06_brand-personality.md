@@ -2,7 +2,7 @@
 *Brand Character · Page 1 of 2*
 
 **Fills:** Personality Spectrum (axis positions), Personality Summary, "We are / We are not"
-**Frameworks:** Brand Archetypes (Jung, via Mark & Pearson, 2001) → `brand-strategy/frameworks.md §11`; Personality Spectrum (proprietary axis model) → `brand-strategy/frameworks.md §12`; Brand Character Prism (Kapferer, 2012) → `brand-strategy/frameworks.md §13`
+**Frameworks:** Brand Archetypes (Jung, via Mark & Pearson, 2001) → `frameworks.md §11`; Personality Spectrum (proprietary axis model) → `frameworks.md §12`; Brand Character Prism (Kapferer, 2012) → `frameworks.md §13`
 
 ---
 

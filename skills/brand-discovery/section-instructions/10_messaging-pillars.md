@@ -2,7 +2,7 @@
 *Voice & Messaging · Page 3 of 4*
 
 **Fills:** 3–5 pillar blocks (headline, one-liner, proof points, channel expressions)
-**Frameworks:** Message Architecture (Margot Bloomstein, 2012) → `brand-strategy/frameworks.md §22`; Positioning-to-Messaging Bridge (Dunford, 2019) → `brand-strategy/frameworks.md §23`; Proof Hierarchy (Cialdini, 2006) → `brand-strategy/frameworks.md §24`
+**Frameworks:** Message Architecture (Margot Bloomstein, 2012) → `frameworks.md §22`; Positioning-to-Messaging Bridge (Dunford, 2019) → `frameworks.md §23`; Proof Hierarchy (Cialdini, 2006) → `frameworks.md §24`
 
 ---
 

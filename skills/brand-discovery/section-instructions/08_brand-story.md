@@ -2,7 +2,7 @@
 *Voice & Messaging · Page 1 of 4*
 
 **Fills:** 7-Part Structure table, Homepage narrative, Pitch narrative, Social & content narrative
-**Frameworks:** StoryBrand (Miller, 2017) → `brand-strategy/frameworks.md §16`; Hero's Journey applied to brand narrative (Campbell, 1949; Vogler, 2007) → `brand-strategy/frameworks.md §17`; Narrative Transportation Theory (Green & Brock, 2000) → `brand-strategy/frameworks.md §18`
+**Frameworks:** StoryBrand (Miller, 2017) → `frameworks.md §16`; Hero's Journey applied to brand narrative (Campbell, 1949; Vogler, 2007) → `frameworks.md §17`; Narrative Transportation Theory (Green & Brock, 2000) → `frameworks.md §18`
 
 ---
 

@@ -2,7 +2,7 @@
 *Voice & Messaging · Page 2 of 4*
 
 **Fills:** Voice description, Vocabulary table, Tone Modes table, Before/After examples
-**Frameworks:** Voice & Tone Spectrum (Flabbi & Content Design London, 2020) → `brand-strategy/frameworks.md §19`; Content Design Principles (Podmajersky, 2019) → `brand-strategy/frameworks.md §20`; Four Dimensions of Tone (Nielsen Norman Group, 2016) → `brand-strategy/frameworks.md §21`
+**Frameworks:** Voice & Tone Spectrum (Flabbi & Content Design London, 2020) → `frameworks.md §19`; Content Design Principles (Podmajersky, 2019) → `frameworks.md §20`; Four Dimensions of Tone (Nielsen Norman Group, 2016) → `frameworks.md §21`
 
 ---
 

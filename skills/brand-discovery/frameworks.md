@@ -18,10 +18,22 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 | 8 | Obviously Awesome Positioning | Dunford | BRND-5 |
 | 9 | Positioning Statement | Moore | BRND-5 |
 | 10 | Brand Pyramid | Keller | BRND-5 |
-| 11 | Dimensions of Brand Personality | Aaker | BRND-6 |
-| 12 | StoryBrand / SB7 | Miller | BRND-8 |
-| 13 | Four Dimensions of Tone of Voice | Nielsen Norman Group | BRND-9 |
-| 14 | Messaging Pillars | Bloomstein | BRND-10 |
+| 11 | Brand Archetypes | Jung, via Mark & Pearson | BRND-6 |
+| 12 | Personality Spectrum (axis model, incl. Aaker's dimensions) | Brand OS / Aaker | BRND-6 |
+| 13 | Brand Character Prism | Kapferer | BRND-6 |
+| 14 | Brand Identity System | Wheeler | BRND-7 |
+| 15 | Design Token Hierarchy | Curtis | BRND-7 |
+| 16 | StoryBrand / SB7 | Miller | BRND-8 |
+| 17 | Hero's Journey (brand narrative) | Campbell / Vogler | BRND-8 |
+| 18 | Narrative Transportation | Green & Brock | BRND-8 |
+| 19 | Voice & Tone Spectrum | Content Design London | BRND-9 |
+| 20 | Content Design Principles | Podmajersky | BRND-9 |
+| 21 | Four Dimensions of Tone of Voice | Nielsen Norman Group | BRND-9 |
+| 22 | Message Architecture / Messaging Pillars | Bloomstein | BRND-10 |
+| 23 | Positioning-to-Messaging Bridge | Dunford | BRND-10 |
+| 24 | Proof Hierarchy | Cialdini | BRND-10 |
+| 25 | Tagline Architecture | Ries & Trout | BRND-11 |
+| 26 | Sticky Message Principles | Heath & Heath | BRND-11 |
 
 ---
 
@@ -468,32 +480,49 @@ For safety-conscious families who want peace of mind, Volvo is the car manufactu
 
 ---
 
-## 11. Dimensions of Brand Personality (Jennifer Aaker)
+## 11. Brand Archetypes (Jung, via Mark & Pearson)
 *Pages: BRND-6*
 
-### Five Dimensions
+### Core Premise
+
+Audiences recognize brands the way they recognize characters — through archetypes, deep character patterns that carry meaning without explanation. An archetype gives the personality a gravitational center: one primary pattern the brand inhabits, expressed in its own specific way.
+
+### The Twelve Archetypes, by core motivation
 
 ```
-┌──────────────────┬────────────────────────────────────────────┐
-│ SINCERITY        │ Down-to-earth, honest, wholesome, cheerful │
-│                  │ Brands: Hallmark, Dove, Patagonia           │
-├──────────────────┼────────────────────────────────────────────┤
-│ EXCITEMENT       │ Daring, spirited, imaginative, up-to-date  │
-│                  │ Brands: Red Bull, Nike, Tesla               │
-├──────────────────┼────────────────────────────────────────────┤
-│ COMPETENCE       │ Reliable, intelligent, successful           │
-│                  │ Brands: IBM, The Economist, Amex            │
-├──────────────────┼────────────────────────────────────────────┤
-│ SOPHISTICATION   │ Upper class, charming, refined              │
-│                  │ Brands: Chanel, Rolex, Tiffany              │
-├──────────────────┼────────────────────────────────────────────┤
-│ RUGGEDNESS       │ Outdoorsy, tough, rugged                    │
-│                  │ Brands: Jeep, Timberland, Carhartt          │
-└──────────────────┴────────────────────────────────────────────┘
+┌─ STABILITY & CONTROL ──┬─ BELONGING & ENJOYMENT ─┐
+│ Creator   (make it)    │ Jester    (enjoy it)     │
+│ Caregiver (protect it) │ Everyperson (fit in)     │
+│ Ruler     (order it)   │ Lover     (connect)      │
+├─ MASTERY & RISK ───────┼─ INDEPENDENCE & YEARNING ┤
+│ Hero      (prove it)   │ Innocent  (keep faith)   │
+│ Outlaw    (break it)   │ Explorer  (find out)     │
+│ Magician  (transform)  │ Sage      (understand)   │
+└────────────────────────┴──────────────────────────┘
 ```
 
-### Personality Spectrum (interview tool)
-Map the brand across trait axes. Mark where it lives — and where it must never go.
+### How to Use in the Interview
+- Use archetypes as **orientation, not costume** — identify the primary pattern from the founder's character description (Round 1), don't ask them to pick from the list cold
+- A strong brand leads with one archetype and may flavor with a second; three or more means no character
+- The archetype explains *why* the spectrum positions (§12) hold together — it's the coherence check, not the deliverable
+
+### Common Mistakes
+- Choosing Hero or Sage aspirationally because they sound impressive
+- Presenting the wheel to the founder as a quiz — extract the character first, name the archetype after
+- Stopping at the archetype label instead of writing the brand-specific personality description
+
+*Mark, M., & Pearson, C. S. (2001). The hero and the outlaw. McGraw-Hill.*
+
+---
+
+## 12. Personality Spectrum (proprietary axis model)
+*Pages: BRND-6*
+
+### Core Premise
+
+Personality becomes actionable when it's mapped as positions on axes — not adjective lists. Each axis gets a *described position* (words with reasoning, never a number) and, where it matters, a **"never go past" marker**: the point where the brand stops feeling like itself.
+
+### The Six Default Axes
 
 ```
 Casual           ←───────────────────→   Formal
@@ -501,25 +530,115 @@ Earnest          ←───────────────────→
 Grounded         ←───────────────────→   Visionary
 Quiet confidence ←───────────────────→   Bold & declarative
 Approachable     ←───────────────────→   Expert authority
-Warm             ←───────────────────→   Cool / aspirational
+Community-first  ←───────────────────→   Thought leader
 ```
 
-### Using the Dimensions
-- The five dimensions are orientation — use them to identify which dimension(s) the brand primarily inhabits
-- The spectrum is the actionable output — maps the brand's range within those dimensions
-- A brand can span multiple dimensions but should lead with one
-- The spectrum also defines the "never go here" territory — equally important
+### How to Use
+- Positions are ranges, not toggles — most brands live in the middle of most axes, and the insight is *where exactly* and *why*
+- The "never go past" markers are the most actionable output: they tell every future collaborator where the guardrails are
+- BRND-7's personality→visual bridge translates each position into a visual implication — the axes must be specific enough to survive that translation
+
+### Related model — Aaker's Five Dimensions
+Sincerity · Excitement · Competence · Sophistication · Ruggedness. Use as orientation for which territory the brand inhabits; the axis mapping is the deliverable. A brand can span two dimensions but should lead with one.
 
 ### Common Mistakes
-- Picking dimensions aspirationally rather than authentically
-- Spreading across all five (no personality = no personality)
-- Treating the dimension as the output — the spectrum mapping is the deliverable
+- Plotting numbers instead of describing positions with reasoning
+- Skipping the "never go past" markers — position without guardrail is half the value
+- Treating the axes as fixed: swap an axis if the brand's real tension lives elsewhere, and say so on the page
 
-*Aaker, J. L. (1997). Dimensions of brand personality. Journal of Marketing Research, 34(3), 347–356.*
+*Brand OS proprietary model. Aaker, J. L. (1997). Dimensions of brand personality. Journal of Marketing Research, 34(3), 347–356.*
 
 ---
 
-## 12. StoryBrand / SB7 (Donald Miller)
+## 13. Brand Character Prism (Kapferer)
+*Pages: BRND-6*
+
+### The Six Facets
+
+```
+            SENDER
+   ┌──────────┬──────────┐
+   │ Physique │Personality│      EXTERNAL ◄── Physique,
+   ├──────────┼──────────┤                    Relationship,
+   │Relationship│ Culture │                    Reflection
+   ├──────────┼──────────┤      INTERNAL ◄── Personality,
+   │Reflection│Self-image│                    Culture,
+   └──────────┴──────────┘                    Self-image
+           RECEIVER
+```
+
+- **Physique** — the tangible features and visual signals people associate with the brand
+- **Personality** — the character it would have as a person
+- **Culture** — the value system and worldview behind it
+- **Relationship** — the mode of exchange with customers (mentor, peer, provocateur)
+- **Reflection** — the image of the customer the brand projects outward
+- **Self-image** — how customers see themselves when using the brand
+
+### How to Use in the Interview
+- Use as a **cross-check after the spectrum**: a personality that contradicts the culture facet (or projects a reflection the ICP wouldn't claim) has a coherence problem worth surfacing at gap check
+- Reflection vs. target is the sharp tool: the reflection is who the customer *becomes* with the brand, not their demographic
+
+### Common Mistakes
+- Filling all six facets with adjectives — the prism is a coherence test, not six more word lists
+- Confusing reflection (projected customer image) with the target audience definition (that's BRND-3's job)
+
+*Kapferer, J.-N. (2012). The new strategic brand management (5th ed.). Kogan Page.*
+
+---
+
+## 14. Brand Identity System (Wheeler)
+*Pages: BRND-7*
+
+### Core Premise
+
+A visual identity is a **system, not a logo** — a coordinated set of elements (mark, color, typography, imagery, motion, voice-in-form) that together express the brand strategy across every touchpoint. The sequence is non-negotiable: strategy → identity decisions → design development → touchpoint application → asset management. Decisions precede deliverables.
+
+### The System Elements
+
+| Element | The decision it carries |
+|---|---|
+| Logo / mark | Identity approach: wordmark-led, symbol-led, photography-driven; where it must hold up |
+| Color | Anchor color(s) + governing rule (role, dosage, temperature) |
+| Typography | Type voice: what the letterforms say before the words do |
+| Imagery | Asset base + selection direction (what's ruled in and out) |
+| Signature device | The repeatable move beyond logo-color-type that makes work recognizable |
+
+### Wheeler's Ideals (test any identity direction against these)
+Vision · Meaning · Authenticity · Differentiation · Durability · Coherence · Flexibility · Commitment · Value. For a BRND-7 gap check, the load-bearing four are **meaning** (expresses the strategy), **differentiation** (couldn't be a competitor's), **coherence** (elements agree with each other), and **flexibility** (survives contexts it wasn't designed for).
+
+### Common Mistakes
+- Starting with the logo before the strategy — the most common and most expensive inversion
+- Documenting existing assets instead of capturing decisions (inventory ≠ identity)
+- Treating elements independently — the system quality lives in how they behave together
+
+*Wheeler, A. (2017). Designing brand identity (5th ed.). Wiley.*
+
+---
+
+## 15. Design Token Hierarchy (Nathan Curtis)
+*Pages: BRND-7*
+
+### Core Premise
+
+Design decisions become portable when named as **tokens** — and tokens live in a hierarchy: **primitive** (raw values: `accent-500: #RRGGBB`) → **semantic** (meaning: `color/signal: {accent-500}`) → **component** (application: `button/bg-critical: {color/signal}`). Each layer answers a different question: what exists, what it means, where it applies.
+
+### How BRND-7 Uses This
+
+The BRND-7 page captures decisions at the **semantic level** — "the accent (one saturated hex) is the signal color, used scarcely, never for backgrounds" — because semantic decisions survive redesigns while primitives and components churn. The token-readiness rule follows from this: a color without a hex can't become a primitive; a color without a role can't become semantic ("hex codes without roles are decoration").
+
+### Naming Convention
+Code-format names (`color/safety-orange`, `type/display`) keep Figma ↔ code 1:1 when the identity later becomes a `brand/` library.
+
+### Common Mistakes
+- Building full value scales at the brief phase — scales are design-file work; the page pins anchors and rules
+- Naming tokens after appearance instead of role (`color/orange` vs `color/signal`) — role names survive a palette change
+- Letting prose restate values that tokens already name — one normative home per value
+
+*Curtis, N. (2016). Tokens in design systems. EightShapes, Medium.*
+
+---
+
+## 16. StoryBrand / SB7 (Donald Miller)
 *Pages: BRND-8*
 
 ### Core Premise
@@ -568,7 +687,126 @@ The guide establishes authority without becoming the hero:
 
 ---
 
-## 13. Four Dimensions of Tone of Voice (Nielsen Norman Group)
+## 17. Hero's Journey applied to brand narrative (Campbell / Vogler)
+*Pages: BRND-8*
+
+### Core Premise
+
+The oldest narrative structure humans respond to: a character leaves the ordinary world, faces trials, transforms, and returns changed. For brand story, the customer walks the journey and the brand appears as the **mentor** — the figure who gives the hero what they need to cross the threshold. It complements SB7 (§16): SB7 gives the message structure; the journey gives the transformation arc.
+
+### The Compressed Arc (three acts, not twelve beats)
+
+```
+DEPARTURE      The ordinary world and its quiet dissatisfaction —
+               the customer's status quo, and the call that disrupts it
+INITIATION     Trials and the mentor's aid — the struggle, the brand's
+               entrance, the ordeal where the old way visibly fails
+RETURN         Transformation made permanent — who the customer has
+               become, and what they now carry that others don't
+```
+
+### How to Use in the Interview
+- Ask for the founder's *own* crossing — the moment they saw the problem differently — then map where customers hit the same threshold
+- The "ordeal" is the story's proof point: the specific moment the old way broke. Vague stories skip it; strong ones name it
+- The return defines the brand's promise: not "we helped," but who the customer *is now*
+
+### Common Mistakes
+- Using all twelve beats — brand stories need the three-act compression, not the film-school version
+- Making the brand the hero who crosses the threshold (the customer transforms; the brand equips)
+- No ordeal — a journey without a visible failure of the old way has no stakes
+
+*Campbell, J. (1949). The hero with a thousand faces. Pantheon. · Vogler, C. (2007). The writer's journey (3rd ed.). Michael Wiese.*
+
+---
+
+## 18. Narrative Transportation (Green & Brock)
+*Pages: BRND-8*
+
+### Core Premise
+
+When a reader is "transported" into a story — absorbed enough to lose evaluation mode — counter-arguing drops and attitude change follows. People argue with claims; they don't argue with stories they're inside. This is *why* brand story works when positioning bullets don't, and it sets the quality bar for BRND-8's output.
+
+### The Three Ingredients of Transport
+
+1. **An identifiable character** — someone the reader recognizes as themselves (the ICP, drawn specifically, not "businesses like yours")
+2. **Plausible tension** — a real stake, unresolved long enough to matter; premature resolution kills transport
+3. **Concrete imagery** — specific detail the reader can picture. "The spreadsheet with 400 unreconciled rows" transports; "operational inefficiency" doesn't
+
+### How to Use
+- Run the transport test on any story draft: does a cold reader stay in the story past sentence three, or drop into evaluating claims?
+- Specificity is the mechanism — every abstraction in a draft is a place the reader exits the story
+
+### Common Mistakes
+- Feature lists dressed in story clothing ("Meet Sarah. Sarah needed a CRM with robust reporting…")
+- Resolving the tension immediately — the struggle is what the reader identifies with
+- Writing about the category ("teams everywhere struggle") instead of one concrete character
+
+*Green, M. C., & Brock, T. C. (2000). The role of transportation in the persuasiveness of public narratives. Journal of Personality and Social Psychology, 79(5), 701–721.*
+
+---
+
+## 19. Voice & Tone Spectrum (Content Design London)
+*Pages: BRND-9*
+
+### Core Premise
+
+A usable voice guide defines each voice attribute as a **bounded spectrum**, not a word: "confident — but never arrogant," "warm — but never chummy." The bound does the work. Any writer can claim "confident"; the guardrail tells them where confident tips into something off-brand.
+
+### Structure
+
+```
+ATTRIBUTE        THIS…                 …BUT NEVER
+Confident        direct claims,        arrogant, dismissive,
+                 active voice          unfalsifiable hype
+Warm             first person,         chummy, over-familiar,
+                 reader-aware          emoji-dependent
+Precise          concrete numbers,     pedantic, hedge-heavy,
+                 named things          jargon-armored
+```
+*(Example rows — extract the brand's own 3–4 attributes with bounds from the interview.)*
+
+### How to Use
+- Each attribute needs both poles filled: the quality *and* its failure mode. An attribute without a "but never" is an adjective, not guidance
+- Bounds map 1:1 to BRND-6's "never go past" markers — voice is the spectrum expressed in language
+- 3–4 bounded attributes beat 8 unbounded ones
+
+### Common Mistakes
+- Adjective lists with no bounds — the failure mode this framework exists to prevent
+- Attributes any brand would claim (clear, professional, authentic) without brand-specific bounds
+- Defining voice by what it is but never showing where it breaks
+
+*Content Design London (2020). Voice and tone guidance, readability guidelines. contentdesign.london.*
+
+---
+
+## 20. Content Design Principles (Podmajersky)
+*Pages: BRND-9*
+
+### Core Premise
+
+Voice becomes operational through a **voice chart**: each brand principle expanded into the concrete language decisions it drives — concepts to emphasize, vocabulary to use and avoid, verbosity, grammar, and capitalization/punctuation. The chart turns "how we sound" into decisions a writer (or agent) can apply without judgment calls.
+
+### The Voice Chart Structure
+
+| Per principle → | Concepts | Vocabulary | Verbosity | Grammar | Punctuation & case |
+|---|---|---|---|---|---|
+| e.g. "Capable, not clever" | what ideas lead | words chosen over alternatives, with the why | how much is too much | sentence shapes | where exclamation points go to die |
+
+### How to Use
+- The vocabulary column is BRND-9's vocabulary table — every entry carries its rationale ("we say *partner*, not *client*, because the relationship is peer-shaped")
+- Test the chart against the hardest surfaces: error states, refusals, bad news. A voice that only works in marketing copy isn't a voice
+- The conversation test: read it aloud as a reply to a real customer. If a human wouldn't say it, the chart failed
+
+### Common Mistakes
+- Style rules (Oxford comma, title case) without voice principles above them — formatting isn't voice
+- Charts that skip the difficult contexts where tone actually gets tested
+- Vocabulary rows without rationale — arbitrary word lists get ignored
+
+*Podmajersky, T. (2019). Strategic writing for UX. O'Reilly.*
+
+---
+
+## 21. Four Dimensions of Tone of Voice (Nielsen Norman Group)
 *Pages: BRND-9*
 
 ### The Four Axes
@@ -618,7 +856,7 @@ Enthusiastic   ←───────────────────→  
 
 ---
 
-## 14. Messaging Pillars (Bloomstein)
+## 22. Message Architecture / Messaging Pillars (Bloomstein)
 *Pages: BRND-10*
 
 ### Core Premise
@@ -661,18 +899,147 @@ Messaging pillars are the 3–5 core claims a brand repeats consistently across 
 
 ---
 
+## 23. Positioning-to-Messaging Bridge (Dunford)
+*Pages: BRND-10*
+
+### Core Premise
+
+Messaging is not invented — it is **derived from positioning**. Each of Dunford's positioning components (§8) generates a specific messaging obligation, so every pillar traces back to a positioning claim and inherits its proof. A pillar that can't name its positioning parent is a slogan, not a message.
+
+### The Derivation
+
+```
+POSITIONING COMPONENT          →  MESSAGING OBLIGATION
+Competitive alternatives       →  the "unlike…" contrast baked into pillars
+Unique attributes              →  the proof points under each pillar
+Value themes                   →  the pillars themselves (one theme = one pillar)
+Who cares (best-fit customer)  →  the register and vocabulary pillars are phrased in
+Market category                →  the frame that makes every pillar instantly legible
+```
+
+### How to Use
+- Build pillars by walking the positioning: cluster unique attributes into 2–4 value themes; each theme becomes a pillar headline with its attributes as proof
+- If a proposed pillar has no unique attribute underneath it, it's table stakes — cut it or find the attribute
+- Phrase every pillar for the best-fit customer, not the general market
+
+### Common Mistakes
+- Writing pillars in a brainstorm, disconnected from BRND-5 — then wondering why they sound like the category
+- Value claims with no attribute proof inherited ("we're faster" — than what, by what mechanism?)
+- Pillars phrased for everyone, which land with no one
+
+*Dunford, A. (2019). Obviously awesome. Ambient Press.*
+
+---
+
+## 24. Proof Hierarchy (Cialdini)
+*Pages: BRND-10*
+
+### Core Premise
+
+Claims persuade in proportion to the **quality of proof behind them** — and proof types rank. A pillar's proof points should reach for the strongest available tier, not the easiest to write.
+
+### The Hierarchy (strongest first, for considered purchases)
+
+1. **Demonstrable evidence** — numbers, before/after, verifiable outcomes ("cut onboarding from 6 weeks to 4 days")
+2. **Social proof from peers** — named customers *like the buyer*, specific results; peer proof beats celebrity for B2B
+3. **Authority** — credible third-party validation (certification, expert endorsement, press) *in the relevant domain*
+4. **Commitment & consistency signals** — public guarantees, published methodology, track record of doing what was said
+5. **Liking / affinity** — shared values, origin story resonance (real, but the weakest tier to hang a pillar on)
+
+### How to Use
+- For each pillar, ask: what's the strongest tier of proof we actually possess? Attach that; name the gap if it's tier 4–5
+- Specificity multiplies every tier: "hundreds of happy customers" is tier-2 shaped but carries no weight; one named customer with one number outweighs it
+
+### Common Mistakes
+- Vague social proof ("trusted by teams worldwide")
+- Authority mismatch — an endorsement from outside the buyer's domain
+- Treating scarcity/urgency as brand proof — it's a sales tactic, not a pillar foundation
+
+*Cialdini, R. B. (2006). Influence: The psychology of persuasion (rev. ed.). Harper Business.*
+
+---
+
+## 25. Tagline Architecture (Ries & Trout)
+*Pages: BRND-11*
+
+### Core Premise
+
+A tagline is **positioning compressed to its most portable form** — the one idea the brand wants to own in the prospect's mind, said in a way the mind can file. It's won by sacrifice: one idea, sharpened, at the cost of everything else the brand also does.
+
+### Tagline Types (know which one you're writing)
+
+| Type | Move | Example shape |
+|---|---|---|
+| Descriptive | says what it is, unmistakably | "The [category] for [who]" |
+| Comparative / against | positions off the alternative | "Unlike X, we Y" energy |
+| Imperative | commands an action or stance | verb-first |
+| Superlative | claims the top slot (needs proof) | "The most…" |
+| Specific-detail | one concrete fact as the hook | a number, a place, a method |
+
+### The Two Tests
+1. **Substitution test** — swap in a competitor's name. Still works? Not sharp enough.
+2. **Ownership test** — does it compress *your* positioning (BRND-5) or just sound good? Traceable to a pillar or it's rootless.
+
+### Common Mistakes
+- Mission statement in tagline clothes ("Empowering teams to build better futures")
+- Cleverness over clarity — a pun that costs the position isn't worth it
+- Trying to own two ideas — the mind files one
+
+*Ries, A., & Trout, J. (1981). Positioning: The battle for your mind. McGraw-Hill.*
+
+---
+
+## 26. Sticky Message Principles (Heath & Heath)
+*Pages: BRND-11*
+
+### Core Premise
+
+Messages survive in memory when they follow **SUCCESs**: Simple, Unexpected, Concrete, Credible, Emotional, Stories. For taglines, the first four do the heavy lifting — a tagline is a message engineered for maximum stick per word.
+
+### Applied to Taglines
+
+- **Simple** — core + compact: find the single core idea (the lead pillar), strip everything else. Simple ≠ dumbed down; it's prioritized
+- **Unexpected** — a small pattern break earns the reread: an unusual pairing, an inverted cliché, a word from the wrong register used precisely
+- **Concrete** — sensory, specific language sticks; abstraction slides off. "1,000 songs in your pocket" not "unprecedented storage capacity"
+- **Credible** — the claim must be believable at a glance or carry its own proof (a testable detail, a number)
+- **Emotional / Stories** — for taglines these usually operate underneath: the line evokes the story the brand tells (BRND-8) rather than telling one
+
+### How to Use
+- Score candidate taglines against Simple/Unexpected/Concrete/Credible — a line that's clever but abstract fails Concrete and won't stick
+- Concreteness is the most common fix: replace the abstract virtue word with the specific thing it means
+
+### Common Mistakes
+- Abstract virtue words (innovative, seamless, empowering) — zero stick
+- Optimizing for Unexpected alone — surprising but unclear is a riddle, not a tagline
+- Three ideas in one line — fails Simple, and the mind keeps none of them
+
+*Heath, C., & Heath, D. (2007). Made to stick. Random House.*
+
+---
+
 ## Sources
 
 - Aaker, J. L. (1997). Dimensions of brand personality. *Journal of Marketing Research, 34*(3), 347–356.
 - Bloomstein, M. (2012). *Content strategy at work*. Morgan Kaufmann.
+- Campbell, J. (1949). *The hero with a thousand faces*. Pantheon.
 - Christensen, C. M., Hall, T., Dillon, K., & Duncan, D. S. (2016). *Competing against luck*. HarperBusiness.
+- Cialdini, R. B. (2006). *Influence: The psychology of persuasion* (rev. ed.). Harper Business.
 - Collins, J. C., & Porras, J. I. (1994). *Built to last*. HarperBusiness.
+- Content Design London. (2020). *Voice and tone guidance; readability guidelines*. contentdesign.london.
+- Curtis, N. (2016). *Tokens in design systems*. EightShapes, Medium.
 - Dunford, A. (2019). *Obviously awesome*. Ambient Press.
+- Green, M. C., & Brock, T. C. (2000). The role of transportation in the persuasiveness of public narratives. *Journal of Personality and Social Psychology, 79*(5), 701–721.
+- Heath, C., & Heath, D. (2007). *Made to stick*. Random House.
+- Kapferer, J.-N. (2012). *The new strategic brand management* (5th ed.). Kogan Page.
 - Keller, K. L. (2013). *Strategic brand management*. Pearson.
 - Kim, W. C., & Mauborgne, R. (2005). *Blue ocean strategy*. Harvard Business Review Press.
 - Lencioni, P. (2012). *The advantage*. Jossey-Bass.
+- Mark, M., & Pearson, C. S. (2001). *The hero and the outlaw*. McGraw-Hill.
 - Miller, D. (2017). *Building a StoryBrand*. HarperCollins Leadership.
 - Moore, G. A. (1991). *Crossing the chasm*. HarperBusiness.
 - Nielsen Norman Group. (2016). *The four dimensions of tone of voice*. nngroup.com.
+- Podmajersky, T. (2019). *Strategic writing for UX*. O'Reilly.
 - Ries, A., & Trout, J. (1981). *Positioning: The battle for your mind*. McGraw-Hill.
 - Sinek, S. (2009). *Start with why*. Portfolio/Penguin.
+- Vogler, C. (2007). *The writer's journey* (3rd ed.). Michael Wiese Productions.
+- Wheeler, A. (2017). *Designing brand identity* (5th ed.). Wiley.

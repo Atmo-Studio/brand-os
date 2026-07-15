@@ -2,7 +2,7 @@
 *Audience & Market · Page 2 of 3*
 
 **Fills:** Strategic Read, Competitors Tracked table, FigJam map (separate template — linked when ready)
-**Frameworks:** Positioning Map (Ries & Trout, 1981) → `brand-strategy/frameworks.md §5`; Blue Ocean / Value Curve (Kim & Mauborgne, 2005) → `brand-strategy/frameworks.md §6`; Competitive Differentiation Matrix → `brand-strategy/frameworks.md §7`
+**Frameworks:** Positioning Map (Ries & Trout, 1981) → `frameworks.md §5`; Blue Ocean / Value Curve (Kim & Mauborgne, 2005) → `frameworks.md §6`; Competitive Differentiation Matrix → `frameworks.md §7`
 
 ---
 

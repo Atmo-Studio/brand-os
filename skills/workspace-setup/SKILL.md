@@ -7,6 +7,10 @@ description: Guides users through designing and building their Claude project
   workspace", "help me set up Claude", "I want to set up my projects", "add a new
   project", "update my project instructions", "I'm new here", or any request to
   design or improve how the user's agent environment is organised.
+license: MIT
+metadata:
+  author: Atmo Studio
+  version: "0.2.3"
 ---
 
 # `workspace-setup`
@@ -80,7 +84,7 @@ Extract for immediate use before opening with the user:
 - `setup_progress` — for routing and resume context
 - `modules` — for Phase 3 context if reached
 
-**Write points — workspace-setup owns all writes to this file:**
+**Write points — workspace-setup owns the schema and the sections below.** Module skills write their own blocks (`notion-connect` → `modules.brand_os`, `agent-persona` → `persona`) and may create a minimal config if none exists; this skill builds on whatever they've written rather than overwriting it.
 
 *End of Phase 1 (architecture confirmed):*
 - Create `workspace-config.md` at workspace root from `workspace-config.template.md`
@@ -105,7 +109,7 @@ Extract for immediate use before opening with the user:
 - Update `last_updated`
 
 *End of Phase 3 (module activated):*
-- Append instance to relevant module list (e.g., `modules.brand_os`)
+- Confirm the module's own skill wrote its block (e.g., `notion-connect` writes `modules.brand_os`); add `project_id` linking it to the relevant project
 - Append module name to `setup_progress.phase_3_modules.modules_activated`
 - Update `last_updated`
 - Append to Notes: module name, project it was activated for, date

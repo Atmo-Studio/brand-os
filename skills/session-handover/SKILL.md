@@ -4,8 +4,13 @@ description: Writes a session log and prints a resume prompt. Use at the end of
   any focused work session — especially when the context window is getting long,
   the user is wrapping up, or work has a clear continuation point. Can be invoked
   directly (gather context from conversation) or called by another skill that
-  passes a pre-assembled context block. Writes to memory/sessions/ using the
-  AGENTS.md session log template.
+  passes a pre-assembled context block. Writes to memory/sessions/. Not for
+  closing Brand OS discovery sessions — brand-discovery runs its own handover
+  protocol with the status map and database cache that resume depends on.
+license: MIT
+metadata:
+  author: Atmo Studio
+  version: "0.2.3"
 ---
 
 # `session-handover`
@@ -70,10 +75,14 @@ environment (`date` command or system context). Do not ask the user.
 
 ## Step 2 · Write the session log
 
-Write to `memory/sessions/[filename]` using the template below.
+Write to `memory/sessions/[filename]` using the template below. If the
+`memory/sessions/` directory doesn't exist yet, create it — don't fail or
+ask where to put the file.
 
-Use the AGENTS.md session log template as the canonical format. This skill
-mirrors it exactly — do not invent new sections.
+The template below is canonical — do not invent new sections. One exception:
+if the host workspace defines its own session log template (e.g. in an
+AGENTS.md or equivalent workspace instructions), mirror that instead; the
+workspace's format wins over this default.
 
 **Template:**
 

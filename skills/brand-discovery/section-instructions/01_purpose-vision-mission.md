@@ -2,7 +2,7 @@
 *Foundations · Page 1 of 2*
 
 **Fills:** Brand purpose, Vision, Mission
-**Frameworks:** Golden Circle (Sinek), Core Ideology + BHAG (Collins & Porras) → `brand-strategy/frameworks.md §1, §2`
+**Frameworks:** Golden Circle (Sinek), Core Ideology + BHAG (Collins & Porras) → `frameworks.md §1, §2`
 
 ---
 

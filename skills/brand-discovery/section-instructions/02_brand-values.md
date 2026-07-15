@@ -2,7 +2,7 @@
 *Foundations · Page 2 of 2*
 
 **Fills:** Values table (Values | This means | This doesn't mean), Priority Order callout, Usage toggle
-**Frameworks:** Core Values Framework (Lencioni, 2012) → `brand-strategy/frameworks.md §3`; Core Ideology (Collins & Porras, 1994) → `brand-strategy/frameworks.md §2`
+**Frameworks:** Core Values Framework (Lencioni, 2012) → `frameworks.md §3`; Core Ideology (Collins & Porras, 1994) → `frameworks.md §2`
 
 ---
 

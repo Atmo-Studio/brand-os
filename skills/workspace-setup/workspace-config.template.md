@@ -12,13 +12,16 @@
 #   and modules for Phase 3 context.
 #
 # WRITING THIS FILE:
-#   workspace-setup owns all writes. The Notes section is append-only — newest
-#   entry first. Users may edit Notes freely; do not modify other sections
-#   outside of the defined write points.
+#   workspace-setup owns the schema and the workspace/projects/setup_progress
+#   sections. Module skills write their own blocks: notion-connect writes
+#   modules.brand_os, agent-persona writes persona. Either may create a minimal
+#   config (schema_version + their own block) if this file doesn't exist yet.
+#   The Notes section is append-only — newest entry first. Users may edit Notes
+#   freely; do not modify other sections outside of the defined write points.
 #
 # SCHEMA VERSION: increment minor on additive changes, major on breaking changes.
 
-schema_version: "1.0"
+schema_version: "1.1"
 created_at: null              # YYYY-MM-DD — set once at end of Phase 1; never updated
 last_updated: null            # YYYY-MM-DD — updated after every write
 
@@ -57,14 +60,28 @@ projects: []
 #     uploaded: []             # populated during Phase 2 Step E
 
 # ─── MODULES ─────────────────────────────────────────────────────────────────
-# Each module is a list — one entry per project instance that has the module activated.
-# Activated in Phase 3. Connection config only.
-# Content progress lives in the module's own system (e.g., Notion Status property for Brand OS).
+# Connection config only. Content progress lives in the module's own system
+# (e.g., the Notion Status property for Brand OS).
 #
-# brand_os instance shape:
-#   {project_id: "proj-N", status: "active", notion_db_id: "string", page_prefix: "string"}
+# brand_os is a LIST of instances — one per brand/project in the workspace, so a
+# single workspace can run Brand OS for multiple brands at once (schema v1.1). A
+# solo founder has one entry; a studio or multi-brand workspace has several.
+# Written and appended by notion-connect at Step 5. Instance shape:
+#   - project_id: "proj-N"       # links to a projects[] entry; "default" if no projects defined
+#     status: active             # active | setup | inactive
+#     notion_db_id: "string"     # locked Notion database ID — resolved by brand-discovery Step A
+#     page_prefix: "BRND"        # from notion-connect Step 4 customization
+#     connected_at: "YYYY-MM-DD"
+#     template_verified: true
 #
-# status values: inactive | setup | active
+# Reader rule: distinct brands are distinct entries with their own notion_db_id
+# and knowledge base — never shared. Brands are separated by project FOLDER, so
+# resolve by scope: match the brand_os entry whose project_id is the project
+# folder the session is operating in, and use only that entry's database. If the
+# workspace has one entry, use it. Only if scope is genuinely ambiguous (no clear
+# project folder, several active) ask the user which brand the session is for.
+#
+# linear and figma are future modules (list of instances, shape TBD when built).
 
 modules:
   brand_os: []
@@ -72,12 +89,13 @@ modules:
   figma: []
 
 # ─── PERSONA ─────────────────────────────────────────────────────────────────
-# Layer 2 persona. Optional — only written if workspace-setup runs the personality interview.
-# If null, agent falls back to Layer 1 (plugin SOUL.md baseline).
-# Written during Phase 2 when personality interview completes.
+# Layer 2 persona. Optional — written by the agent-persona skill (invoked
+# directly or from workspace-setup Phase 3). If null, agent falls back to
+# Layer 1 (plugin SOUL.md baseline).
 #
 # When set, replace null with:
-#   name: "string"
+#   name: "string"               # agent name, or "unnamed" if skipped
+#   archetype: "string"          # Strategist | Collaborator | Operator | Mentor
 #   path: "relative/path/to/persona-file.md"   # relative to workspace root
 #   created_at: "YYYY-MM-DD"
 #   layer: 2

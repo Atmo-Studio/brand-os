@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.2.3 — Hardening pass
+*Released 2026-07-14*
+
+Reliability and QA release — no new modules.
+
+### Fixed
+- **The plugin no longer risks breaking your Notion connection.** Removed a shipped `.mcp.json` that could override a working connection with a placeholder token; manual setup is now in the README.
+- **Setup reliably finds your database.** Corrected a stale property check that failed on every current install (signature is now `Name · Section · Order · Status`).
+- **Framework citations resolve.** Rebuilt `frameworks.md` to 26 sections and fixed a broken path — every citation in BRND-6–11 now points to real content.
+- **Session version banner is accurate** (was lagging the plugin by two releases).
+
+### Changed
+- **Multi-brand workspaces supported.** `workspace-config.md` (schema v1.1) now holds one Brand OS instance per brand, resolved by project folder — one workspace, many brands. Solo founders just have one entry.
+- **More reliable session handover.** Merged into `brand-discovery` as a bundled file instead of a separate skill that triggered inconsistently; added a chat-only fallback.
+- **notion-connect runs standalone** — creates its own config instead of requiring `workspace-setup` first.
+- **BRND-7 (Visual Identity) rebuilt to spec** — lifecycle phases, personality→visual bridge, concept hypothesis, token-readiness check, and identity-brief / library exit actions.
+- **Round-skip handling.** Declining an interview round now leaves the page in progress with an "⚠️ Untested – Please Review" flag, instead of marking unvalidated content done.
+- **Agent Skills spec compliance** — `version` moved under `metadata`, sharper trigger descriptions.
+
 ## v0.2.2 — Notion Connect + Agent Persona
 *Released 2026-06-01*
 

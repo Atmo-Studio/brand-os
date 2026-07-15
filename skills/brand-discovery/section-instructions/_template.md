@@ -2,7 +2,7 @@
 *[Section] · Page [N] of [N]*
 
 **Fills:** [field name], [field name], [field name]
-**Frameworks:** [Framework Name (Author)] → `brand-strategy/frameworks.md §[N]`
+**Frameworks:** [Framework Name (Author)] → `frameworks.md §[N]`
 
 ---
 

@@ -1,12 +1,17 @@
 ---
 name: brand-discovery
-version: 0.2.0
-description: Guides users through the brand discovery phase of Brand OS — the
-  structured interview that builds each section of the brand knowledge base. Use
-  when the user is ready to begin or resume brand discovery, or wants to fill in
+description: Runs the Brand OS discovery interview — a structured, framework-grounded
+  session that builds the 11-page brand knowledge base in Notion (purpose, values,
+  ICPs, positioning, personality, visual identity, story, voice, messaging, taglines).
+  Use when the user is ready to begin or resume brand discovery, or wants to fill in
   specific sections. Triggers on "run brand discovery", "let's work on my brand",
-  "resume brand discovery", "continue my brand session", or any request to pick
-  up a previous brand discovery session.
+  "resume brand discovery", "continue my brand session", or any request to pick up a
+  previous brand discovery session. Not for writing marketing copy or generating brand
+  guidelines from existing documents — this skill builds the knowledge base itself.
+license: MIT
+metadata:
+  author: Atmo Studio
+  version: "0.2.3"
 ---
 
 # `brand-discovery`
@@ -59,8 +64,8 @@ Every session ends with a handover — always, whether the user wants to continu
 ## PHASE 1 — Setup
 
 **Print once at the start of every session, before any other output:**
-*Brand OS plugin v0.2.0 loaded.*
-(When the plugin version changes, update the version string here and in the frontmatter.)
+*Brand OS plugin v0.2.3 loaded.*
+(Release rule: this string must match `version` in `.claude-plugin/plugin.json` and `metadata.version` in this file's frontmatter. All three change together.)
 
 Run this phase at the start of every session. Step 0 always runs. Step A runs only if Step 0 doesn't lock a database ID. Step B always runs. Step B.1 runs on resumed sessions only. Steps C–D run only on a fresh workspace — skip them on resumed sessions (Step B handles the routing decision).
 
@@ -68,11 +73,11 @@ Run this phase at the start of every session. Step 0 always runs. Step A runs on
 
 Run this step silently before any Notion calls.
 
-Search the workspace for the most recent `*_brand-os-handover-*.md` file. If found:
+Search the **current project's folder** (the brand this session is scoped to) for the most recent `*_brand-os-handover-*.md` file — not the whole workspace. In a multi-brand workspace each brand's handovers live in its own project folder, so a workspace-wide search could surface another brand's handover and lock the wrong database. If found:
 
 1. Read the file and look for `Brand OS database ID:` under `## Workspace` and a `## Status Map` section.
-2. If both are present: lock the database ID for this session. Store the status map for use in Step B. **Skip Step A entirely** and proceed to Step B.
-3. If the file is missing, unreadable, or either field is absent: fall through to Step A.
+2. If both are present: cross-check the cached database ID against the current project's `modules.brand_os` entry (when a `workspace-config.md` exists to check against). If it matches — or if there's no config to check against — lock the database ID for this session, store the status map for use in Step B, **skip Step A entirely**, and proceed to Step B.
+3. If the file is missing, unreadable, either field is absent, or the cached ID belongs to a different brand than the current scope: fall through to Step A.
 
 This is the primary startup path for resumed sessions. Step A is the fallback for first-ever sessions only.
 
@@ -84,27 +89,14 @@ If Step 0 found a valid handover file (both `Brand OS database ID` and `## Statu
 
 Resolve the Brand OS database ID in this order:
 
-1. **`workspace-config.md` → `modules.brand_os.db_id`** — Look for this field. If set, lock that ID for the session and proceed to Step B.
-2. **Notion title search + schema verification** — Fallback if workspace-config.md is absent, unreadable, or the field is not set.
-
-**Fallback — title search + agent-side schema verification.**
-
-**MCP capability limit.** Notion's `notion-search` is semantic title/content search — not structural. Searching `"Brand OS"` returns any object whose title or content matches that string. Verify structure agent-side after the search returns candidates.
-
-1. Call `notion-search` with query `"Brand OS"`. Filter to database-type results only; discard page-type matches.
-2. For each candidate, call `notion-fetch` and verify the Brand OS property signature:
-   - `Name` · `Section` · `Order` · `Status` · `Section Instructions`
-3. Resolve based on match count:
-   - **Zero matches.** Use the AskUserQuestion fallback below.
-   - **One match.** Confirm with the user (surface parent page / teamspace context), then lock that database ID.
-   - **Multiple matches.** Fetch each candidate's parent path, present with location context, use `AskUserQuestion` to disambiguate. Lock the chosen ID.
-
-**Fallback — no candidate located.**
+1. **`workspace-config.md` → `modules.brand_os`** — This is a **list** of brand instances. Distinct brands are distinct entries: each has its own `project_id`, its own `notion_db_id`, and its own knowledge base — they do not share data. Brands are separated by **project folder**, so resolve by scope: match the `project_id` of the project folder this session is operating in, and use *only* that entry's database. If the workspace has just one entry, use it. **If the matched entry exists but its `notion_db_id` is null (brand staged but not yet connected), do not resolve an ID here — treat this brand as not connected and fall through to source 2, then 3.** Only if scope is genuinely ambiguous — no clear project folder and more than one active entry with a non-null `notion_db_id` — ask the user which brand this session is for. Lock the resolved entry's `notion_db_id` and proceed to Step B. Never mix one brand's database with another's.
+2. **User-provided URL** — If the user included a Notion URL in their session-start prompt, treat it as the confirmed selection. Resolve it to a database ID, verify it carries the Brand OS property signature (`Name` · `Section` · `Order` · `Status`), lock it, and proceed to Step B. Do not search for alternatives.
+3. **Route to `notion-connect`** — If neither source resolves an ID, the workspace isn't connected yet. Do not run your own Notion search — database discovery, schema verification, and the config write are `notion-connect`'s job, and duplicating them here is how the two drift apart.
 
 `AskUserQuestion`
-> "I couldn't find a Brand OS database in your connected Notion workspace. What should we do?"
-- I can share the URL — *ask them to paste it, then connect*
-- I haven't run setup yet — *direct them to run `notion-connect` first, then restart*
+> "I don't have a Brand OS database on file for this workspace. What should we do?"
+- I can share the URL — *ask them to paste it, verify the property signature, lock it, and offer to save it: run `notion-connect` afterwards so future sessions skip this step*
+- I haven't connected Notion yet — *tell them to run `notion-connect` first, then restart brand-discovery*
 
 **Database session lock (hard requirement).**
 Once any database is confirmed, lock that database ID for the session. All subsequent reads and writes MUST use that exact ID. Do not re-search mid-session. Silent redirects are prohibited.
@@ -222,7 +214,7 @@ Read the Notion page content silently.
 
 Load Section Instructions for the current page from the `section-instructions/` folder inside this skill. The file naming convention is `{NN}_{slug}.md` where `NN` is the BRND number zero-padded to two digits and `slug` is the slugified page name — e.g. `02_brand-values.md` for BRND-2 · Brand Values.
 
-The local folder is the **canonical source of truth** for Section Instructions. It ships with the plugin and updates with plugin version releases. The Notion `Section Instructions` file attachment on each row is user-facing reference material (visible to anyone reading the Brand OS in Notion) and is **not** read by the skill at runtime — its content cannot be retrieved through the Notion MCP. If the user has questions about why their attachment shows older content than the agent is using, point them at the plugin version.
+The local folder is the **canonical source of truth** for Section Instructions. It ships with the plugin and updates with plugin version releases. Section Instructions are never read from Notion at runtime — only from this folder. (Some Notion template versions carried a `Section Instructions` attachment as human-facing reference; it is not required and not read by the skill. If a user's Notion shows older instruction content than the agent is using, that's expected — point them at the plugin version.)
 
 If the local file is missing or unreadable, tell the user and ask how to proceed. Do not improvise a replacement.
 
@@ -270,7 +262,7 @@ Each within-section gate uses a one-line synthesis of what was just completed, f
 | BRND-9 → BRND-10 | "You've got the voice. Now let's build what it actually says. Ready for Messaging Pillars?" |
 | BRND-10 → BRND-11 | "The pillars are solid. Last piece: what does this brand say when it has one sentence? Ready for Taglines?" |
 
-Section closes (after BRND-2, BRND-5, BRND-7, BRND-11) are handled in `brand-os-handover` — see that skill for section-close language.
+Section closes (after BRND-2, BRND-5, BRND-7, BRND-11) are handled in `handover-protocol.md` — see that file for section-close language.
 
 ---
 
@@ -294,6 +286,11 @@ These rules govern the entire session. They are structural — they define the f
     > *"We've been in language territory for a few rounds. Here's what the first version captured: [quote the core idea from draft 1]. Is that still the right idea, just not the right words?"*
     This anchors back to the original before further wordsmithing compounds the drift. Do not skip it.
 - **Skipping a page requires explicit user instruction.** A skip is valid only when the user says it directly — "skip this," "just write something," "move on without it," or equivalent. Never infer skip intent from context pressure, context-window size, emotional cues, perceived sufficiency of prior pages, or your own judgment that "we have enough." Those are signals to check in, not to skip. **If the user explicitly requests a skip:** accept it, produce the best available output from prior pages and uploaded source material, note in the page that it was not fully interviewed, and flag it in the handover under `pages-skipped` so the next session revisits it.
+- **Skipping a round within a page is different from skipping the page.** A user may decline one interview round (e.g., the authenticity or temptation test) but still want to move on. Honor it — but do not mark the page `Complete`, and do not let the un-run round's content pass as validated. When this happens:
+  1. **Leave `Status` as `In progress`.** This is the durable, structural flag — Step B routes back to any non-Complete page automatically, so the workspace itself brings the founder back to finish it. Do not mark it `Complete`.
+  2. **Write a short warning next to the affected section heading** in the Notion page: *"⚠️ Untested – Please Review"*. Optionally add a one-line caption a cold reader (teammate or agent) would understand: *"Written but not pressure-tested in the interview — worth revisiting."* Do not use *"Incomplete"* (the content isn't missing) or *"In Progress" / "WIP"* (redundant with the page's Status) — the flag's job is to name *why*: it's untested.
+  3. **Record it in the handover `conversation-notes`** as an `open-question:` so the resume prompt carries it too.
+  4. **Tell the user plainly what you did:** *"I've left this page open and flagged [section] so it comes back to you next time — everything else is saved."*
 - **Advance gate timing after analytical passes.** If the user's last instruction was a request for additional analysis — a second pass, a deeper look, "what else do you see?", "anything you'd push back on?" — do not present the page-advance gate immediately after delivering that analysis. Close the analysis first: invite reactions, let the user push or accept, reach a natural close. Only then present the gate. Presenting the gate immediately after an analytical pass cuts off the discussion before the user has had a chance to respond to the analysis itself, which defeats the point of asking for it.
 - **After two rounds of iteration without resolution, stop and ask.** If a draft isn't landing after two attempts and you have not yet hit the stuck-state thresholds above, pause and ask: *"Help me understand what you're going for — what's still missing?"* Get clarity before drafting again. (This rule operates before the stuck-state diagnosis triggers at round 3.)
 - **Push back on low-energy confirmation.** "Fine" or "that works" isn't enough. Name it: *"That doesn't sound like someone who feels it — what's off?"*
@@ -316,53 +313,20 @@ Within-section advance gates (step 8) are inline text. Present long content as c
 
 ## Session Handover Protocol
 
-When all pages in a section are marked `Complete`, or when the context window is running long mid-section (stop at the end of the current page first), invoke the `brand-os-handover` skill and pass it this context:
+When all pages in a section are marked `Complete`, or when the context window is running long mid-section (stop at the end of the current page first), run the handover:
 
-- **trigger** — `section-complete` or `mid-section-pause`
-- **section** — name of the section just worked on
-- **pages-completed** — BRND IDs + page names completed this session
-- **pages-remaining** — BRND IDs + page names not yet done in this section
-  (empty if trigger is `section-complete`)
-- **sections-complete** — number of fully completed sections (0–4)
-- **sections-remaining** — ordered list of section names not yet complete
-- **next-page** — BRND-[N] · [Page Name] to resume at next session
-- **confirmed-drafts** — pages the user confirmed but did not write to Notion
-  this session, with their confirmed content (may be empty)
-- **brand-os-db-id** — the locked Brand OS database ID from Step 0 (handover file) or Step A (workspace-config.md or Notion search),
-  so the handover doc can cache it and future sessions skip discovery
-- **status-map** — full 11-page status map compiled before invoking handover.
-  Use the Status values you've read or updated this session. For any page not
-  touched this session, use the last-known status from Notion (or from the
-  cached map loaded in Step 0). Format: one bullet per page —
-  `BRND-N · [Page Name]: [Complete | In progress | Not started]`
-- **conversation-notes** — structured key-value bullets capturing the live
-  state of the conversation that is not yet reflected in Notion. This is the
-  state that would otherwise be lost between sessions. Includes:
-  - working candidates that were discussed but not confirmed,
-  - decisions made in conversation that haven't been written to Notion yet,
-  - the in-progress state of any interview that was paused mid-page
-    (which round, what was asked, what the user said),
-  - any open questions, flags, or unresolved disagreements worth surfacing
-    to the next session.
+1. **Compile the session state.** Gather every field listed in the "Context to compile" section of `handover-protocol.md` — trigger type, pages completed and remaining, the locked database ID, the full 11-page status map, any confirmed-but-unwritten drafts, and `conversation-notes` (structured key-value bullets capturing live conversational state not yet in Notion: `working-candidate:`, `decision-pending:`, `interview-state:`, `open-question:`).
+2. **Load `handover-protocol.md` from this skill folder** and follow it end to end. It writes the handover document (the startup cache Step 0 reads next session), prints the resume prompt in chat, and handles the section-close and all-complete language.
 
-  **Orchestrator responsibility (this skill):** Before invoking
-  `brand-os-handover`, compile `conversation-notes` from the current
-  session. Use structured key-value bullets, not freeform prose — each
-  bullet names what it is (e.g. `working-candidate:`, `decision-pending:`,
-  `interview-state:`, `open-question:`). Pass it to `brand-os-handover`
-  as a named field using the exact field name `conversation-notes`.
-  `brand-os-handover` is responsible for placing it under a
-  "Context for next session" section in the handover doc and condensing
-  it to 2–4 bullets inline in the resume prompt — do not pre-format it
-  here. Pass the structured bullets as-is.
+The handover is part of this skill — do not invoke a separate skill for it, and do not use the generic `session-handover` skill for Brand OS section closes (it writes a plain session log without the status map or database ID cache that resume depends on).
 
 ---
 
 ## Architecture Rules
 
-- **DB ID resolution order: handover file → workspace-config.md → Notion search.** Step 0 checks for a handover file with a cached database ID. Step A checks `workspace-config.md` (`modules.brand_os.db_id`). Only if both are absent does the skill fall back to Notion title search + agent-side schema verification. Never hardcode database URLs or IDs — every user has a different duplicated workspace. When multiple structural matches exist, ask the user to disambiguate.
+- **DB ID resolution order: handover file → workspace-config.md → user-provided URL → notion-connect.** Step 0 checks for a handover file with a cached database ID. Step A checks `workspace-config.md` (`modules.brand_os` — a list of per-brand instances; resolve the one for the current project), then a URL the user pasted at session start. If nothing resolves, route to `notion-connect` — Notion database discovery lives there, not here. Never hardcode database URLs or IDs — every user has a different duplicated workspace.
 - **Brand OS database rows are read-only as structure.** Do not create or delete rows. Write content to the Notion pages themselves and update `Status` only.
-- **Section Instructions are loaded from `section-instructions/` inside this skill folder.** That folder is canonical and ships with the skill. The Notion `Section Instructions` file attachment is user-facing reference material only — never read by the skill at runtime (its content is not retrievable via the Notion MCP). If the local file is missing, tell the user — do not improvise.
+- **Section Instructions are loaded from `section-instructions/` inside this skill folder.** That folder is canonical and ships with the skill. Section Instructions are never read from Notion at runtime, regardless of whether the user's template carries a `Section Instructions` attachment. If the local file is missing, tell the user — do not improvise.
 - **The `Status` property drives session resume.** At session start, query Brand OS where `Status ≠ Complete` and begin at the first incomplete row.
 - **Never hardcode the page ID prefix.** The prefix is user-configurable. Reference pages by name or order number.
 - **All Notion reads and writes use available Notion tools directly.**
