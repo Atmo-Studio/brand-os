@@ -1,5 +1,5 @@
-# [Page Name] · BRND-[N]
-*[Section] · Page [N] of [N]*
+# [Dimension Name] · BRND-[N]
+*[Section] · Dimension [N] of [N]*
 
 **Fills:** [field name], [field name], [field name]
 **Frameworks:** [Framework Name (Author)] → `frameworks.md §[N]`
@@ -7,7 +7,7 @@
 ---
 
 ## Failure Modes
-- [What founders most commonly get wrong on this page — specific to this section]
+- [What founders most commonly get wrong on this dimension — specific to this section]
 - [3–5 bullets max — failure patterns the agent should watch for, not framework explanations]
 
 ---
@@ -15,7 +15,7 @@
 ## Context Check
 
 `AskUserQuestion`
-> "[Do you have existing material relevant to this page?]"
+> "[Do you have existing material relevant to this dimension?]"
 - [Option A — they have something]
 - [Option B — starting fresh]
 
@@ -78,8 +78,8 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| [Output label] | `# [Heading]` | `[Template string]` |
+| [Output label] | `## [Heading]` | `[Template string]` |
 
 *[Field name]: [One-line quality test]*

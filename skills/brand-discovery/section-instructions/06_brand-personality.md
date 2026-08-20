@@ -1,5 +1,5 @@
 # Brand Personality · BRND-6
-*Brand Character · Page 1 of 2*
+*Brand Character · Dimension 1 of 2*
 
 **Fills:** Personality Spectrum (axis positions), Personality Summary, "We are / We are not"
 **Frameworks:** Brand Archetypes (Jung, via Mark & Pearson, 2001) → `frameworks.md §11`; Personality Spectrum (proprietary axis model) → `frameworks.md §12`; Brand Character Prism (Kapferer, 2012) → `frameworks.md §13`
@@ -17,7 +17,7 @@
 
 ## Upstream Dependencies
 
-This page benefits from BRND-1 (Purpose, Vision, Mission) and BRND-2 (Brand Values). The personality should be *consistent* with the values but is not *derived* from them — a brand that values precision could still have a casual, warm personality.
+This dimension benefits from BRND-1 (Purpose, Vision, Mission) and BRND-2 (Brand Values). The personality should be *consistent* with the values but is not *derived* from them — a brand that values precision could still have a casual, warm personality.
 
 - From BRND-1: the brand's purpose and vision set emotional context for what kind of character would credibly deliver on them
 - From BRND-2: values define behavioral commitments; personality defines how those commitments are expressed
@@ -97,14 +97,14 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Personality Spectrum | `# Personality Spectrum` (inside toggle) | Table with 6 axis rows. Each row: left pole, right pole, position (described in words, not a number — e.g., "leans casual but maintains a professional floor"), and optional "never go past" marker. |
-| FigJam Map | `# Personality Spectrum` embed | A separate FigJam template is being built as a design resource for the visual spectrum. Let the user know it will be linked here when the template is ready. Do not attempt to create or embed it directly. |
+| Personality Spectrum | `## Personality Spectrum` (inside toggle) | Table with 6 axis rows: left pole, position, right pole. Fill the position cell with a short marked/described placement (e.g., "leans casual, maintains a professional floor"), not a numeric value — and only fold in a "never go past" note when the founder named a real hard boundary; most axes won't have one. Each row's position placeholder must stay axis-qualified (`[Mark position: Casual ↔ Formal]`, never the bare `[Mark position]`) so a search-and-replace write can't land in the wrong row. |
+| FigJam Map | `## Personality Spectrum` embed | A separate FigJam template is being built as a design resource for the visual spectrum. Let the user know it will be linked here when the template is ready. Do not attempt to create or embed it directly. |
 | Personality Summary | `## Personality Summary` | 2–3 sentences of prose. Describes the brand's character as a felt sense — not a list of adjectives. Should be specific enough that a creative collaborator could make a judgment call based on it alone. |
-| We are | `# Personality in Practice` → `We are:` | 3–4 words or short phrases. The brand at its best — specific enough that they couldn't belong to any brand in the category. |
-| We are not | `# Personality in Practice` → `We are not:` | 3–4 words or short phrases. Real temptations or misperceptions — not obvious negatives. Should name things the brand is sometimes pulled toward but shouldn't be. |
+| We are | `## Personality in Practice` → `We are:` | 3–4 words or short phrases. The brand at its best — specific enough that they couldn't belong to any brand in the category. |
+| We are not | `## Personality in Practice` → `We are not:` | 3–4 words or short phrases. Real temptations or misperceptions — not obvious negatives. Should name things the brand is sometimes pulled toward but shouldn't be. |
 
-*Personality Spectrum: positions are described in words with reasoning, not plotted as numbers. The "never go past" markers are the most actionable part.*
+*Personality Spectrum: positions are marked and described in words, not plotted as numbers. A "never go past" marker is the most actionable thing an axis can carry when one exists — but personality is fluid, not a fixed coordinate, so don't force one onto an axis that doesn't have a real boundary.*
 *Personality Summary: feels like a person, not a brand deck. A reader should be able to imagine how this brand would handle a specific situation.*
 *We are / We are not: the "not" list names real temptations, not strawmen. "Not corporate" is weak. "Not clever at the expense of clarity" is useful.*

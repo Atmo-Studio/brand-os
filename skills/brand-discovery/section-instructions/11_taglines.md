@@ -1,5 +1,5 @@
 # Taglines · BRND-11
-*Voice & Messaging · Page 4 of 4*
+*Voice & Messaging · Dimension 4 of 4*
 
 **Fills:** Active Taglines table, Retired Taglines table
 **Frameworks:** Tagline Architecture (Ries & Trout, 1981) → `frameworks.md §25`; Sticky Message Principles (Heath & Heath, 2007) → `frameworks.md §26`
@@ -17,7 +17,7 @@
 
 ## Upstream Dependencies
 
-This page is the final output in the Voice & Messaging section. It depends heavily on BRND-10 (Messaging Pillars) and BRND-9 (Voice & Tone).
+This dimension is the final output in the Voice & Messaging section. It depends heavily on BRND-10 (Messaging Pillars) and BRND-9 (Voice & Tone).
 
 - From BRND-10: each tagline should compress a specific pillar into its sharpest, most portable form. The pillar's one-liner is the bridge between the structured claim and the tagline.
 - From BRND-9: the voice and vocabulary should be applied — a tagline that violates the brand's voice is off-brand even if it's clever.
@@ -33,7 +33,7 @@ This page is the final output in the Voice & Messaging section. It depends heavi
 - I have something to share
 - Starting fresh — no existing taglines
 
-*If they have something: evaluate against the tagline principles from the template page. Is it specific to this brand (passes the substitution test)? Does it trace to a messaging pillar? Does it sound like something the audience might say themselves? Surface your read: "Your current tagline — [quote] — is [assessment]. It [does/doesn't] trace back to your pillars, and [does/doesn't] pass the substitution test. Let me use it as a starting point."*
+*If they have something: evaluate against the tagline principles from the template. Is it specific to this brand (passes the substitution test)? Does it trace to a messaging pillar? Does it sound like something the audience might say themselves? Surface your read: "Your current tagline — [quote] — is [assessment]. It [does/doesn't] trace back to your pillars, and [does/doesn't] pass the substitution test. Let me use it as a starting point."*
 
 *If starting fresh: that's fine — but set expectations. "We're going to generate taglines from your messaging pillars. The goal isn't to write your forever tagline today — it's to build a set of sharp options you can test and rotate. Taglines are meant to cycle."*
 
@@ -96,10 +96,10 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Active Taglines | `# Active Taglines` table | Table: Tagline \| Pillar \| Context / Campaign \| In Use Since. Each tagline is connected to a specific pillar from BRND-10. Context describes where and how it's being used (e.g., "Website hero," "Q3 launch campaign," "Social bio"). "In Use Since" is a date — enables rotation tracking. |
-| Retired Taglines | `# Retired Taglines` table | Table: Tagline \| Context / Campaign \| Why Retired. Preserves institutional memory — prevents reinvention of retired lines and captures the reasoning behind the rotation. |
+| Active Taglines | `## Active Taglines` table | Table: Tagline \| Pillar \| Context / Campaign \| In Use Since. Each tagline is connected to a specific pillar from BRND-10. Context describes where and how it's being used (e.g., "Website hero," "Q3 launch campaign," "Social bio"). "In Use Since" is a date — enables rotation tracking. |
+| Retired Taglines | `## Retired Taglines` table | Table: Tagline \| Context / Campaign \| Why Retired. Preserves institutional memory — prevents reinvention of retired lines and captures the reasoning behind the rotation. |
 
 *Active Taglines: every tagline traces to a pillar. No orphan taglines — if it can't connect to a pillar, it doesn't belong here.*
 *Active Taglines: "In Use Since" enables rotation — a tagline active for 18+ months should be evaluated for staleness.*
@@ -109,6 +109,6 @@ Run all three internally. Surface the single strongest concern.
 
 ## A Note on Process
 
-Tagline generation is the most iterative page in Brand OS. Unlike the strategy pages (which are excavation — pulling out what's already true), taglines are creative output. Expect multiple rounds of generation, testing, and refinement.
+Tagline generation is the most iterative dimension in Brand OS. Unlike the strategy dimensions (which are excavation — pulling out what's already true), taglines are creative output. Expect multiple rounds of generation, testing, and refinement.
 
 The agent should generate options, not select. Present 3–5 options per pillar, apply the four tests, and let the founder choose. The founder's gut reaction to a tagline candidate — "that stops me" vs. "that's fine" — is more valuable than any framework evaluation. Trust it, but push back if a "that stops me" tagline fails the substitution test or violates the voice.

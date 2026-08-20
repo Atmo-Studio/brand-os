@@ -1,5 +1,5 @@
 # Brand Values · BRND-2
-*Foundations · Page 2 of 2*
+*Foundations · Dimension 2 of 2*
 
 **Fills:** Values table (Values | This means | This doesn't mean), Priority Order callout, Usage toggle
 **Frameworks:** Core Values Framework (Lencioni, 2012) → `frameworks.md §3`; Core Ideology (Collins & Porras, 1994) → `frameworks.md §2`
@@ -98,7 +98,7 @@ Ask the following for each value the founder named in Round 1:
 *Advance when: each value has a "this means" answer specific enough to guide a real decision, and a "this doesn't mean" answer that rules out a genuine adjacent behavior. If a founder can't name the misreading, press: "If someone used this value to justify [plausible misapplication], would that feel right to you?"*
 
 **Round 3 · Priority Order**
-*Extract: A ranked list that names which value wins when values conflict.*
+*Extract: A ranked order that names which value wins when values conflict. The ranking is expressed by ordering the Values table itself, top to bottom — nothing separate gets written elsewhere.*
 
 - If [value A] and [value B] pulled in opposite directions on the same decision, which would win?
 - Have you ever faced a situation where two of these values were in tension? What did you actually choose?
@@ -113,7 +113,7 @@ Ask the following for each value the founder named in Round 1:
 - [Value] is something a lot of companies in your space would also claim. Can you name a moment it was actually expensive for you — where holding it cost you something?
 - Is [value] something you have right now, or something you're working toward? There's no wrong answer, but the system needs to know the difference.
 
-*If aspirational: don't discard it — surface it honestly. Say: "This reads more like an aspiration than a core value right now, which isn't a problem, but it belongs in a different place. Want to note it as a 'working toward' and keep the core list to what you actually live today?" Only include confirmed core values in the Notion page.*
+*If aspirational: don't discard it — surface it honestly. Say: "This reads more like an aspiration than a core value right now, which isn't a problem, but it belongs in a different place. Want to note it as a 'working toward' and keep the core list to what you actually live today?" Only include confirmed core values in the written page.*
 
 ---
 
@@ -134,10 +134,10 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Values table | `Table: Values \| This means \| This doesn't mean` | Up to 5 rows. Value name in plain language. "This means" = a specific behavior or decision this value produces — one to two sentences. "This doesn't mean" = a genuine misreading or adjacent behavior to reject — one sentence. |
-| Priority Order | `Callout: "Priority Order"` | Numbered list, highest to lowest — #1 is the value that wins when it conflicts with any other. Format: `[N]. [Value name] — [one sentence on why this wins when it conflicts with the values ranked below it].` |
+| Values table | `Table: Values \| This means \| This doesn't mean` | Up to 5 rows, written top to bottom in priority order — row 1 is the value that wins when it conflicts with any other. Value name in plain language. "This means" = a specific behavior or decision this value produces — one to two sentences. "This doesn't mean" = a genuine misreading or adjacent behavior to reject — one sentence. |
+| Priority Order | `Callout: "Priority Order"` | Nothing written here beyond the callout's existing framing question. The ranking lives entirely in the Values table's row order — don't duplicate it as a separate list. |
 
 *Values table: substitution test — could a competitor in the same category fill in this value name and behavioral definition with a straight face? If yes, the definition isn't specific enough to this brand.*
-*Priority Order: at least one ranking should feel non-obvious. If every value feels equally ranked, the order wasn't real — return to Round 3.*
+*Priority Order: expressed as the Values table's row order, not written out separately. At least one ranking should feel non-obvious. If every value feels equally ranked, the order wasn't real — return to Round 3.*

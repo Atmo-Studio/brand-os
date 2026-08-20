@@ -1,5 +1,5 @@
 # Competitive Landscape · BRND-4
-*Audience & Market · Page 2 of 3*
+*Audience & Market · Dimension 2 of 3*
 
 **Fills:** Strategic Read, Competitors Tracked table, FigJam map (separate template — linked when ready)
 **Frameworks:** Positioning Map (Ries & Trout, 1981) → `frameworks.md §5`; Blue Ocean / Value Curve (Kim & Mauborgne, 2005) → `frameworks.md §6`; Competitive Differentiation Matrix → `frameworks.md §7`
@@ -89,11 +89,11 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
 | Strategic Read | `## Strategic Read` | 2–3 paragraphs of genuine analysis. First paragraph: what territory is overcrowded and why. Second paragraph: where the whitespace is and what makes it ownable. Third paragraph (optional): what this means for where the brand should plant its flag. Written as interpretation, not description. |
 | Competitors Tracked | `## Competitors Tracked` table | Table: Brand \| Axis 1 position \| Axis 2 position \| Notes. Include status quo as a row. Notes column = 1–2 sentences on what they get right and where they fall short. |
-| FigJam Map | `# The Map` | A separate FigJam template is being built as a design resource. Let the user know the visual positioning map will be linked here when the template is ready. Do not attempt to create or embed a FigJam map directly. |
+| FigJam Map | `## The Map` | A separate FigJam template is being built as a design resource. Let the user know the visual positioning map will be linked here when the template is ready. Do not attempt to create or embed a FigJam map directly. |
 
 *Strategic Read: makes a claim, not a report. Names specific overcrowded territory and specific whitespace. Connects to this brand's potential position.*
 *Competitors Tracked: includes the status quo. Axis positions are honest assessments, not aspirational placements.*

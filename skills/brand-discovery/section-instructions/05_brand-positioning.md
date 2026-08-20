@@ -1,5 +1,5 @@
 # Brand Positioning · BRND-5
-*Audience & Market · Page 3 of 3*
+*Audience & Market · Dimension 3 of 3*
 
 **Fills:** Audience Truth, Competitive Alternatives table, Unique Value table, Market Category, Positioning Statement
 **Frameworks:** Obviously Awesome Positioning (Dunford, 2019) → `frameworks.md §8`; Positioning Statement (Moore, 1991) → `frameworks.md §9`; Brand Pyramid (Keller, 2013) → `frameworks.md §10`
@@ -7,7 +7,7 @@
 ---
 
 ## Failure Modes
-- Writing a positioning statement that could belong to any brand in the category. The substitution test is the single most important quality gate on this page
+- Writing a positioning statement that could belong to any brand in the category. The substitution test is the single most important quality gate on this dimension
 - Confusing attributes with value: "we use AI" is an attribute; "you look credible without hiring an agency" is value. The Unique Value table must make this shift explicit
 - Choosing a market category that sets the brand up to lose — category framing determines the comparison set; a bad frame means competing on ground where you're weakest
 - Treating the positioning statement as a tagline — it's an internal strategic brief, not external copy. It should be precise, not punchy
@@ -17,12 +17,12 @@
 
 ## Upstream Dependencies
 
-This page synthesizes BRND-3 (ICPs) and BRND-4 (Competitive Landscape). Before starting, read both completed pages.
+This dimension synthesizes BRND-3 (ICPs) and BRND-4 (Competitive Landscape). Before starting, read both completed dimensions.
 
 - From BRND-3: the primary ICP's functional job, emotional job, and context — these feed directly into the Audience Truth and Target Customer
 - From BRND-4: the competitive alternatives, the strategic read, and the whitespace analysis — these feed into Competitive Alternatives and Market Category
 
-*If BRND-3 or BRND-4 are not yet complete, flag it: "Positioning builds on your ICPs and competitive landscape. Those pages aren't finished yet — want to complete them first, or work with what we have?"*
+*If BRND-3 or BRND-4 are not yet complete, flag it: "Positioning builds on your ICPs and competitive landscape. Those dimensions aren't finished yet — want to complete them first, or work with what we have?"*
 
 ---
 
@@ -93,7 +93,7 @@ Run all three internally. Surface the single strongest concern.
 
 - [ ] Substitution test: replace the brand name in the positioning statement with a competitor's. Does it still hold? If yes, the unique value or differentiation isn't specific enough.
 - [ ] Category test: does the market category frame set the brand up to win — or to compete on ground where it's weakest? Would a customer recognize the category without explanation?
-- [ ] Coherence test: does the positioning statement trace cleanly back to the ICPs (BRND-3) and competitive landscape (BRND-4)? If the audience or alternatives in the statement don't match what was established in those pages, something is disconnected.
+- [ ] Coherence test: does the positioning statement trace cleanly back to the ICPs (BRND-3) and competitive landscape (BRND-4)? If the audience or alternatives in the statement don't match what was established in those dimensions, something is disconnected.
 
 `AskUserQuestion`
 > "Before we lock this in — [state the single strongest concern as a direct question, e.g., 'If I swap your brand name for [competitor X] in this positioning statement, it still reads as true. That tells me the differentiation isn't sharp enough yet. What's the one thing you do that they genuinely cannot?']"
@@ -104,13 +104,13 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Audience Truth | `# Audience Truth` | `When [audience] tries to [goal], they run into [friction] because existing alternatives are built for [different priority], not [what this audience actually needs].` — one statement, in customer-recognizable language. |
-| Competitive Alternatives | `# Competitive Alternatives` table | Table: Alternatives \| What it gets right \| Where it falls short. Row 1 is always status quo / do nothing. Remaining rows = genuine alternatives from BRND-4. Honest assessments — generous on "gets right," specific on "falls short." |
-| Unique Value | `# Unique Value` table | Table: Unique Attribute \| What it makes possible for the customer. Attributes are capabilities or approaches genuinely unique to this brand. "Makes possible" column = customer outcomes, not feature restatements. |
-| Market Category | `# Market Category` | `This brand is a [category framing], not a [common misframing]. The distinction matters because [how the framing changes perception and who it attracts].` |
-| Positioning Statement | `# Positioning Statement` | `For [specific audience] who want [outcome], [brand] is the [market category] that [unique value]. Unlike [alternatives], [brand] [primary differentiation], so [what becomes possible for the customer].` |
+| Audience Truth | `## Audience Truth` | `When [audience] tries to [goal], they run into [friction] because existing alternatives are built for [different priority], not [what this audience actually needs].` — one statement, in customer-recognizable language. |
+| Competitive Alternatives | `## Competitive Alternatives` table | Table: Alternatives \| What it gets right \| Where it falls short. Row 1 is always status quo / do nothing. Remaining rows = genuine alternatives from BRND-4. Honest assessments — generous on "gets right," specific on "falls short." |
+| Unique Value | `## Unique Value` table | Table: Unique Attribute \| What it makes possible for the customer. Attributes are capabilities or approaches genuinely unique to this brand. "Makes possible" column = customer outcomes, not feature restatements. |
+| Market Category | `## Market Category` | `This brand is a [category framing], not a [common misframing]. The distinction matters because [how the framing changes perception and who it attracts].` |
+| Positioning Statement | `## Positioning Statement` | `For [specific audience] who want [outcome], [brand] is the [market category] that [unique value]. Unlike [alternatives], [brand] [primary differentiation], so [what becomes possible for the customer].` |
 
 *Audience Truth: in the customer's language, not the brand's. The friction should be specific enough that the customer would nod.*
 *Competitive Alternatives: first row is always "do nothing." Honest on what alternatives get right.*

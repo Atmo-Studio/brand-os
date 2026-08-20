@@ -1,5 +1,5 @@
 # Ideal Customer Profiles · BRND-3
-*Audience & Market · Page 1 of 3*
+*Audience & Market · Dimension 1 of 3*
 
 **Fills:** Up to 3 ICP toggle blocks (Context, Functional Job, Emotional Job, Social Job, Quote)
 **Frameworks:** Jobs-to-be-Done (Christensen et al., 2016) → `frameworks.md §4`
@@ -107,7 +107,7 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
 | ICP toggle block | `### ICP [N] [Name / Role]` | Toggle heading with name or role descriptor |
 | Context | `Callout: Context` | 2–4 sentences. Who they are, the situation they're in, what triggered the search. Written as a narrative, not a bullet list. |

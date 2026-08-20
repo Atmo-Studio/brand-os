@@ -2,7 +2,7 @@
 
 Brand OS is a modular brand operating system. It structures brand intelligence across the tools founders already use, so the brand becomes something the team can speak with, filter decisions through, and create from at scale. A living system that compounds as the brand grows.
 
-This version ships three foundational modules: workspace configuration, a connected knowledge base, and a guided brand discovery experience. Together they give founders a structured home for their brand thinking and a foundation their team, contractors, and agents can all operate from.
+This version ships the brand's foundation and its first working layer: workspace configuration, a knowledge base built through guided discovery, and skills that put the brand to work in daily decisions and content.
 
 ![Brand OS](docs/brand-os_hero_2x1.png)
 
@@ -20,9 +20,9 @@ The brand's base layer. Core configures your agent workspace, sets the brand's p
 
 ### Memory
 
-Your brand intelligence begins compounding. Memory connects your knowledge base and gives the brand a structured, living record you and your team operate from. New hires onboard from it. Agents read from it. You stop re-explaining everything from scratch.
+Your brand intelligence begins compounding. Memory is the brand's living record across eleven dimensions, held in the knowledge base. New hires onboard from it. Agents read from it. You stop re-explaining everything from scratch.
 
-*Skills: notion-connect*
+*Skills: brand-discovery*
 
 *Resources: [Knowledge Base](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)*
 
@@ -32,23 +32,19 @@ Your brand intelligence begins compounding. Memory connects your knowledge base 
 
 ### Worldview
 
-The brand develops conviction. A framework-grounded interview extracts your thinking across eleven sections and writes it into the knowledge base. Purpose, values, positioning, personality, voice, story. The instincts you carry become infrastructure your team can operate from without you in the room.
+The brand develops conviction and starts acting on it. Worldview runs on the knowledge base: filter any decision through the documented brand, generate content in its voice, and package brand context for a designer, a collaborator, or another AI tool. The instincts you carry become judgment your team can use without you in the room.
 
-*Skills: brand-discovery*
-
-*Resources: [Knowledge Base](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)*
-
-*Connections: Notion*
+*Skills: brand-filter, on-voice, brand-brief*
 
 ---
 
 ## Getting Started
 
-You need two things: an agent environment that supports skills (`.claude/skills/` or equivalent), and a Notion account for the Memory and Worldview modules.
+You need an agent environment that supports skills (`.claude/skills/` or equivalent). The knowledge base lives in the storage you choose: Notion or a local markdown folder.
 
 ### Option A: Cowork plugin (Claude desktop app)
 
-**[Download brand-os.plugin](https://gitlab.com/atmo-studio/brand-os/-/raw/main/brand-os-v0.2.3.plugin)**
+**[Download brand-os.plugin](https://github.com/Atmo-Studio/brand-os/raw/main/brand-os-v0.3.0.plugin)**
 
 Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**. Skills load automatically. Skip to [Set up the Knowledge Base](#set-up-the-knowledge-base).
 
@@ -72,11 +68,11 @@ Only if your agent has **no** built-in Notion connector, add the Notion MCP serv
 
 → [Open the Knowledge Base template](https://www.notion.com/templates/brand-knowledge-base?clientBuildTarget=client)
 
-Press **Duplicate** to add it to your Notion workspace. You don't need to copy any IDs by hand — run **notion-connect** (below) and it finds the database, verifies it, and records the ID for you.
+Press **Duplicate** to add it to your Notion workspace. You don't need to copy any IDs by hand. **brand-discovery** finds the database, verifies it, and records the ID for you.
 
 ### Start
 
-Run **workspace-setup** to configure your agent environment (optional if you already have one). Then run **notion-connect** to link your duplicated template, and **brand-discovery** to begin building your brand's worldview.
+Run **workspace-setup** to configure your agent environment (optional if you already have one). Then run **brand-discovery** to connect your storage and begin building your brand's memory. Once the knowledge base is complete, the Worldview skills run on it: **brand-filter**, **on-voice**, and **brand-brief**.
 
 ---
 

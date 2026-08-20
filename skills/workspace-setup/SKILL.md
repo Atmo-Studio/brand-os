@@ -84,7 +84,7 @@ Extract for immediate use before opening with the user:
 - `setup_progress` — for routing and resume context
 - `modules` — for Phase 3 context if reached
 
-**Write points — workspace-setup owns the schema and the sections below.** Module skills write their own blocks (`notion-connect` → `modules.brand_os`, `agent-persona` → `persona`) and may create a minimal config if none exists; this skill builds on whatever they've written rather than overwriting it.
+**Write points — workspace-setup owns the schema and the sections below.** Module flows write their own blocks (the Brand OS storage step — here in Phase 3 or in brand-discovery Step A — writes `modules.brand_os`; `agent-persona` writes `persona`) and may create a minimal config if none exists; this skill builds on whatever they've written rather than overwriting it.
 
 *End of Phase 1 (architecture confirmed):*
 - Create `workspace-config.md` at workspace root from `workspace-config.template.md`
@@ -109,8 +109,9 @@ Extract for immediate use before opening with the user:
 - Update `last_updated`
 
 *End of Phase 3 (module activated):*
-- Confirm the module's own skill wrote its block (e.g., `notion-connect` writes `modules.brand_os`); add `project_id` linking it to the relevant project
-- Append module name to `setup_progress.phase_3_modules.modules_activated`
+- **Brand OS:** the storage step (`brand-discovery/references/storage-setup.md` §5) is the sole writer of the `modules.brand_os` entry — it writes the full entry (`project_id`, `status`, `storage`, locator, `page_prefix`, `connected_at`) **and** appends `brand_os` to `setup_progress.phase_3_modules.modules_activated`. Do not re-write the entry or re-append the module name here; just confirm both are present. (Re-appending would produce a duplicate — the storage step already added it.)
+- **Any module that does NOT go through the storage step** (e.g. agent-persona): append its name to `setup_progress.phase_3_modules.modules_activated` **only if not already present**.
+- Leave `phase_3_modules.complete: false` while other modules remain available to activate — it is not a routing gate, so `false` is the honest resting value, not an unfinished state.
 - Update `last_updated`
 - Append to Notes: module name, project it was activated for, date
 
@@ -304,7 +305,7 @@ While working through projects, watch for one where the scope is clearly brand-o
 
 When you encounter it — during the interview, not after — introduce Brand OS as part of understanding what the user is actually building:
 
-> "This sounds like it could be the home for your brand foundations — positioning, voice, identity, messaging. There's a Brand OS module that's designed specifically for this: it builds a structured brand knowledge base in Notion and guides you through a discovery process to fill it in. It might be a better fit than a project folder for this one.
+> "This sounds like it could be the home for your brand foundations — positioning, voice, identity, messaging. There's a Brand OS module that's designed specifically for this: it builds a structured brand knowledge base — in Notion or a local folder, your choice — and guides you through a discovery process to fill it in. It might be a better fit than a project folder for this one.
 >
 > Worth knowing about, or want to keep going with the setup as-is?"
 
@@ -355,16 +356,18 @@ Present the available modules:
 
 | Module | What it does | Status |
 |---|---|---|
-| **Brand OS** (Notion) | Builds your brand knowledge base — positioning, voice, identity, messaging | Available · run `notion-connect` to start |
-| **Brand OS** (Google Workspace) | Brand foundations in Google Docs and Drive — same discovery process, no Notion required | Coming soon |
+| **Brand OS** | Builds your brand knowledge base — positioning, voice, identity, messaging. Lives where you choose: Notion or a local markdown folder | Available · activate below |
 | **Agent Persona** | Customise your agent's name, voice, and working style | Available · run `agent-persona` to start |
 | **Linear** | Sets up project and task management to match how your team works | Coming soon |
 | **Figma** | Connects your brand brain to your design system | Coming soon |
 
 > "Want to activate Brand OS now, or keep building out your project architecture first?"
 
-**If they want Brand OS:**
-Connection and setup run through `notion-connect` first — it handles template duplication, database discovery, and workspace customization, then locks the database ID. Once complete, `brand-discovery` runs the interview. Tell them to invoke `notion-connect` to start.
+**If they want Brand OS — run the storage step now, in this session:**
+
+1. Check `workspace-config.md → modules.brand_os` for an entry for this project (an entry with `notion_db_id` and no `storage` field is `storage: notion`). If one is connected, Brand OS is already active — tell them to invoke `brand-discovery`.
+2. Otherwise, load `../brand-discovery/references/storage-setup.md` and run it end to end — it asks where the brand should live, deploys the Storage Architect for the scaffolding or discovery, writes the `modules.brand_os` entry, and locks the locator.
+3. When it returns, tell them to invoke `brand-discovery` to begin the interview.
 
 **If they want Agent Persona:**
 Tell them to invoke the `agent-persona` skill — it runs the archetype interview and writes the persona to SOUL.md.

@@ -1,5 +1,5 @@
 # Voice & Tone Guide · BRND-9
-*Voice & Messaging · Page 2 of 4*
+*Voice & Messaging · Dimension 2 of 4*
 
 **Fills:** Voice description, Vocabulary table, Tone Modes table, Before/After examples
 **Frameworks:** Voice & Tone Spectrum (Flabbi & Content Design London, 2020) → `frameworks.md §19`; Content Design Principles (Podmajersky, 2019) → `frameworks.md §20`; Four Dimensions of Tone (Nielsen Norman Group, 2016) → `frameworks.md §21`
@@ -17,12 +17,12 @@
 
 ## Upstream Dependencies
 
-This page builds directly on BRND-6 (Brand Personality) and BRND-8 (Brand Story). Voice is personality expressed in language; tone is how that voice adapts across the story's contexts.
+This dimension builds directly on BRND-6 (Brand Personality) and BRND-8 (Brand Story). Voice is personality expressed in language; tone is how that voice adapts across the story's contexts.
 
 - From BRND-6: the personality spectrum, "we are / we are not" guardrails, and personality summary should directly inform the voice description. The voice is the verbal expression of the personality.
 - From BRND-8: the brand story's guide character defines the *role* the voice plays — empathetic guide, authoritative expert, supportive peer. The tone modes should map to different moments in the customer's story (problem → plan → success).
 
-*If BRND-6 is incomplete, the voice description will lack grounding. If BRND-8 is incomplete, the tone modes will be arbitrary. Flag either gap: "Voice comes from personality, and tone modes come from the story structure. [Page] isn't complete yet — want to go back first?"*
+*If BRND-6 is incomplete, the voice description will lack grounding. If BRND-8 is incomplete, the tone modes will be arbitrary. Flag either gap: "Voice comes from personality, and tone modes come from the story structure. [Dimension] isn't complete yet — want to go back first?"*
 
 ---
 
@@ -106,12 +106,12 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Voice description | `# Our Voice` | 3–4 sentences of prose. The brand's consistent voice character — what stays the same across every context. Specific enough to distinguish this brand from competitors. Not a list of adjectives. |
+| Voice description | `## Our Voice` | 3–4 sentences of prose. The brand's consistent voice character — what stays the same across every context. Specific enough to distinguish this brand from competitors. Not a list of adjectives. |
 | Vocabulary | `## Vocabulary` table | Table: We say \| We avoid. 5–10 rows minimum. Each pair should encode a relationship or philosophy, not just a preference. Consider adding a "Why" column or inline notes for the reasoning. |
 | Tone Modes | `## Tone Modes` table | Table: Mode \| When \| Sounds Like \| Doesn't Sound Like. 3–4 rows: Celebratory, Supportive, Instructional, Urgent (defaults — adapt names to fit the brand). "Sounds Like" is a short phrase or sentence in the brand's voice. "Doesn't Sound Like" is the guardrail — what this mode gets confused with. |
-| Before/After examples | `# Before/After Examples` | Repeating toggle blocks. Each toggle: example title, Before (generic or off-brand copy), After (on-brand rewrite). Minimum 2–3 examples covering different tone modes. These should be treated as a living bank — the page improves as more examples are added over time. |
+| Before/After examples | `## Before/After Examples` | Repeating toggle blocks. Each toggle: example title, Before (generic or off-brand copy), After (on-brand rewrite). Minimum 2–3 examples covering different tone modes. These should be treated as a living bank — the page improves as more examples are added over time. |
 
 *Voice description: holds true across all tone modes. Describes how the brand sounds, not what it believes.*
 *Vocabulary: every pair has a "why" — even if implicit. The pattern across pairs reveals a consistent relationship philosophy.*

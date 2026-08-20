@@ -6,7 +6,7 @@ user's workspace as the persistent state record (the startup cache Phase 1 Step 
 reads next session), and a copy-paste resume prompt printed in chat. It runs inside
 the same session as the interview — no separate skill, no context passing across
 a boundary. Everything referenced below is already in your context; compile it,
-don't re-query Notion.
+don't re-query the knowledge base.
 
 ---
 
@@ -16,29 +16,49 @@ Before writing anything, assemble:
 
 - **trigger** — `section-complete` or `mid-section-pause`
 - **section** — name of the section just worked on
-- **pages-completed** — list of BRND IDs + page names completed this session
-- **pages-remaining** — list of BRND IDs + page names not yet completed in this
+- **dimensions-completed** — list of IDs + dimension names completed this session
+- **dimensions-remaining** — list of IDs + dimension names not yet completed in this
   section (empty if trigger is `section-complete`)
 - **sections-complete** — number of sections fully done (0–4)
 - **sections-remaining** — ordered list of section names not yet complete
-- **next-page** — BRND-[N] · [Page Name] to pick up at next session
-- **confirmed-drafts** — pages the user confirmed but that were not written to
-  Notion this session, each with its confirmed content (may be empty)
-- **brand-os-db-id** — the locked Brand OS database ID for this session. Cache it
-  in the handover doc so future sessions skip database discovery entirely.
-- **status-map** — full 11-page status map. Use the Status values you've read or
-  updated this session; for pages not touched, use the last-known status from
-  Notion or the cached map loaded at startup. One entry per page:
-  `BRND-N · [Page Name]: [Complete | In progress | Not started]`
+- **next-dimension** — [ID] · [Dimension Name] to pick up at next session
+- **confirmed-drafts** — dimensions the user confirmed but that were not written to
+  the knowledge base this session, each with its confirmed content (may be empty;
+  this is also where unreachable-backend sessions park confirmed content for the
+  next connected session to sync)
+- **storage** + **locator** — the locked backend type and locator for this session.
+  Cache both in the handover doc so future sessions skip storage resolution entirely.
+- **project_id** — the `workspace-config.md → projects[]` id this brand belongs to
+  (`default` where none is defined). Stamps the handover with the brand it came from
+  so Step 0 can filter candidates before sorting by recency.
+- **status-map** — full 11-dimension status map. Use the Status values you've read or
+  updated this session; for dimensions not touched, use the last-known status from
+  the backend or the cached map loaded at startup. One entry per dimension:
+  `BRND-N · [Dimension Name]: [Complete | In progress | Not started]`
+  (using the workspace's configured prefix)
 - **conversation-notes** — structured key-value bullets capturing live
-  conversational state not yet reflected in Notion: working candidates discussed
-  but not confirmed (`working-candidate:`), decisions made in conversation that
-  aren't in Notion yet (`decision-pending:`), the state of an in-progress
+  conversational state not yet reflected in the knowledge base: working candidates
+  discussed but not confirmed (`working-candidate:`), decisions made in conversation
+  that aren't written yet (`decision-pending:`), the state of an in-progress
   interview — which round, what was asked, what the user said
   (`interview-state:`), and open questions or flags (`open-question:`).
   Key-value bullets, not freeform prose. May be empty.
-- **pages-skipped** — any pages the user explicitly skipped this session (see the
-  skip rule in SKILL.md), so the next session revisits them. May be empty.
+- **dimensions-skipped** — any dimensions the user explicitly skipped this session
+  (see the skip rule in SKILL.md), so the next session revisits them. May be empty.
+
+*(Legacy note: handovers written before v0.3 used `pages-*` field names and a
+`Brand OS database ID:` workspace field. Step 0 in SKILL.md still reads those —
+treat `Brand OS database ID` as `storage: notion` + locator. Handovers written
+before `Project:` existed carry no project stamp, and Step 0 falls back to
+matching on `Locator:` — which is why the locator stays in the block rather than
+being replaced by the project stamp. New handovers always use the format below.)*
+
+*(`Project:` is the `project_id` of the `workspace-config.md → projects[]` entry
+this brand belongs to — `default` where none is defined. It exists so Step 0 can
+tell one brand's handover from another's before any storage resolution happens.
+In a workspace where a project's folder is the repository root, this stamp is the
+only thing that distinguishes a real brand's handover from one written during a
+test or dev run.)*
 
 ---
 
@@ -75,9 +95,17 @@ If trigger is `mid-section-pause`: skip this step and go directly to Step 2.
 
 ## Step 2 · Write the handover document
 
-Write a markdown file to the agent's current workspace — not to Notion.
+Write a markdown file into **the current project's folder** — the folder for the
+brand this session is scoped to, not the workspace root and not the knowledge
+base backend. This matters in multi-brand workspaces: SKILL.md Step 0 searches
+the project folder for `*_brand-os-handover-*.md` and deliberately does not search
+workspace-wide, so a handover written anywhere else is invisible to resume. When
+no projects are defined, the workspace root *is* the project folder.
+
 This file is the persistent session record and the startup cache for the next
-session. The resume prompt is delivered in chat (Step 3) — do not include it here.
+session. It ends with the same resume prompt that Step 3 prints in chat — the doc
+carries it so the file stands alone, chat carries it so the user can paste without
+opening anything.
 
 Filename: `YYYY-MM-DD_brand-os-handover-[section-name-kebab].md`
 
@@ -95,32 +123,34 @@ mechanism changes.
 [section] · [Date]
 
 ## Workspace
-Brand OS database ID: `[brand-os-db-id]`
-(Future sessions can use this directly — no need to re-run discovery.)
+Project: [project_id]
+Storage: [storage]
+Locator: `[locator]`
+(Future sessions can use this directly — no need to re-run storage resolution.)
 
 ## Completed this session
-[section] — all pages complete and written to Notion.
-Pages: [pages-completed as BRND-N · Page Name list]
+[section] — all dimensions complete and written to the knowledge base.
+Dimensions: [dimensions-completed as ID · Dimension Name list]
 
 ## Current state
 [sections-complete] of 4 sections complete.
 Sections remaining: [sections-remaining in order]
 
 ## Status Map
-[Render status-map verbatim — one line per BRND page, e.g.:]
+[Render status-map verbatim — one line per dimension, e.g.:]
 BRND-1 · Purpose, Vision & Mission: Complete
 BRND-2 · Brand Values: Complete
 ...
 
-## Confirmed drafts (not yet written to Notion)
+## Confirmed drafts (not yet written to the knowledge base)
 [For each item in confirmed-drafts:]
-### BRND-[N] · [Page Name]
+### [ID] · [Dimension Name]
 [confirmed content]
 
 [Omit this section entirely if confirmed-drafts is empty]
 
-## Pages skipped
-[List pages-skipped with a one-line reason each. Omit entirely if empty.]
+## Dimensions skipped
+[List dimensions-skipped with a one-line reason each. Omit entirely if empty.]
 
 ## Context for next session
 [Render conversation-notes verbatim as key-value bullets.
@@ -130,7 +160,7 @@ Omit this section entirely if conversation-notes is empty.]
 
 Paste this into a new Brand OS session to pick up where you left off:
 
-> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [first item in sections-remaining], [next-page]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
+> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [first item in sections-remaining], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
 ```
 
 **Template — mid-section pause:**
@@ -140,27 +170,29 @@ Paste this into a new Brand OS session to pick up where you left off:
 [section] · [Date] · Session paused mid-section
 
 ## Workspace
-Brand OS database ID: `[brand-os-db-id]`
-(Future sessions can use this directly — no need to re-run discovery.)
+Project: [project_id]
+Storage: [storage]
+Locator: `[locator]`
+(Future sessions can use this directly — no need to re-run storage resolution.)
 
 ## Completed this session
-Pages completed: [pages-completed as BRND-N · Page Name list]
-Pages remaining in this section: [pages-remaining as BRND-N · Page Name list]
+Dimensions completed: [dimensions-completed as ID · Dimension Name list]
+Dimensions remaining in this section: [dimensions-remaining as ID · Dimension Name list]
 
 ## Current state
 Section [sections-complete + 1] of 4 in progress.
-[count of pages-completed] of [total pages in section] pages complete.
+[count of dimensions-completed] of [total dimensions in section] complete.
 
 ## Status Map
-[Render status-map verbatim — one line per BRND page, e.g.:]
+[Render status-map verbatim — one line per dimension, e.g.:]
 BRND-1 · Purpose, Vision & Mission: Complete
 BRND-2 · Brand Values: Complete
 ...
 
-## Confirmed drafts (not yet written to Notion)
+## Confirmed drafts (not yet written to the knowledge base)
 [Same as above — omit section if empty]
 
-## Pages skipped
+## Dimensions skipped
 [Same as above — omit if empty]
 
 ## Context for next session
@@ -173,7 +205,7 @@ Omit only if conversation-notes is empty.]
 
 Paste this into a new Brand OS session to pick up where you left off:
 
-> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [section], [next-page]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
+> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [section], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
 ```
 
 ---
@@ -190,7 +222,7 @@ Otherwise, print in chat:
 >
 > ---
 > *"Resume Brand OS. Handover: [handover-filename]. Pick up where we left off —
-> [section or next section], [next-page]. Context from last session:
+> [section or next section], [next-dimension]. Context from last session:
 > [2–4 condensed bullets distilled from conversation-notes, embedded inline].
 > [Omit the 'Context from last session:' clause entirely if conversation-notes
 > is empty.]"*
@@ -198,8 +230,8 @@ Otherwise, print in chat:
 
 Condense conversation-notes to 2–4 bullets and embed them directly in the
 resume prompt. The filename tells the next session where to find the handover
-doc — both the status map and the DB ID live there. The context bullets
-remain inline so the prompt is readable without opening the file.
+doc — both the status map and the storage locator live there. The context
+bullets remain inline so the prompt is readable without opening the file.
 
 Print the prompt block once, directly in chat. Do not refer the user to the
 handover file for this. Do not print anything after the block.
@@ -212,14 +244,28 @@ Use this step instead of Step 3 only when `trigger` is `section-complete` and
 `sections-complete` is 4 — i.e. the user has just finished Voice & Messaging
 and the full brand knowledge base is built.
 
-Still write the handover doc (Step 2). Then, in chat, deliver the all-complete
+Still write the handover doc (Step 2), **with one change: omit the `## To continue`
+block entirely.** That block and its resume prompt exist to bootstrap the next
+session, and there is no next session — every dimension is Complete. Its fields
+(`sections-remaining`, `next-dimension`) are undefined here, so rendering it would
+print empty placeholders. Replace it with a short closing block instead:
+
+```markdown
+## Brand OS complete
+All 11 dimensions across all 4 sections are Complete as of [Date].
+There is nothing left to resume — this document is the final state record.
+```
+
+Everything above that block (Workspace, Status Map, etc.) is written as normal.
+
+Then, in chat, deliver the all-complete
 close. It must do four things: celebrate, educate, suggest what's next, and
 surface the menu of other Brand OS modules.
 
 Tone: warm, specific, genuinely excited. Reference what was actually built —
-you have the section names, the page names, and the confirmed content in
-context. Do not be generic or effusive. Do not list every page mechanically;
-speak to the shape of what now exists.
+you have the section names, the dimension names, and the confirmed content in
+context. Do not be generic or effusive. Do not list every dimension
+mechanically; speak to the shape of what now exists.
 
 **Print in chat, in this order:**
 
@@ -250,15 +296,18 @@ All connected. All in one place. All queryable by any agent or teammate.
 **3 · Suggest what's next (concrete, prioritised).**
 Surface specific next moves the founder can take immediately:
 
-- Feed the Voice & Tone page to their writing agent so all future copy lands
-  in brand voice
-- Use the visual identity direction to brief a designer (or Atmo) on logo,
-  type, colour, and system — BRND-7's exit action can generate the identity
-  brief directly
+The knowledge base is built. The operational skills now run on it:
+
+- **on-voice** — draft the next post, email, or page in the brand's voice,
+  grounded in the Voice & Tone guide just written
+- **brand-filter** — run the next campaign idea, partnership, or draft
+  through the brand before committing to it, and check existing materials
+  against the new foundation
+- **brand-brief** — package the brand for a designer, a collaborator, or
+  another AI tool; the visual identity direction can brief a designer (or
+  Atmo) directly
 - Use the positioning and messaging pillars as the spine of the website,
   pitch deck, and sales materials
-- Run a brand review session to check existing materials against the new
-  foundation — what's on-brand, what needs to be redone
 
 **4 · Surface the menu — other Brand OS modules.**
 Introduce the Phase 2 and Phase 3 modules as the natural next step now that

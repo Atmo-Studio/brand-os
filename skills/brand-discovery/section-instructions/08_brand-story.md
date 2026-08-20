@@ -1,5 +1,5 @@
 # Brand Story · BRND-8
-*Voice & Messaging · Page 1 of 4*
+*Voice & Messaging · Dimension 1 of 4*
 
 **Fills:** 7-Part Structure table, Homepage narrative, Pitch narrative, Social & content narrative
 **Frameworks:** StoryBrand (Miller, 2017) → `frameworks.md §16`; Hero's Journey applied to brand narrative (Campbell, 1949; Vogler, 2007) → `frameworks.md §17`; Narrative Transportation Theory (Green & Brock, 2000) → `frameworks.md §18`
@@ -17,12 +17,12 @@
 
 ## Upstream Dependencies
 
-This page draws heavily from BRND-3 (ICPs) and BRND-5 (Brand Positioning). The story structure maps directly onto these inputs.
+This dimension draws heavily from BRND-3 (ICPs) and BRND-5 (Brand Positioning). The story structure maps directly onto these inputs.
 
 - From BRND-3: the ICP's context, functional job, and emotional job become the character and their want. The quote is raw material for how the character would describe their problem.
 - From BRND-5: the Audience Truth becomes the problem statement. The Unique Value becomes the guide's authority. The positioning statement is the compressed version of the whole story.
 
-*If BRND-3 or BRND-5 are incomplete, flag it: "The brand story builds on your customer profiles and positioning. Those pages aren't finished yet — the story will be stronger if we complete them first. Want to go back, or work with what we have?"*
+*If BRND-3 or BRND-5 are incomplete, flag it: "The brand story builds on your customer profiles and positioning. Those dimensions aren't finished yet — the story will be stronger if we complete them first. Want to go back, or work with what we have?"*
 
 ---
 
@@ -105,9 +105,9 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| 7-Part Structure | `# The 7-Part Structure` table | Table: Element \| This brand's version. Seven rows: The character, The problem (with external/internal/philosophical sub-layers), The guide (empathy + authority), The plan (three steps), Call to action (direct + transitional), Success, Failure. Each cell is 1–3 sentences of specific, ownable narrative — not a generic framework fill. |
+| 7-Part Structure | `## The 7-Part Structure` table | Table: Element \| This brand's version. Seven rows: The character, The problem (with external/internal/philosophical sub-layers), The guide (empathy + authority), The plan (three steps), Call to action (direct + transitional), Success, Failure. Each cell is 1–3 sentences of specific, ownable narrative — not a generic framework fill. |
 | Homepage narrative | `## Homepage narrative structure` | 2–3 paragraphs of prose. The story spine condensed into a page flow: hero statement → problem acknowledgment → guide introduction → plan → CTA → success vision. Written as a narrative brief, not section labels — a copywriter should be able to draft from this. |
 | Pitch narrative | `## Pitch narrative` | 2–3 paragraphs of prose. The same story adapted for sales and investor conversations. Usually enters the story at the problem (not the character) because the audience already knows who they are. Should note how the story structure shifts for different pitch contexts. |
 | Social & content narrative | `## Social & content narrative` | 2–3 paragraphs of prose. How the story spine manifests in short-form content: what hooks to use, who the character is in each format, where the guide moment lands. Should give a content creator enough structure to write a post without having to re-derive the story from scratch. |

@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.3.0 — Storage abstraction + the operational layer
+
+Brand OS becomes storage-agnostic and starts using the brand it builds.
+
+### New
+- **Two storage backends.** Choose where the brand lives — Notion or a local markdown folder (the zero-dependency default) — the first time a skill needs it. Every read and write routes through one storage contract.
+- **storage-architect** — a new deployable agent that handles verification, scaffolding, discovery, and migration between backends. Migrated spaces are archived, never deleted.
+- **brand-filter** — runs any decision, idea, or draft through filters derived from your own knowledge base, scored against a fixed rubric with every score citing your brand's language. Weak scores trigger an improvement loop that researches, proposes a stronger alternative, and re-scores until it honestly earns the top band.
+- **on-voice** — generates or rewrites content in your brand's voice, grounded in the Voice & Tone Guide, personality, and pillars. Every draft carries a voice trace naming the brand rules that shaped it.
+- **brand-brief** — packages your brand for someone who wasn't in the room, with presets for another AI tool, a designer, a writer, or a partner. `designer`, `writer`, and `partner` briefs write to Documents automatically; a one-time `.docx` export is offered where the environment supports it.
+
+### Changed
+- **Modules reworked.** Memory now holds the knowledge base and the discovery that builds it. Worldview holds brand-filter, on-voice, and brand-brief — the operational layer that runs on the knowledge base and never edits it.
+- **notion-connect deprecated**, folded into brand-discovery's in-flow storage setup. Redirects for one release, then removed.
+- **Visual Identity (dimension 32) now renders fully in brand-brief.** The designer and agent presets show lifecycle phase, the personality → visual bridge, system logic, and existing assets — previously silent. Guardrails (hard don'ts) lead the agent preset's block, usable directly as generation constraints.
+- **Brand Personality and Brand Values templates fixed.** Personality-spectrum position markers are now unique per axis, so edits land on the right row. Brand Values' priority order is expressed by the values table's own row order, not a separate ranked list.
+
 ## v0.2.3 — Hardening pass
 *Released 2026-07-14*
 

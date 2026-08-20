@@ -1,5 +1,5 @@
 # Messaging Pillars · BRND-10
-*Voice & Messaging · Page 3 of 4*
+*Voice & Messaging · Dimension 3 of 4*
 
 **Fills:** 3–5 pillar blocks (headline, one-liner, proof points, channel expressions)
 **Frameworks:** Message Architecture (Margot Bloomstein, 2012) → `frameworks.md §22`; Positioning-to-Messaging Bridge (Dunford, 2019) → `frameworks.md §23`; Proof Hierarchy (Cialdini, 2006) → `frameworks.md §24`
@@ -17,7 +17,7 @@
 
 ## Upstream Dependencies
 
-This page is the messaging layer on top of BRND-5 (Brand Positioning) and informed by BRND-3 (ICPs), BRND-8 (Brand Story), and BRND-9 (Voice & Tone).
+This dimension is the messaging layer on top of BRND-5 (Brand Positioning) and informed by BRND-3 (ICPs), BRND-8 (Brand Story), and BRND-9 (Voice & Tone).
 
 - From BRND-5: the positioning statement is the source. Each pillar should express a facet of the positioning — the unique value, the market category, or the audience truth.
 - From BRND-3: the ICP's jobs (functional, emotional, social) help determine which claims matter most to the audience.
@@ -101,9 +101,9 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Pillar heading | `### Pillar N [Headline]` | A short, punchy claim — not a topic or category. Should be ownable by this brand and traceable to the positioning statement. **Layout note:** the template uses a three-column layout (one column per pillar). When writing to Notion, each pillar occupies its own column block. |
+| Pillar heading | `### Pillar N [Headline]` | A short, punchy claim — not a topic or category. Should be ownable by this brand and traceable to the positioning statement. **Layout note:** pillars are parallel blocks, one per pillar. On backends with column layouts (like Notion) each pillar occupies its own column; linear backends stack the pillars sequentially — see the loaded adapter's rendering rules. |
 | One-liner | `One-liner:` | One sentence — the claim in its clearest, most portable form. Should work as a standalone sentence anywhere. |
 | Proof points | `Proof points:` | 2–3 specific, provable facts or examples. At least one should be externally verifiable. Written as a bulleted list with enough specificity that a skeptic could check them. |
 | Channel expressions | `Channel expressions:` | Prose or structured list showing how the pillar shows up across 3–4 channels (homepage, sales deck, social, cold email). Each expression differs in register and entry point, not just length. |

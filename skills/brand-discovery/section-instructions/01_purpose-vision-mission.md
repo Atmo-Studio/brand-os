@@ -1,5 +1,5 @@
-# Purpose, Vision, & Mission · BRND-1
-*Foundations · Page 1 of 2*
+# Purpose, Vision & Mission · BRND-1
+*Foundations · Dimension 1 of 2*
 
 **Fills:** Brand purpose, Vision, Mission
 **Frameworks:** Golden Circle (Sinek), Core Ideology + BHAG (Collins & Porras) → `frameworks.md §1, §2`
@@ -85,11 +85,11 @@ Run all three internally. Surface the single strongest concern.
 
 ## Fill Targets
 
-| Field | Notion section | Format |
+| Field | Heading | Format |
 |---|---|---|
-| Brand purpose | `# Brand purpose` | `[Brand] exists to ______.` |
-| Vision | `# Vision` | `To [aspirational future state].` |
-| Mission | `# Mission` | `To [verb] [audience] [toward what outcome].` |
+| Brand purpose | `## Brand purpose` | `[Brand] exists to ______.` |
+| Vision | `## Vision` | `To [aspirational future state].` |
+| Mission | `## Mission` | `To [verb] [audience] [toward what outcome].` |
 
 *Purpose: substitution test passes — competitor name breaks the statement.*
 *Vision: a changed world, not a business target. Specific enough to mean something.*

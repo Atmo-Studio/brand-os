@@ -1,12 +1,12 @@
 # Brand Strategy Frameworks
 
-Reference document for Brand OS discovery interviews. Each framework is tagged with the pages that use it. Read only the sections relevant to the page you're working on.
+Reference document for Brand OS discovery interviews. Each framework is tagged with the dimensions that use it. Read only the sections relevant to the dimension you're working on.
 
 ---
 
 ## Index
 
-| # | Framework | Author | Pages |
+| # | Framework | Author | Dimensions |
 |---|---|---|---|
 | 1 | The Golden Circle | Sinek | BRND-1 |
 | 2 | Core Ideology + BHAG | Collins & Porras | BRND-1, BRND-2 |
@@ -38,7 +38,7 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 ---
 
 ## 1. The Golden Circle (Simon Sinek)
-*Pages: BRND-1*
+*Dimensions: BRND-1*
 
 ### Structure
 
@@ -85,7 +85,7 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 ---
 
 ## 2. Core Ideology + BHAG (Collins & Porras)
-*Pages: BRND-1, BRND-2*
+*Dimensions: BRND-1, BRND-2*
 
 ### Structure
 
@@ -136,7 +136,7 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 ---
 
 ## 3. Core Values Framework (Lencioni)
-*Pages: BRND-2*
+*Dimensions: BRND-2*
 
 ### Four Types of Values
 
@@ -186,7 +186,7 @@ Value name
 ---
 
 ## 4. Jobs-to-be-Done (Christensen et al.)
-*Pages: BRND-3*
+*Dimensions: BRND-3*
 
 ### Core Premise
 
@@ -243,7 +243,7 @@ People don't buy products — they hire them to do a job. The job existed before
 ---
 
 ## 5. Positioning Map (Perceptual Map)
-*Pages: BRND-4*
+*Dimensions: BRND-4*
 
 ### How to Build
 
@@ -290,7 +290,7 @@ People don't buy products — they hire them to do a job. The job existed before
 ---
 
 ## 6. Blue Ocean / Value Curve (Kim & Mauborgne)
-*Pages: BRND-4*
+*Dimensions: BRND-4*
 
 ### Core Premise
 
@@ -329,7 +329,7 @@ Plot competing factors on the X-axis (e.g., price, speed, depth, support, presti
 ---
 
 ## 7. Competitive Differentiation Matrix
-*Pages: BRND-4*
+*Dimensions: BRND-4*
 
 ### Template
 
@@ -353,7 +353,7 @@ Plot competing factors on the X-axis (e.g., price, speed, depth, support, presti
 ---
 
 ## 8. Obviously Awesome Positioning (April Dunford)
-*Pages: BRND-5*
+*Dimensions: BRND-5*
 
 ### Core Premise
 
@@ -403,7 +403,7 @@ If a competitor's name could replace the brand name and the positioning still ho
 ---
 
 ## 9. Positioning Statement (Geoffrey Moore)
-*Pages: BRND-5*
+*Dimensions: BRND-5*
 
 ### Formula
 
@@ -441,7 +441,7 @@ For safety-conscious families who want peace of mind, Volvo is the car manufactu
 ---
 
 ## 10. Brand Pyramid (Keller)
-*Pages: BRND-5*
+*Dimensions: BRND-5*
 
 ### Structure
 
@@ -481,7 +481,7 @@ For safety-conscious families who want peace of mind, Volvo is the car manufactu
 ---
 
 ## 11. Brand Archetypes (Jung, via Mark & Pearson)
-*Pages: BRND-6*
+*Dimensions: BRND-6*
 
 ### Core Premise
 
@@ -516,7 +516,7 @@ Audiences recognize brands the way they recognize characters — through archety
 ---
 
 ## 12. Personality Spectrum (proprietary axis model)
-*Pages: BRND-6*
+*Dimensions: BRND-6*
 
 ### Core Premise
 
@@ -551,7 +551,7 @@ Sincerity · Excitement · Competence · Sophistication · Ruggedness. Use as or
 ---
 
 ## 13. Brand Character Prism (Kapferer)
-*Pages: BRND-6*
+*Dimensions: BRND-6*
 
 ### The Six Facets
 
@@ -587,7 +587,7 @@ Sincerity · Excitement · Competence · Sophistication · Ruggedness. Use as or
 ---
 
 ## 14. Brand Identity System (Wheeler)
-*Pages: BRND-7*
+*Dimensions: BRND-7*
 
 ### Core Premise
 
@@ -616,7 +616,7 @@ Vision · Meaning · Authenticity · Differentiation · Durability · Coherence 
 ---
 
 ## 15. Design Token Hierarchy (Nathan Curtis)
-*Pages: BRND-7*
+*Dimensions: BRND-7*
 
 ### Core Premise
 
@@ -624,7 +624,7 @@ Design decisions become portable when named as **tokens** — and tokens live in
 
 ### How BRND-7 Uses This
 
-The BRND-7 page captures decisions at the **semantic level** — "the accent (one saturated hex) is the signal color, used scarcely, never for backgrounds" — because semantic decisions survive redesigns while primitives and components churn. The token-readiness rule follows from this: a color without a hex can't become a primitive; a color without a role can't become semantic ("hex codes without roles are decoration").
+The BRND-7 dimension captures decisions at the **semantic level** — "the accent (one saturated hex) is the signal color, used scarcely, never for backgrounds" — because semantic decisions survive redesigns while primitives and components churn. The token-readiness rule follows from this: a color without a hex can't become a primitive; a color without a role can't become semantic ("hex codes without roles are decoration").
 
 ### Naming Convention
 Code-format names (`color/safety-orange`, `type/display`) keep Figma ↔ code 1:1 when the identity later becomes a `brand/` library.
@@ -639,7 +639,7 @@ Code-format names (`color/safety-orange`, `type/display`) keep Figma ↔ code 1:
 ---
 
 ## 16. StoryBrand / SB7 (Donald Miller)
-*Pages: BRND-8*
+*Dimensions: BRND-8*
 
 ### Core Premise
 
@@ -688,7 +688,7 @@ The guide establishes authority without becoming the hero:
 ---
 
 ## 17. Hero's Journey applied to brand narrative (Campbell / Vogler)
-*Pages: BRND-8*
+*Dimensions: BRND-8*
 
 ### Core Premise
 
@@ -720,7 +720,7 @@ RETURN         Transformation made permanent — who the customer has
 ---
 
 ## 18. Narrative Transportation (Green & Brock)
-*Pages: BRND-8*
+*Dimensions: BRND-8*
 
 ### Core Premise
 
@@ -746,7 +746,7 @@ When a reader is "transported" into a story — absorbed enough to lose evaluati
 ---
 
 ## 19. Voice & Tone Spectrum (Content Design London)
-*Pages: BRND-9*
+*Dimensions: BRND-9*
 
 ### Core Premise
 
@@ -780,7 +780,7 @@ Precise          concrete numbers,     pedantic, hedge-heavy,
 ---
 
 ## 20. Content Design Principles (Podmajersky)
-*Pages: BRND-9*
+*Dimensions: BRND-9*
 
 ### Core Premise
 
@@ -807,7 +807,7 @@ Voice becomes operational through a **voice chart**: each brand principle expand
 ---
 
 ## 21. Four Dimensions of Tone of Voice (Nielsen Norman Group)
-*Pages: BRND-9*
+*Dimensions: BRND-9*
 
 ### The Four Axes
 
@@ -857,7 +857,7 @@ Enthusiastic   ←───────────────────→  
 ---
 
 ## 22. Message Architecture / Messaging Pillars (Bloomstein)
-*Pages: BRND-10*
+*Dimensions: BRND-10*
 
 ### Core Premise
 
@@ -900,7 +900,7 @@ Messaging pillars are the 3–5 core claims a brand repeats consistently across 
 ---
 
 ## 23. Positioning-to-Messaging Bridge (Dunford)
-*Pages: BRND-10*
+*Dimensions: BRND-10*
 
 ### Core Premise
 
@@ -932,7 +932,7 @@ Market category                →  the frame that makes every pillar instantly 
 ---
 
 ## 24. Proof Hierarchy (Cialdini)
-*Pages: BRND-10*
+*Dimensions: BRND-10*
 
 ### Core Premise
 
@@ -960,7 +960,7 @@ Claims persuade in proportion to the **quality of proof behind them** — and pr
 ---
 
 ## 25. Tagline Architecture (Ries & Trout)
-*Pages: BRND-11*
+*Dimensions: BRND-11*
 
 ### Core Premise
 
@@ -990,7 +990,7 @@ A tagline is **positioning compressed to its most portable form** — the one id
 ---
 
 ## 26. Sticky Message Principles (Heath & Heath)
-*Pages: BRND-11*
+*Dimensions: BRND-11*
 
 ### Core Premise
 
