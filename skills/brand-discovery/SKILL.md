@@ -12,7 +12,7 @@ description: Runs the Brand OS discovery interview — a structured, framework-g
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # `brand-discovery`
@@ -67,7 +67,7 @@ Every session ends with a handover — always, whether the user wants to continu
 ## PHASE 1 — Setup
 
 **Print once at the start of every session, before any other output:**
-*Brand OS plugin v0.3.0 loaded.*
+*Brand OS plugin v0.3.1 loaded.*
 (Release rule: this string must match `version` in `.claude-plugin/plugin.json` and `metadata.version` in this file's frontmatter. All three change together.)
 
 Run this phase at the start of every session. Step 0 always runs. Step A runs only if Step 0 doesn't lock a storage locator. Step B always runs. Step B.1 runs on resumed sessions only. Steps C–D run only on a fresh workspace — skip them on resumed sessions (Step B handles the routing decision).
