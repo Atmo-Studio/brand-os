@@ -46,7 +46,7 @@ Brand OS runs on any harness that supports the Agent Skills format. Claude-speci
 
 ### Option A: Cowork plugin (Claude desktop app)
 
-**[Download brand-os.plugin](https://github.com/Atmo-Studio/brand-os/raw/main/brand-os-v0.3.1.plugin)**
+**[Download the latest release](https://github.com/Atmo-Studio/brand-os/releases/latest)** — grab the `.plugin` asset.
 
 Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**. Skills load automatically. Skip to [Set up the Knowledge Base](#set-up-the-knowledge-base).
 

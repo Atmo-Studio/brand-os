@@ -10,7 +10,7 @@ description: Guides users through designing and building their Claude project
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.2.3"
+  version: "0.3.2"
 ---
 
 # `workspace-setup`
@@ -109,7 +109,7 @@ Extract for immediate use before opening with the user:
 - Update `last_updated`
 
 *End of Phase 3 (module activated):*
-- **Brand OS:** the storage step (`brand-discovery/references/storage-setup.md` §5) is the sole writer of the `modules.brand_os` entry — it writes the full entry (`project_id`, `status`, `storage`, locator, `page_prefix`, `connected_at`) **and** appends `brand_os` to `setup_progress.phase_3_modules.modules_activated`. Do not re-write the entry or re-append the module name here; just confirm both are present. (Re-appending would produce a duplicate — the storage step already added it.)
+- **Brand OS:** the storage step (`../brand-discovery/references/storage-setup.md` §5) is the sole writer of the `modules.brand_os` entry — it writes the full entry (`project_id`, `status`, `storage`, locator, `page_prefix`, `connected_at`) **and** appends `brand_os` to `setup_progress.phase_3_modules.modules_activated`. Do not re-write the entry or re-append the module name here; just confirm both are present. (Re-appending would produce a duplicate — the storage step already added it.)
 - **Any module that does NOT go through the storage step** (e.g. agent-persona): append its name to `setup_progress.phase_3_modules.modules_activated` **only if not already present**.
 - Leave `phase_3_modules.complete: false` while other modules remain available to activate — it is not a routing gate, so `false` is the honest resting value, not an unfinished state.
 - Update `last_updated`
@@ -403,6 +403,6 @@ Workspaces age. `workspace-config.md` carries a `schema_version` (currently `"1.
 
 Re-running `workspace-setup` is the update mechanism. There is no separate updater skill, and there shouldn't be one: Phase 0 already reads `setup_progress` on every session and routes the user to wherever they left off. Extending that same routing to also notice a stale `schema_version` — and offer to bring the workspace's skill wiring current — is the natural fit, not a new capability bolted on beside it. When that check is built, it belongs in Phase 0 Step A, alongside the existing resume-routing logic, and it should behave the same way that logic already does: read silently, then open the conversation with what was found rather than acting first and explaining after.
 
-For the shape an update like this should take, `notion-connect`'s deprecation is the worked example already in production. As of v0.3 it's deprecated in favor of in-flow storage connection, and rather than disappearing outright it redirects for one release before removal (see `brand-os/CLAUDE.md`). A future rename or removal of any skill or config field should follow the same pattern: keep the old name or shape working long enough to redirect users to the new one, give it exactly one release of runway, then remove it.
+For the shape an update like this should take, `notion-connect`'s deprecation is the worked example. In v0.3 it was deprecated in favor of in-flow storage connection and kept as a redirect rather than disappearing outright; it was removed after that one release of runway. A future rename or removal of any skill or config field should follow the same pattern: keep the old name or shape working long enough to redirect users to the new one, give it exactly one release of runway, then remove it.
 
 Whatever form the update takes, it must never touch three things: `workspace-config.md`'s `Notes` section, which is append-only and user-editable by the existing rule in `workspace-config.template.md` ("The Notes section is append-only — newest entry first. Users may edit Notes freely; do not modify other sections outside of the defined write points"); any brand data written by Brand OS or its adapters; and any handover history. An update touches wiring and schema shape, never the record of what the user has already built.

@@ -1,5 +1,5 @@
 # Brand OS — Storage Resolution
-*Part of the `brand-discovery` skill · The single shipped runtime copy of "Phase 1 step 1" — every consumer skill (`brand-discovery`, `brand-filter`, `on-voice`, `brand-brief`, `workspace-setup`) points here instead of restating this algorithm. The normative design spec is `dev/2026-07-16_storage-contract.md`; that file is never packaged, so this is the copy that actually ships and actually runs.*
+*Part of the `brand-discovery` skill · The single shipped runtime copy of "Phase 1 step 1" — every consumer skill (`brand-discovery`, `brand-filter`, `on-voice`, `brand-brief`, `workspace-setup`) points here instead of restating this algorithm. The normative design spec is `storage-contract.md`, alongside this file; that document defines *what* a compliant backend must do, this one is the procedure that actually runs.*
 
 Load this file whenever a skill needs to resolve which brand space it's operating on, whether the cached status map can be trusted, or what prefix to use when writing a dimension reference. Skip whichever sections don't apply to the calling skill — a read-only skill that never writes has no use for §5's write-path clause, for example.
 
@@ -57,6 +57,6 @@ Read-only consumers (`brand-filter`, `on-voice`, `brand-brief`) never write to t
 
 ## 6 · `list-dimensions` integrity-failure surfacing
 
-Every adapter's `list-dimensions` asserts, before returning: exactly 11 dimensions, Order values forming the complete canonical set with no nulls or duplicates, Status values within the canonical three, Section values within the four canonical sections. Full assertion definitions and rationale live in `dev/2026-07-16_storage-contract.md`.
+Every adapter's `list-dimensions` asserts, before returning: exactly 11 dimensions, Order values forming the complete canonical set with no nulls or duplicates, Status values within the canonical three, Section values within the four canonical sections. Full assertion definitions and rationale live in `storage-contract.md` § `list-dimensions` integrity assertions.
 
 **If `list-dimensions` reports a failed assertion: report which one failed and what the user must correct, then stop.** Do not repair it — Order, Name, and Section are structure, and structure is read-only; no consumer may fix them, including this one. Do not route on the unreliable map — a wrong "first incomplete dimension" sends the user back into an interview they already finished. This applies identically whether the consumer reads dimensions to interview, evaluate, draft, or brief.

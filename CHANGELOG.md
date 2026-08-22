@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.3.2 — Cleanup and release-process hardening
+
+Housekeeping. No interview, scoring, or storage behavior changes — every fix here is a broken pointer, a stale reference, or a gap in how releases get checked.
+
+### Removed
+- **`notion-connect` is gone.** Deprecated in v0.3 and kept as a compatibility redirect for one release, as its own deprecation notice promised. Storage connection happens in-flow: `brand-discovery` Step A and `workspace-setup` Phase 3 resolve or set up storage themselves, and the `storage-architect` agent handles scaffolding, discovery, and migration.
+
+### Changed
+- **The storage contract now ships.** `skills/brand-discovery/references/storage-contract.md` was maintainer-only; two shipped files referenced it for the integrity-assertion rules, so buyers hit a path they didn't have. It carries its own `Contract version` stamp now, independent of plugin releases.
+
+### Fixed
+- **Dead references to unpackaged files.** `storage-resolution.md` pointed twice at a path under `dev/` that no install contains, including for the `list-dimensions` integrity-assertion rules. The contract it referenced now ships alongside it.
+- **Relative paths that only resolved from the repo root.** `google-docs.md` cited `storage-setup.md` as a sibling when it sits one level up; `storage-contract.md` cited its own siblings by full repo path and `handover-protocol.md` by bare name; `brand-os-handover` and `workspace-setup` each named a cross-skill file without the `../` that makes it resolvable. Every intra-package reference now resolves from the file that makes it.
+
 ## v0.3.1 — Post-release hardening
 
 Fixes from the v0.3 manual test sweep that didn't block shipping 0.3.0: plumbing, drift, and spec gaps, no scoring-engine or interview-quality defects.

@@ -13,7 +13,7 @@ description: Runs any decision, idea, or draft through decision filters derived 
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # `brand-filter`

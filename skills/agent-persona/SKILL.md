@@ -11,7 +11,7 @@ description: Personalizes the workspace agent by guiding the user through an
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.2.3"
+  version: "0.3.1"
 ---
 
 # `agent-persona`

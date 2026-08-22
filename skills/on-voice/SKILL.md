@@ -12,7 +12,7 @@ description: Generates or rewrites content in the brand's documented voice — g
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # `on-voice`

@@ -12,7 +12,7 @@ description: Compiles the brand knowledge base into a purpose-shaped brief for a
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # `brand-brief`

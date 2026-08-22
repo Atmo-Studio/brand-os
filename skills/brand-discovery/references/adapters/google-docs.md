@@ -13,7 +13,7 @@
 >
 > **To unpark:** when a connector exposing a Docs edit verb (`documents.batchUpdate`
 > or equivalent) becomes available off-the-shelf, (1) re-add Google Docs to the
-> choice in `storage-setup.md` §1, (2) restore it in `brand-discovery`'s frontmatter
+> choice in `../storage-setup.md` §1, (2) restore it in `brand-discovery`'s frontmatter
 > `description` and "What You Are", (3) re-run the capability probe below against the
 > new connector, and (4) settle the two rendering questions in the parked-issues note
 > — callout weight and the pillars-table-vs-headings collision. Everything else here
@@ -30,7 +30,7 @@ Implements the Brand OS storage contract on Google Drive + Google Docs. There ar
 
 **Tool requirement — check this before offering Google Docs.** This backend needs an **update** capability: a tool that modifies the content of an existing Doc. `write-dimension` and `set-status` are both updates-in-place, so a connector exposing only create/copy/read/search satisfies every other line of this adapter and still cannot run a session past scaffolding. Many stock Drive connectors are create-only.
 
-So: probe for update capability **during the grant check** (`storage-setup.md` §2), not after scaffolding. If the connected tools can create but not update, say so before the user commits:
+So: probe for update capability **during the grant check** (`../storage-setup.md` §2), not after scaffolding. If the connected tools can create but not update, say so before the user commits:
 
 > "Your Drive connection can create files but not edit them, so Brand OS can't update your brand docs as we go. Two options: connect a Drive/Docs tool with edit access, **or start in a local markdown folder now and switch later; nothing is lost in the move.**"
 
