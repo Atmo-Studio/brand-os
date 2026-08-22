@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.3.1 — Post-release hardening
+
+Fixes from the v0.3 manual test sweep that didn't block shipping 0.3.0: plumbing, drift, and spec gaps, no scoring-engine or interview-quality defects.
+
+### Fixed
+- **Storage resolution no longer drifts across skills.** The handover-cache and workspace-config resolution rules were restated in five places and had gone out of sync — most consumers were missing the null-locator handling brand-discovery had. Consolidated into one shipped reference every skill points at.
+- **Page-prefix and stale-cache handling defined for the first time.** A brand's configured ID prefix is now read back and used consistently by every writer, instead of never being read at all. Cached handover status maps are trusted for routing but re-verified before any write.
+- **brand-filter's filter set no longer changes mid-loop.** A proposal containing copy the original input lacked used to leave it ambiguous whether the Voice and Pillar-fit filters should join the re-score. They don't — the set freezes at diagnosis.
+- **brand-filter's cross-run pattern check is now an explicit ask**, not a silent skip on an unevaluatable precondition.
+- **agent-persona's minimal config now stamps the same schema version** as every other writer.
+- **`package.sh` no longer leaves stray `.DS_Store` files in the public repo's working tree.**
+
+### Changed
+- **All nine skills are reachable in the reference dev workspace**, not just four — the operational layer (`brand-filter`, `on-voice`, `brand-brief`) and `agent-persona` are now mirrored alongside the original four.
+- **Brand OS runs on any harness that supports the Agent Skills format** — now stated explicitly in the README, not just implied.
+
 ## v0.3.0 — Storage abstraction + the operational layer
 
 Brand OS becomes storage-agnostic and starts using the brand it builds.

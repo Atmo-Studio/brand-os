@@ -42,6 +42,8 @@ The brand develops conviction and starts acting on it. Worldview runs on the kno
 
 You need an agent environment that supports skills (`.claude/skills/` or equivalent). The knowledge base lives in the storage you choose: Notion or a local markdown folder.
 
+Brand OS runs on any harness that supports the Agent Skills format. Claude-specific features (AskUserQuestion widgets, MCP connections) are optional enhancements with a documented fallback.
+
 ### Option A: Cowork plugin (Claude desktop app)
 
 **[Download brand-os.plugin](https://github.com/Atmo-Studio/brand-os/raw/main/brand-os-v0.3.0.plugin)**

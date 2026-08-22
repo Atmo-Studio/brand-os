@@ -238,6 +238,6 @@ Refinement questions (Phase 3) are inline — in-path confirmations, not branchi
 
 - **SOUL.md writes are surgical.** Rewrite `## Core Character` only. Add `## Engagement Mode` after `## Mode Switching`. Do not touch any other section.
 - **If SOUL.md doesn't exist:** Tell the user — SOUL.md ships with the Brand OS plugin. Provide the Core Character block and Engagement Mode section as text for manual addition.
-- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, create it as a minimal config — YAML frontmatter with `schema_version: "1.1"`, `created_at`, and the `persona` block; nothing else — and tell the user in one line. Running `workspace-setup` later builds on this file.
+- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, create it as a minimal config — YAML frontmatter with `schema_version: "1.2"`, `created_at`, and the `persona` block; nothing else — and tell the user in one line. Running `workspace-setup` later builds on this file.
 - **The new persona takes effect next session.** Do not attempt to reload SOUL.md mid-session. Tell the user at close.
 - **Brand personality sync (future).** After brand-discovery completes, the agent can be synced to the brand: pull Voice & Tone (BRND-9) and Brand Personality (BRND-6) and update Core Character accordingly. Not built here — flag it at close as a next step for when brand-discovery is complete.

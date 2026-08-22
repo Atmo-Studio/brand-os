@@ -28,14 +28,18 @@ Before writing anything, assemble:
   next connected session to sync)
 - **storage** + **locator** — the locked backend type and locator for this session.
   Cache both in the handover doc so future sessions skip storage resolution entirely.
+- **page-prefix** — the resolved `page_prefix` for this brand (from `workspace-config.md`,
+  or `BRND` if unset). Cache it here too, per
+  `references/storage-resolution.md` §4, so a resumed session doesn't need to
+  re-resolve it just to render the status map correctly.
 - **project_id** — the `workspace-config.md → projects[]` id this brand belongs to
   (`default` where none is defined). Stamps the handover with the brand it came from
   so Step 0 can filter candidates before sorting by recency.
 - **status-map** — full 11-dimension status map. Use the Status values you've read or
   updated this session; for dimensions not touched, use the last-known status from
   the backend or the cached map loaded at startup. One entry per dimension:
-  `BRND-N · [Dimension Name]: [Complete | In progress | Not started]`
-  (using the workspace's configured prefix)
+  `[prefix]-N · [Dimension Name]: [Complete | In progress | Not started]`
+  (using the resolved `page-prefix`, never a hardcoded `BRND`)
 - **conversation-notes** — structured key-value bullets capturing live
   conversational state not yet reflected in the knowledge base: working candidates
   discussed but not confirmed (`working-candidate:`), decisions made in conversation
@@ -126,6 +130,7 @@ mechanism changes.
 Project: [project_id]
 Storage: [storage]
 Locator: `[locator]`
+Page prefix: [page-prefix]
 (Future sessions can use this directly — no need to re-run storage resolution.)
 
 ## Completed this session
@@ -138,8 +143,8 @@ Sections remaining: [sections-remaining in order]
 
 ## Status Map
 [Render status-map verbatim — one line per dimension, e.g.:]
-BRND-1 · Purpose, Vision & Mission: Complete
-BRND-2 · Brand Values: Complete
+[prefix]-1 · Purpose, Vision & Mission: Complete
+[prefix]-2 · Brand Values: Complete
 ...
 
 ## Confirmed drafts (not yet written to the knowledge base)
@@ -173,6 +178,7 @@ Paste this into a new Brand OS session to pick up where you left off:
 Project: [project_id]
 Storage: [storage]
 Locator: `[locator]`
+Page prefix: [page-prefix]
 (Future sessions can use this directly — no need to re-run storage resolution.)
 
 ## Completed this session
@@ -185,8 +191,8 @@ Section [sections-complete + 1] of 4 in progress.
 
 ## Status Map
 [Render status-map verbatim — one line per dimension, e.g.:]
-BRND-1 · Purpose, Vision & Mission: Complete
-BRND-2 · Brand Values: Complete
+[prefix]-1 · Purpose, Vision & Mission: Complete
+[prefix]-2 · Brand Values: Complete
 ...
 
 ## Confirmed drafts (not yet written to the knowledge base)

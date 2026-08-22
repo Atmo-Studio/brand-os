@@ -365,7 +365,7 @@ Present the available modules:
 
 **If they want Brand OS — run the storage step now, in this session:**
 
-1. Check `workspace-config.md → modules.brand_os` for an entry for this project (an entry with `notion_db_id` and no `storage` field is `storage: notion`). If one is connected, Brand OS is already active — tell them to invoke `brand-discovery`.
+1. Check `workspace-config.md → modules.brand_os` for an entry for this project (an entry with `notion_db_id` and no `storage` field is `storage: notion`). **If the matched entry has a non-null locator, Brand OS is already active** — tell them to invoke `brand-discovery`. **If the entry exists but its locator is null, the brand is staged, not connected** (see `../brand-discovery/references/storage-resolution.md` §2) — treat this the same as no entry and continue to step 2, not step 3.
 2. Otherwise, load `../brand-discovery/references/storage-setup.md` and run it end to end — it asks where the brand should live, deploys the Storage Architect for the scaffolding or discovery, writes the `modules.brand_os` entry, and locks the locator.
 3. When it returns, tell them to invoke `brand-discovery` to begin the interview.
 
@@ -394,3 +394,15 @@ If the tool is unavailable, present the same options as inline text. Core behavi
 - **Be direct and efficient.** Short, vague answers get pushed back. The goal is instructions good enough that every future conversation feels like talking to someone who already knows the user's situation deeply.
 - **Work without MCP if needed.** Core behaviors — the interview, gap check, instruction drafting, briefing document — must function as plain conversation in any agentic environment. MCP tool calls (file reads, Notion writes, etc.) are enhancements. If they're not available, the skill degrades gracefully: ask the user to paste relevant content rather than reading it directly.
 - **workspace-config.md is the source of truth for session state.** Read it at the start of every session. Write completed project state back to it at the end of Phase 2 Step F. Full read/write spec is in Phase 0 Step A above; schema is in `workspace-config.template.md`.
+
+---
+
+## Update Path
+
+Workspaces age. `workspace-config.md` carries a `schema_version` (currently `"1.2"`), and that field is the version marker for the workspace as a whole — not just the config file's own shape. A workspace is stale when its `schema_version` predates the current one, or when its entries are missing fields the current schema defines even though the version string looks current. There is no single place today that states "this skill expects schema 1.2" and checks for it explicitly — that's a known gap, not something this pass solves. Treat it as a real gap when reasoning about staleness, not as already handled elsewhere.
+
+Re-running `workspace-setup` is the update mechanism. There is no separate updater skill, and there shouldn't be one: Phase 0 already reads `setup_progress` on every session and routes the user to wherever they left off. Extending that same routing to also notice a stale `schema_version` — and offer to bring the workspace's skill wiring current — is the natural fit, not a new capability bolted on beside it. When that check is built, it belongs in Phase 0 Step A, alongside the existing resume-routing logic, and it should behave the same way that logic already does: read silently, then open the conversation with what was found rather than acting first and explaining after.
+
+For the shape an update like this should take, `notion-connect`'s deprecation is the worked example already in production. As of v0.3 it's deprecated in favor of in-flow storage connection, and rather than disappearing outright it redirects for one release before removal (see `brand-os/CLAUDE.md`). A future rename or removal of any skill or config field should follow the same pattern: keep the old name or shape working long enough to redirect users to the new one, give it exactly one release of runway, then remove it.
+
+Whatever form the update takes, it must never touch three things: `workspace-config.md`'s `Notes` section, which is append-only and user-editable by the existing rule in `workspace-config.template.md` ("The Notes section is append-only — newest entry first. Users may edit Notes freely; do not modify other sections outside of the defined write points"); any brand data written by Brand OS or its adapters; and any handover history. An update touches wiring and schema shape, never the record of what the user has already built.

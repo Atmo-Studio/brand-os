@@ -49,15 +49,12 @@ This skill layers brand judgment on top of the host agent's personality.
 
 Run this silently before any evaluation.
 
-1. **Resolve storage, in order:**
-   - The most recent `*_brand-os-handover-*.md` file in the current project's folder — read its `Storage:` and `Locator:` fields (a legacy `Brand OS database ID:` field means `storage: notion` with that ID as the locator).
-   - The `workspace-config.md → modules.brand_os` entry for the current project scope. This is a list — one entry per brand; match the current project folder and use only that entry. An entry with `notion_db_id` and no `storage` field means `storage: notion`. If scope is genuinely ambiguous (multiple active entries, no clear project folder), ask which brand this run is for.
-   - A URL or path the user included in their request.
+1. **Resolve storage** by following `../brand-discovery/references/storage-resolution.md` §1–3 (handover cache → `workspace-config.md` → user-provided URL/path).
 2. **On success:** load the adapter from `../brand-discovery/references/adapters/{storage}.md`, lock the storage + locator for this session. All reads go through the adapter against that exact locator — no re-resolution, no silent redirects.
 3. **Nothing resolves:** this brand has no knowledge base. Do not scaffold one, do not deploy any setup agent — that's `brand-discovery`'s job. Offer both paths in one breath:
    > "There's no brand knowledge base connected here. Two options: run **brand-discovery** to build one, or paste whatever brand material you have and I'll evaluate against that for this session only. Session-only results carry a note that they aren't grounded in a Brand OS knowledge base."
    If the user chooses materials mode, run the filter set against what they provide, mark every unsupported filter unscored, and label the output plainly: *Evaluated against provided materials, not a Brand OS knowledge base.* Nothing is persisted.
-4. **Load the status map:** `list-dimensions`, once. Dimensions marked `In progress`, or containing an "⚠️ Untested – Please Review" flag, are usable but **provisional** — say so wherever their content backs a score.
+4. **Load the status map:** `list-dimensions`, once. Dimensions marked `In progress`, or containing an "⚠️ Untested – Please Review" flag, are usable but **provisional** — say so wherever their content backs a score. If `list-dimensions` reports a failed integrity assertion, follow `../brand-discovery/references/storage-resolution.md` §6 — report the failure and stop, rather than proceeding with the run.
 
 ---
 
@@ -123,6 +120,8 @@ The mandate is critical thinking: help the founder pursue genuinely unique ideas
 
 When a proposal is or contains copy, write it per the Voice & Tone Guide — vocabulary table, applicable tone mode — before scoring it. The Voice filter scores the proposal as written, not as intended.
 
+**The filter set is frozen at diagnosis.** Whatever Phase 2 step 2 classified — six core filters, or eight if the original input was/contained copy — stays fixed through Phase 3's re-score. If the original input was non-copy (six filters) and the proposal happens to contain copy, that does **not** add the Voice or Pillar-fit filters mid-loop: Voice & Tone Guide compliance is the writing constraint stated above, not a ninth scored row. This keeps the before/after tables comparable and the per-filter delta in step 5 meaningful.
+
 **3 · Re-score.** Run the proposal through the same filters against the same rubric bands, same rigor: every self-score cites knowledge-base language, exactly as in Phase 2. **A band only moves with a named change** — for each filter that improved, the rubric requires you to state what specifically moved it and quote the knowledge-base line that now supports it. If the proposal doesn't reach **9.0+**, diagnose why and iterate.
 
 **4 · Guardrails.** Hard cap: **5 internal iterations.** If no proposal honestly reaches 9.0+, stop and present the best attempt with its real score and a plain statement of what's blocking — usually a genuine gap in the knowledge base or a tension between dimensions, which is itself a finding. **Never inflate a score to exit the loop.** The grounding rule applies to your proposals exactly as it applies to the founder's input.
@@ -142,7 +141,9 @@ End every run — looped or not — with the meta-question:
 
 > "Is this a signal to change the work, or a signal the brand needs to evolve? Both are legitimate outcomes."
 
-**Answer it — don't just pose it.** Name which one is happening and why. If the user keeps decision records in their Documents area, check them (`list-documents`): the same filter producing the same tension across multiple runs is evolution pressure on the brand, not a string of coincidences.
+**Answer it — don't just pose it.** Name which one is happening and why.
+
+Then offer, don't assume: *"Want me to check past filter runs for a repeating pattern?"* Only call `list-documents` on yes — whether the user keeps decision records in their Documents area isn't something you can know without asking, and the check isn't free. If they say yes and past runs turn up the same filter producing the same tension, that's evolution pressure on the brand, not a string of coincidences — name it.
 
 If the answer points at the brand: record it as a recommendation in the output and point at the relevant brand-discovery section. Never edit a dimension yourself — the knowledge base changes only through discovery, with the founder in the room.
 
@@ -176,5 +177,5 @@ Use the widget at path-selection moments: the no-knowledge-base fork (discovery 
 - **Scoring runs on the rubric.** Bands, evidence rules, and improvement measurement live in `references/scoring-rubric.md` — load it before scoring, and never score from general impressions.
 - **No setup work.** This skill never scaffolds a space, never deploys the Storage Architect. Setup belongs to brand-discovery and workspace-setup.
 - **Locator lock.** Once resolved, the storage + locator hold for the session. Distinct brands are distinct spaces — never mix them.
-- **Never hardcode the ID prefix.** Reference dimensions by name or Order number; the prefix is user-configured.
+- **Never hardcode the ID prefix.** Reference dimensions by name or Order number; the prefix is user-configured — see `../brand-discovery/references/storage-resolution.md` §4.
 - **No scripts, no counters, no state.** Each run stands alone; the decision record is the only artifact.

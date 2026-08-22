@@ -58,7 +58,7 @@ Brand OS has four sections. Each section is one session. Do not attempt to compl
 | 3 | Brand Character | BRND-6 · Brand Personality — BRND-7 · Visual Identity |
 | 4 | Voice & Messaging | BRND-8 · Brand Story — BRND-9 · Voice & Tone — BRND-10 · Messaging Pillars — BRND-11 · Taglines |
 
-*(BRND-N is the template's default ID prefix — the user may have configured their own. Always reference dimensions by name or order number, never by a hardcoded prefix.)*
+*(BRND-N is the template's default ID prefix — the user may have configured their own. Always reference dimensions by name or order number, never by a hardcoded prefix; see `references/storage-resolution.md` §4 for how the real prefix is resolved.)*
 
 Every session ends with a handover — always, whether the user wants to continue immediately or return later. Sessions never roll directly into the next section; they always close cleanly first.
 
@@ -76,21 +76,11 @@ Run this phase at the start of every session. Step 0 always runs. Step A runs on
 
 Run this step silently before any backend calls.
 
-**Read the current project's `modules.brand_os` entry from `workspace-config.md` first**, if a config exists. It is a local file read costing nothing, and it is what lets the handover be *selected* correctly rather than selected wrongly and then rejected. **Reading that entry uses the same back-compat rule as Step A: an entry with a `notion_db_id` and no `storage` field is `storage: notion`.** (Stated here too because this is the one place it's needed on a path where Step A never runs.)
+**Read the current project's `modules.brand_os` entry from `workspace-config.md` first**, if a config exists — a local file read costing nothing, and it's what lets the handover be *selected* correctly rather than selected wrongly and then rejected.
 
-Then find the handover:
+Follow `references/storage-resolution.md` §1 (handover-cache resolution) to find and validate the handover. If it resolves: **load the matching adapter from `references/adapters/{storage}.md` in this skill folder**, store the status map for use in Step B, **carry any parked content from `## Confirmed drafts (not yet written to the knowledge base)` into Step B as the sync set** — that section is often absent, which is normal and means nothing is parked — **skip Step A entirely**, and proceed to Step B.
 
-1. **Glob** every `*_brand-os-handover-*.md` file under the current project's folder. Use the narrowest folder that is genuinely this brand's — but note that when a project's `instructions.path` is the workspace root, its folder *is* the whole workspace, and step 2's filter is the only thing separating brands. Exclude nested worktrees, build outputs, and vendored copies (`.claude/worktrees/`, `node_modules/`): those hold duplicates of files already in the list, not additional candidates.
-2. **Filter before you sort.** Read each candidate's `## Workspace` block — `Project:`, `Storage:`, `Locator:`, or in handovers written before v0.3 the legacy field `Brand OS database ID:`, which means `storage: notion` with that ID as the locator. Keep only candidates matching the current brand:
-   - a `Project:` line matching the config entry's `project_id` is an exact match — trust it and look no further;
-   - no `Project:` line → match `Locator:` against the config entry's locator;
-   - no config to check against → every candidate is eligible.
-
-   Discard the rest. **Recency selects only within the filtered set.** A newer handover belonging to a different brand is not a candidate and never a fallback — the most common way a session locks the wrong knowledge base is a dev or test handover written against a scratch space, which is newer than real work precisely because it is scratch.
-3. **Take the most recent survivor** and confirm it carries both a `## Workspace` block and a `## Status Map`. If it does: lock the storage and locator for this session, **load the matching adapter from `references/adapters/{storage}.md` in this skill folder**, store the status map for use in Step B, **carry any parked content from `## Confirmed drafts (not yet written to the knowledge base)` into Step B as the sync set** — that section is often absent, which is normal and means nothing is parked — **skip Step A entirely**, and proceed to Step B.
-4. **Fall through to Step A** if no file exists, nothing survives the filter, the survivor is unreadable, or either required section is absent.
-
-This is the primary startup path for resumed sessions. Step A is the fallback for first-ever sessions only.
+Fall through to Step A per §1's own fall-through condition (no file, nothing survives the filter, unreadable, or a required section absent). This is the primary startup path for resumed sessions. Step A is the fallback for first-ever sessions only.
 
 ---
 
@@ -98,11 +88,9 @@ This is the primary startup path for resumed sessions. Step A is the fallback fo
 
 If Step 0 found a valid handover file (storage + locator and `## Status Map` present), this step is skipped entirely.
 
-Resolve the brand's storage in this order:
+Resolve the brand's storage by following `references/storage-resolution.md` §2 (`workspace-config.md` matching) then §3 (user-provided URL or path). On a match from either: lock the resolved storage + locator, load `references/adapters/{storage}.md`, and proceed to Step B. Never mix one brand's knowledge base with another's.
 
-1. **`workspace-config.md` → `modules.brand_os`** — This is a **list** of brand instances. Distinct brands are distinct entries: each has its own `project_id`, its own `storage` + locator, and its own knowledge base — they do not share data. Brands are separated by **project folder**, so resolve by scope: match the `project_id` of the project folder this session is operating in, and use *only* that entry. If the workspace has just one entry, use it. **Back-compat:** an entry with a `notion_db_id` and no `storage` field is `storage: notion`. **If the matched entry exists but its locator is null (brand staged but not yet connected), do not resolve here — treat this brand as not connected and fall through to source 2, then 3.** Only if scope is genuinely ambiguous — no clear project folder and more than one active entry with a non-null locator — ask the user which brand this session is for. Lock the resolved entry's storage + locator, load `references/adapters/{storage}.md`, and proceed to Step B. Never mix one brand's knowledge base with another's.
-2. **User-provided URL or path** — If the user included a Notion URL, a Google Drive folder URL, or a local folder path in their session-start prompt, treat it as the confirmed selection. Infer the backend from its shape, resolve it to a locator, verify it with the adapter's `verify-space` check, lock it, load the adapter, and proceed to Step B. Do not search for alternatives. Offer once to save it: append the entry to `workspace-config.md` so future sessions skip this step.
-3. **In-flow storage setup** — Nothing resolves: this brand has no knowledge base yet. Load `references/storage-setup.md` from this skill folder and run it end to end — it asks where the brand should live, deploys the Storage Architect (`agents/storage-architect.md`) to scaffold or discover the space, writes the config entry, and locks the locator. When it returns, proceed to Step B. Do not send the user away to a separate setup step.
+**Nothing resolves** — this brand has no knowledge base yet. Load `references/storage-setup.md` from this skill folder and run it end to end — it asks where the brand should live, deploys the Storage Architect (`agents/storage-architect.md`) to scaffold or discover the space, writes the config entry, and locks the locator. When it returns, proceed to Step B. Do not send the user away to a separate setup step.
 
 **Locator session lock (hard requirement).**
 Once any knowledge base is confirmed, lock its storage + locator for the session. All subsequent reads and writes MUST go through the loaded adapter against that exact locator. Do not re-resolve mid-session. Silent redirects are prohibited.
@@ -115,7 +103,7 @@ If Step 0 carried a non-empty sync set from `## Confirmed drafts`, those dimensi
 
 For each parked dimension, in Order:
 
-1. **`read-dimension` first, and skip the sync if the backend already has content there.** A handover is a snapshot, not a ledger: if the dimension is already `Complete` with content, the backend is newer than the parked draft and syncing would overwrite current work with a stale copy. Skip it, and say so in one line. Only sync into a dimension that is empty or `Not started`.
+1. **`read-dimension` first, and skip the sync if the backend already has content there.** A handover is a snapshot, not a ledger: if the dimension is already `Complete` with content, the backend is newer than the parked draft and syncing would overwrite current work with a stale copy. Skip it, and say so in one line. Only sync into a dimension that is empty or `Not started`. (This per-dimension check is this skill's implementation of `references/storage-resolution.md` §5's freshness rule — trust the cache for routing, verify before writing.)
 2. `write-dimension` with the parked content. Preserve the parked *wording* exactly — this content was confirmed and is not yours to re-edit — while placing it into the dimension's existing skeleton. The handover renders fields as a bold label plus the content (`**Brand purpose**` + blockquote); the dimension has that same field as a heading plus the content. Map label → existing heading and write the content under it. Do not paste the handover's labels in as new text, and do not add headings the skeleton doesn't have.
 3. `set-status` to `Complete`.
 4. Update the cached status map to match what you just wrote.

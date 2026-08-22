@@ -47,14 +47,11 @@ This skill layers brand-writing expertise on top of the host agent's personality
 
 Run this silently before any writing.
 
-1. **Resolve storage, in order:**
-   - The most recent `*_brand-os-handover-*.md` file in the current project's folder — `Storage:` + `Locator:` (a legacy `Brand OS database ID:` field means `storage: notion` with that ID as the locator).
-   - The `workspace-config.md → modules.brand_os` entry for the current project scope — a list, one entry per brand; match the current project folder and use only that entry (`notion_db_id` with no `storage` field means `storage: notion`). Genuinely ambiguous scope → ask which brand.
-   - A URL or path the user included in their request.
+1. **Resolve storage** by following `../brand-discovery/references/storage-resolution.md` §1–3 (handover cache → `workspace-config.md` → user-provided URL/path).
 2. **On success:** load the adapter from `../brand-discovery/references/adapters/{storage}.md`, lock the storage + locator for this session.
 3. **Nothing resolves:** no knowledge base. Do not scaffold, do not deploy any setup agent. Offer both paths:
    > "There's no brand knowledge base connected here. Run **brand-discovery** to build one (its Voice & Messaging section is what powers this skill), or paste your voice guidelines and I'll write against those for this session only. Session-only drafts carry a note that they aren't grounded in a Brand OS knowledge base."
-4. **Load the status map** (`list-dimensions`, once) and apply the read map:
+4. **Load the status map** (`list-dimensions`, once) and apply the read map. If `list-dimensions` reports a failed integrity assertion, follow `../brand-discovery/references/storage-resolution.md` §6 — report the failure and stop, rather than proceeding with the draft.
 
 | Role | Dimension (Order) | Used for |
 |---|---|---|
@@ -131,5 +128,5 @@ Use the widget at path-selection moments: the no-knowledge-base fork, the missin
 - **Grounding:** the voice trace is mandatory on every delivered draft; inference is labeled as inference.
 - **No setup work.** Never scaffold a space, never deploy the Storage Architect.
 - **Locator lock.** Once resolved, storage + locator hold for the session. Distinct brands never mix.
-- **Never hardcode the ID prefix.** Reference dimensions by name or Order number.
+- **Never hardcode the ID prefix.** Reference dimensions by name or Order number — see `../brand-discovery/references/storage-resolution.md` §4.
 - **No scripts, no state.** Each session stands alone.
