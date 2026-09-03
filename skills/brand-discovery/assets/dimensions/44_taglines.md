@@ -7,7 +7,7 @@ status: not-started
 
 # Taglines
 
-Taglines are the sharpest compression of the brand's positioning and pillars into language that travels. Unlike pillars — which are durable and structural — taglines cycle. They're built for campaigns, contexts, and moments.
+Taglines are the sharpest compression of the brand's positioning and pillars into language that travels. Unlike pillars, which are durable and structural, taglines cycle. They're built for campaigns, contexts, and moments.
 
 > **Tagline principles**
 > - A tagline is not a mission statement. It's a punch, not an explanation.

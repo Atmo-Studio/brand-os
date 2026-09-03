@@ -11,9 +11,9 @@ The 3–5 core claims this brand repeats across every channel, with proof and ex
 
 *When writing a social post, an email, or a pitch, pick the pillar it belongs to and let the proof points and expressions below guide the register.*
 
-### Pillar 1 · [Headline]
+### Pillar 1: [Headline]
 
-**One-liner:** [One-sentence version of this pillar — the claim in its clearest, most portable form.]
+**One-liner:** [One-sentence version of this pillar: the claim in its clearest, most portable form.]
 
 **Proof points:**
 
@@ -23,11 +23,11 @@ The 3–5 core claims this brand repeats across every channel, with proof and ex
 
 [How this pillar shows up on the homepage, in a sales deck, in a social post, in a cold email. Same claim, different register.]
 
-### Pillar 2 · [Headline]
+### Pillar 2: [Headline]
 
 *[Same structure. 3 pillars default, expandable to 5.]*
 
-### Pillar 3 · [Headline]
+### Pillar 3: [Headline]
 
 *[Same structure.]*
 

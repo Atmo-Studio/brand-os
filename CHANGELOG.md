@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.3.3 — Authoring quality and storage consolidation
+
+A quality pass across every shipped file, plus tighter rules on what Brand OS produces for you. No new skills or modules.
+
+### Changed
+- **Machine artifacts removed from every shipped file.** New authoring standards, applied file by file
+- **Session resume blocks carry state, method, and what is still open.** A resumed session picks up instead of asking how to proceed
+- **Both storage backends name documents the same way**
+- **Visual Identity asks what to take from a reference brand**, not just its name
+- **Storage rules consolidated into one reference**, so the skills that share them cannot drift apart
+
+### Fixed
+- **Brand briefs never shorten a quote to make it fit**
+- **Cross-skill references resolve from any install**
+- **The shipped agent file no longer contradicts its own writing rules**
+
 ## v0.3.2 — Cleanup and release-process hardening
 
 Housekeeping. No interview, scoring, or storage behavior changes — every fix here is a broken pointer, a stale reference, or a gap in how releases get checked.

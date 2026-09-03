@@ -54,9 +54,9 @@ Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**
 
 Copy all folders from `skills/` into your agent's skills directory. Most harnesses use `.claude/skills/`.
 
-Brand OS also ships a baseline agent character in `SOUL.md`. If you don't already have your own agent workspace, copy `SOUL.md` into your agent's workspace-level context so the skills have a personality layer to run on. If you already have a CLAUDE.md/AGENTS.md of your own, skip this — your setup takes precedence and the skills layer on top.
+Brand OS also ships a baseline agent character in `SOUL.md`. If you don't already have your own agent workspace, copy `SOUL.md` into your agent's workspace-level context so the skills have a personality layer to run on. If you already have a CLAUDE.md/AGENTS.md of your own, skip this: your setup takes precedence and the skills layer on top.
 
-workspace-setup will detect which mode you're in and adapt accordingly.
+**workspace-setup** will detect which mode you're in and adapt accordingly.
 
 ### Connect Notion
 
@@ -64,7 +64,7 @@ Add the Notion MCP to your agent settings. Most harnesses have a first-party MCP
 
 Only if your agent has **no** built-in Notion connector, add the Notion MCP server (`@notionhq/notion-mcp-server`) to *your agent's own* MCP config, using a token from [notion.so/my-integrations](https://www.notion.so/my-integrations).
 
-> ⚠️ **Do not create a `.mcp.json` file inside the plugin folder.** Some agents auto-load it, and a config with a placeholder token will silently override a Notion connection you already have working — breaking it with no obvious cause. Configure Notion in your agent's own settings, not in the plugin.
+> ⚠️ **Do not create a `.mcp.json` file inside the plugin folder.** Some agents auto-load it, and a config with a placeholder token will silently override a Notion connection you already have working, breaking it with no obvious cause. Configure Notion in your agent's own settings, not in the plugin.
 
 ### Set up the Knowledge Base
 
@@ -90,4 +90,4 @@ Built by [Atmo Studio](https://atmo.studio). Brand OS is an Atmo product.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). Free to use, modify, and build on.
+**MIT** — see [LICENSE](./LICENSE). Free to use, modify, and build on.

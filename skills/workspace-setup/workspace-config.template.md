@@ -23,8 +23,8 @@
 # SCHEMA VERSION: increment minor on additive changes, major on breaking changes.
 
 schema_version: "1.2"
-created_at: null              # YYYY-MM-DD — set once at end of Phase 1; never updated
-last_updated: null            # YYYY-MM-DD — updated after every write
+created_at: null              # YYYY-MM-DD, set once at end of Phase 1; never updated
+last_updated: null            # YYYY-MM-DD, updated after every write
 
 # Initial setup type. Set once at end of Phase 1. Not updated on return visits.
 # new-workspace: full Phase 1 architecture design + Phase 2 build
@@ -128,8 +128,8 @@ setup_progress:
 
   phase_2_build_loop:
     complete: false
-    projects_complete: []       # project IDs — appended at end of each Phase 2 Step F
-    projects_remaining: []      # project IDs — set at end of Phase 1; depleted through Phase 2
+    projects_complete: []       # project IDs, appended at end of each Phase 2 Step F
+    projects_remaining: []      # project IDs, set at end of Phase 1; depleted through Phase 2
     resume_at: null             # project ID to start at next session; null when phase_2 complete
 
   phase_3_modules:

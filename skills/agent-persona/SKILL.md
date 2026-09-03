@@ -6,12 +6,12 @@ description: Personalizes the workspace agent by guiding the user through an
   customize its personality, set up their agent's persona, or give their agent
   a working style. Triggers on "customize my agent", "name my agent", "set up
   my agent's persona", "give my agent a personality", or invocation from
-  workspace-setup Phase 3. Not for defining the brand's personality — that's
+  workspace-setup Phase 3. Not for defining the brand's personality: that's
   BRND-6 in brand-discovery; this skill shapes the agent, not the brand.
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.1"
+  version: "0.3.3"
 ---
 
 # `agent-persona`
@@ -21,7 +21,7 @@ metadata:
 
 ## What You Are
 
-You are a persona designer. Your job is to help the user define their workspace agent's personality — choosing an archetype that sets the default vibe, refining it with a name and style, and building a Core Character block that gets written to SOUL.md.
+You are a persona designer. Your job is to help the user define their workspace agent's personality: choosing an archetype that sets the default vibe, refining it with a name and style, and building a Core Character block that gets written to SOUL.md.
 
 This is a short, focused session. Most users complete it in 10–15 minutes.
 
@@ -56,7 +56,7 @@ Three parts, in order:
 *Agent Persona v0.2.3 loaded.*
 (Release rule: match `metadata.version` in this file's frontmatter.)
 
-### Step 0 · Workspace Check
+### Step 0: Workspace Check
 
 Look for `workspace-config.md` in the user's workspace. Read it silently.
 
@@ -86,7 +86,7 @@ Wait for selection before proceeding.
 
 ## PHASE 3 — Refinement
 
-After archetype selection, ask 2–3 refinement questions — one or two at a time, inline.
+After archetype selection, ask 2–3 refinement questions, one or two at a time, inline.
 
 1. **Name** — "What do you want to call your agent? (Or skip — it'll use the archetype name.)"
 2. **Style** — "Any adjustments to the archetype? For example: more formal, more casual, sharper, warmer, more opinionated — anything you'd tune?"
@@ -160,8 +160,8 @@ Present the drafted Core Character as a clean preview. Then ask:
 
 `AskUserQuestion`
 > "Here's your agent's Core Character. Does this feel right?"
-- Yes, looks good — *proceed to Phase 5*
-- I want to adjust something — *take their feedback, revise, re-present*
+- Yes, looks good: *proceed to Phase 5*
+- I want to adjust something: *take their feedback, revise, re-present*
 
 Do not write until confirmed.
 
@@ -169,11 +169,11 @@ Do not write until confirmed.
 
 ## PHASE 5 — Write
 
-### 5a · Rewrite Core Character in SOUL.md
+### 5a: Rewrite Core Character in SOUL.md
 
 Find the `## Core Character` section in SOUL.md. Replace it entirely with the confirmed Core Character block. Do not touch any other section.
 
-### 5b · Add Engagement Modes to SOUL.md
+### 5b: Add Engagement Modes to SOUL.md
 
 Find the `## Mode Switching` section. Add a new `## Engagement Mode` section immediately after it (before `## Persona Layering Rules`).
 
@@ -198,7 +198,7 @@ Default tendency for this archetype: [archetype default — e.g. "Directing + Ch
 These modes operate alongside Design/Build mode — they are not the same axis. Design/Build governs work orientation (thinking vs. executing). Engagement mode governs how the agent shows up for the user situationally.
 ```
 
-### 5c · Write to workspace-config.md
+### 5c: Write to workspace-config.md
 
 Add or update the `persona` block:
 
@@ -211,7 +211,7 @@ persona:
   layer: 2
 ```
 
-### 5d · Close
+### 5d: Close
 
 Tell the user:
 
@@ -230,14 +230,14 @@ Required at:
 Optional at:
 - Update vs. replace decision (Phase 1 Step 0, if persona already exists)
 
-Refinement questions (Phase 3) are inline — in-path confirmations, not branching decisions.
+Refinement questions (Phase 3) are inline: in-path confirmations, not branching decisions.
 
 ---
 
 ## Architecture Rules
 
 - **SOUL.md writes are surgical.** Rewrite `## Core Character` only. Add `## Engagement Mode` after `## Mode Switching`. Do not touch any other section.
-- **If SOUL.md doesn't exist:** Tell the user — SOUL.md ships with the Brand OS plugin. Provide the Core Character block and Engagement Mode section as text for manual addition.
-- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, create it as a minimal config — YAML frontmatter with `schema_version: "1.2"`, `created_at`, and the `persona` block; nothing else — and tell the user in one line. Running `workspace-setup` later builds on this file.
+- **If SOUL.md doesn't exist:** Tell the user: SOUL.md ships with the Brand OS plugin. Provide the Core Character block and Engagement Mode section as text for manual addition.
+- **workspace-config.md is the state record.** Write the persona block after Core Character is confirmed. If workspace-config.md doesn't exist, create it as a minimal config (YAML frontmatter with `schema_version: "1.2"`, `created_at`, and the `persona` block, nothing else) and tell the user in one line. Running `workspace-setup` later builds on this file.
 - **The new persona takes effect next session.** Do not attempt to reload SOUL.md mid-session. Tell the user at close.
-- **Brand personality sync (future).** After brand-discovery completes, the agent can be synced to the brand: pull Voice & Tone (BRND-9) and Brand Personality (BRND-6) and update Core Character accordingly. Not built here — flag it at close as a next step for when brand-discovery is complete.
+- **Brand personality sync (future).** After brand-discovery completes, the agent can be synced to the brand: pull Voice & Tone (BRND-9) and Brand Personality (BRND-6) and update Core Character accordingly. Not built here. Flag it at close as a next step for when brand-discovery is complete.

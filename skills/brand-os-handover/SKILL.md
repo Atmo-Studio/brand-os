@@ -1,6 +1,6 @@
 ---
 name: brand-os-handover
-description: Deprecated as of v0.2.3 — the Brand OS session handover now lives
+description: Deprecated as of v0.2.3. The Brand OS session handover now lives
   inside the brand-discovery skill as handover-protocol.md and runs in-session,
   with no cross-skill invocation. Retained for one release as a compatibility
   redirect. Never invoked directly by users; do not trigger this skill from
@@ -8,7 +8,7 @@ description: Deprecated as of v0.2.3 — the Brand OS session handover now lives
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.2"
+  version: "0.3.3"
   status: deprecated
 ---
 
@@ -19,7 +19,7 @@ of `brand-discovery` itself: load `../brand-discovery/handover-protocol.md`
 (the `brand-discovery` skill folder is installed alongside this one) and follow
 it end to end.
 
-The move removed the cross-skill invocation this file used to depend on — the
+The move removed the cross-skill invocation this file used to depend on. The
 handover now runs inside the same session as the interview, so nothing is
 passed across a skill boundary and activation cannot fail.
 

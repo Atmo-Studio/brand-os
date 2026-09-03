@@ -11,7 +11,7 @@ Who are we really building for, what are they trying to accomplish functionally,
 
 *Based on Jobs-to-be-Done framing: people don't buy products, they hire them to do a job.*
 
-## ICP 1 · [Name / Role]
+## ICP 1: [Name / Role]
 
 > **Context** — [Who they are and the situation they're in]
 
@@ -23,7 +23,7 @@ Who are we really building for, what are they trying to accomplish functionally,
 
 > *"[A quote that could have come from a real conversation with this person.]"*
 
-## ICP 2 · [Name / Role]
+## ICP 2: [Name / Role]
 
 *[Same structure. Up to 3 ICPs.]*
 
