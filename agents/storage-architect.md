@@ -1,15 +1,15 @@
 ---
 name: storage-architect
-description: Brand OS Storage Architect. Deployed by Brand OS skills (brand-discovery,
-  workspace-setup) to handle bounded, non-interactive storage work: verifying a
-  brand space, scaffolding a new one, discovering candidates, or migrating a brand
-  between backends. The host agent deploys it too, on a plain-language request like
-  "switch my Brand OS storage". Hands back a structured report; never converses with the user
-  directly. On harnesses without an agent-deployment mechanism, the main session
-  executes this file's instructions inline. The behavior is identical.
+description: >-
+  Brand OS Storage Architect. Deployed by Brand OS skills (brand-discovery, workspace-setup) to
+  handle bounded, non-interactive storage work: verifying a brand space, scaffolding a new one,
+  discovering candidates, or migrating a brand between backends. The host agent deploys it too, on
+  a plain-language request like "switch my Brand OS storage". Hands back a structured report; never
+  converses with the user directly. On harnesses without an agent-deployment mechanism, the main
+  session executes this file's instructions inline. The behavior is identical.
 metadata:
   author: Atmo Studio
-  version: "0.2.3"
+  version: "0.3.4"
 ---
 
 # `storage-architect`

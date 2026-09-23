@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.4 — Every skill loads
+
+Four skills in v0.3.3 never loaded, so asking for one by name did nothing. This release fixes that and changes nothing else.
+
+### Fixed
+- **Brand filter, brand brief, brand discovery and agent persona load again.** v0.3.3 hid them from your agent
+- **The storage agent that brand discovery hands setup and migration to loads again**
+
 ## v0.3.3 — Authoring quality and storage consolidation
 
 A quality pass across every shipped file, plus tighter rules on what Brand OS produces for you. No new skills or modules.

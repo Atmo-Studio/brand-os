@@ -1,19 +1,18 @@
 ---
 name: brand-filter
-description: Runs any decision, idea, or draft through decision filters derived from
-  the brand's own knowledge base: scores it against the documented purpose, values,
-  audience, positioning, personality, and story role, names the gaps, and when
-  alignment is weak, researches and proposes a stronger alternative. Use when
-  evaluating a campaign idea, content piece, partnership, product feature, copy
-  direction, or any brand-adjacent decision. Triggers on "run the brand filters",
-  "brand check", "does this fit our brand", "filter this decision", "brand
-  alignment", or someone sharing an idea and asking whether it fits the brand. Not
-  for generating content (on-voice), packaging brand context for others (brand-brief),
-  or building the knowledge base itself (brand-discovery).
+description: >-
+  Runs any decision, idea, or draft through decision filters derived from the brand's own knowledge
+  base: scores it against the documented purpose, values, audience, positioning, personality, and
+  story role, names the gaps, and when alignment is weak, researches and proposes a stronger
+  alternative. Use when evaluating a campaign idea, content piece, partnership, product feature,
+  copy direction, or any brand-adjacent decision. Triggers on "run the brand filters", "brand
+  check", "does this fit our brand", "filter this decision", "brand alignment", or someone sharing
+  an idea and asking whether it fits the brand. Not for generating content (on-voice), packaging
+  brand context for others (brand-brief), or building the knowledge base itself (brand-discovery).
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.3.4"
 ---
 
 # `brand-filter`

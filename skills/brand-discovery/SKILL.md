@@ -1,18 +1,18 @@
 ---
 name: brand-discovery
-description: Runs the Brand OS discovery interview: a structured, framework-grounded
-  session that builds the 11-dimension brand knowledge base (purpose, values, ICPs,
-  positioning, personality, visual identity, story, voice, messaging, taglines) in
-  the founder's connected storage: Notion or a local markdown folder.
-  Use when the user is ready to begin or resume brand discovery, or wants to fill in
-  specific sections. Triggers on "run brand discovery", "let's work on my brand",
-  "resume brand discovery", "continue my brand session", or any request to pick up a
-  previous brand discovery session. Not for writing marketing copy or generating brand
-  guidelines from existing documents. This skill builds the knowledge base itself.
+description: >-
+  Runs the Brand OS discovery interview: a structured, framework-grounded session that builds the
+  11-dimension brand knowledge base (purpose, values, ICPs, positioning, personality, visual
+  identity, story, voice, messaging, taglines) in the founder's connected storage: Notion or a
+  local markdown folder. Use when the user is ready to begin or resume brand discovery, or wants to
+  fill in specific sections. Triggers on "run brand discovery", "let's work on my brand", "resume
+  brand discovery", "continue my brand session", or any request to pick up a previous brand
+  discovery session. Not for writing marketing copy or generating brand guidelines from existing
+  documents. This skill builds the knowledge base itself.
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.3.4"
 ---
 
 # `brand-discovery`
@@ -67,7 +67,7 @@ Every session ends with a handover, whether the user wants to continue immediate
 ## PHASE 1 — Setup
 
 **Print once at the start of every session, before any other output:**
-*Brand OS plugin v0.3.3 loaded.*
+*Brand OS plugin v0.3.4 loaded.*
 (Release rule: this string is the **plugin** version and must match `version` in `.claude-plugin/plugin.json`. It is not the same fact as `metadata.version` in this file's frontmatter, which records the release this skill last changed in and moves only when the skill does. They coincide whenever a release touches this skill, and diverge whenever one doesn't: that divergence is correct, not drift.)
 
 Run this phase at the start of every session. Step 0 always runs. Step A runs only if Step 0 doesn't lock a storage locator. Step B always runs. Step B.1 runs on resumed sessions only. Steps C–D run only on a fresh workspace: skip them on resumed sessions (Step B handles the routing decision).

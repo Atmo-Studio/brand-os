@@ -1,18 +1,18 @@
 ---
 name: brand-brief
-description: Compiles the brand knowledge base into a purpose-shaped brief for an
-  external consumer: a designer, a copywriter, an agency or new collaborator, or
-  another AI tool that needs the brand as context. Faithful packaging with a
-  provenance header showing exactly which dimensions it draws on and what's not yet
-  defined. Use when handing the brand to someone (or something) that wasn't in the
-  room. Triggers on "brand brief", "package the brand for…", "give my designer the
-  brand context", "make a context block for [tool]", "brief the agency", "onboard
-  [name] to the brand". Not for proposing creative directions, generating content
-  (on-voice), or evaluating ideas (brand-filter).
+description: >-
+  Compiles the brand knowledge base into a purpose-shaped brief for an external consumer: a
+  designer, a copywriter, an agency or new collaborator, or another AI tool that needs the brand as
+  context. Faithful packaging with a provenance header showing exactly which dimensions it draws on
+  and what's not yet defined. Use when handing the brand to someone (or something) that wasn't in
+  the room. Triggers on "brand brief", "package the brand for…", "give my designer the brand
+  context", "make a context block for [tool]", "brief the agency", "onboard [name] to the brand".
+  Not for proposing creative directions, generating content (on-voice), or evaluating ideas
+  (brand-filter).
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.3.4"
 ---
 
 # `brand-brief`

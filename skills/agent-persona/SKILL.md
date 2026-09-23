@@ -1,17 +1,17 @@
 ---
 name: agent-persona
-description: Personalizes the workspace agent by guiding the user through an
-  archetype-first interview that sets Core Character, then adds four situational
-  Engagement Modes to SOUL.md. Use when the user wants to name their agent,
-  customize its personality, set up their agent's persona, or give their agent
-  a working style. Triggers on "customize my agent", "name my agent", "set up
-  my agent's persona", "give my agent a personality", or invocation from
-  workspace-setup Phase 3. Not for defining the brand's personality: that's
-  BRND-6 in brand-discovery; this skill shapes the agent, not the brand.
+description: >-
+  Personalizes the workspace agent by guiding the user through an archetype-first interview that
+  sets Core Character, then adds four situational Engagement Modes to SOUL.md. Use when the user
+  wants to name their agent, customize its personality, set up their agent's persona, or give their
+  agent a working style. Triggers on "customize my agent", "name my agent", "set up my agent's
+  persona", "give my agent a personality", or invocation from workspace-setup Phase 3. Not for
+  defining the brand's personality: that's BRND-6 in brand-discovery; this skill shapes the agent,
+  not the brand.
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.3.4"
 ---
 
 # `agent-persona`
