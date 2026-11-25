@@ -48,7 +48,7 @@ There is deliberately **no `BRND-N` prefix** in the frontmatter. The prefix is a
 List the brand folder: all 11 dimension files present with parseable frontmatter. `documents/` is **not** required to exist: it is created on the first `write-document`, so its absence means "no documents yet," not "malformed space." (An empty directory doesn't survive git or zip, so requiring one would make a version-controlled brand fail its own verification.) Report any missing dimension files without repairing.
 
 ### `list-dimensions`
-Glob `[path]/*.md`; read each file's frontmatter. Return the 11 entries as the status map, sorted by `order`. **Run the contract's integrity assertions on the entries before returning.**
+Glob `[path]/[0-9][0-9]_*.md`; read each file's frontmatter. Return the 11 entries as the status map, sorted by `order`. The two-digit prefix is what marks a dimension: the brand folder also holds the brand's identity files (`README.md`, `DESIGN.md` and others), and no operation here reads them. **Run the contract's integrity assertions on the entries before returning.**
 
 Here the ordering home is structurally guaranteed twice over (the filename's Order prefix and the `order:` frontmatter), so the assertions are near-free and mostly serve as a cross-check: a filename whose prefix disagrees with its own frontmatter is the drift this backend actually produces, usually from a hand-renamed or hand-copied file.
 
@@ -62,7 +62,7 @@ Write the file body below the frontmatter, filling content under the existing he
 Update the `status:` frontmatter key: `in-progress` when the interview begins, `complete` when confirmed content is written.
 
 ### `write-document`
-Create `documents/` if it doesn't exist yet (first write only), then write `documents/YYYY-MM-DD_[slug].md` with frontmatter:
+Create `documents/` if it doesn't exist yet (first write only), then write `documents/YYMMDD_[slug].md` with frontmatter:
 
 ```yaml
 ---
@@ -97,9 +97,9 @@ Everything is plain markdown:
 
 ## Backend notes
 
-- **Scaffolding** (Storage Architect `scaffold` mission): create `brand/` at the root of the brand's project folder, copy the 11 skeletons from `assets/dimensions/` directly into it (they ship md-native). Do **not** create an empty `documents/` — it's made on the first `write-document` (an empty dir doesn't survive git or zip anyway). Seconds, no permissions, no network.
+- **Scaffolding** (Storage Architect `scaffold` mission): create `brand/` at the root of the brand's project folder, copy the 11 skeletons from `../../assets/dimensions/` directly into it (they ship md-native). Do **not** create an empty `documents/` — it's made on the first `write-document` (an empty dir doesn't survive git or zip anyway). Seconds, no permissions, no network.
 - **Discovery:** check the brand's project folder for `brand/` matching this layout.
-- **Shared home:** the identity workstream's brand library (`DESIGN.md`, tokens, assets) is designed to live in the same brand folder later: one home for everything the brand is.
+- **Shared home:** the brand library that `brand-library` assembles (`DESIGN.md`, tokens, assets) lives in this same `brand/` folder: one home for everything the brand is.
 - **As the universal fallback:** when a user declines or can't grant an MCP, this backend starts immediately, and the architect's `migrate` mission moves the brand to Notion later with nothing lost (or to Google Docs, once that adapter is unparked).
 - **Chat-only runtimes** (no file tools at all): the contract's unreachable-backend rule applies: paste blocks + handover status map.
 - **Multi-brand:** one folder per brand, each brand's `path` in its own config entry.

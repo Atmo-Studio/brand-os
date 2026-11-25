@@ -28,8 +28,12 @@ This dimension is the final output in the Voice & Messaging section. It depends 
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing taglines or short phrases you've used? A website header, a social media bio, a pitch deck title slide, a phrase that shows up on your business card or email signature."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing taglines or short phrases you've used? A website header, a social media bio, a pitch deck title slide, a phrase that shows up on your business card or email signature.
+```
+
 - I have something to share
 - Starting fresh: no existing taglines
 
@@ -88,7 +92,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Voice test: does each tagline sound like this brand, per the voice description and vocabulary in BRND-9? Clever lines that violate the voice are off-brand.
 
 `AskUserQuestion`
-> "Before we finalize — [state the single strongest concern as a direct question, e.g., 'Two of these taglines are sharp, but they both anchor to the same pillar. That means two of your three pillars don't have a tagline expression yet. Want to fill those gaps, or are you comfortable leading with one pillar for now?']"
+> "Before we finalize: [state the single strongest concern as a direct question, e.g., 'Two of these taglines are sharp, but they both anchor to the same pillar. That means two of your three pillars don't have a tagline expression yet. Want to fill those gaps, or are you comfortable leading with one pillar for now?']"
 - Feels solid: write it
 - Let me revisit [element]
 

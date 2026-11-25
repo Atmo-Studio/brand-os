@@ -16,7 +16,7 @@ Run this when a brand has no knowledge base yet, from brand-discovery Step A or 
 
 If a user asks for Google Docs specifically, say that plainly and offer the local folder. The `migrate` mission moves them across later with nothing lost:
 
-> "Google Docs isn't supported yet — the connectors available today can create documents but not edit them, so your brand couldn't actually be updated as we go. A local markdown folder works everywhere and moves over cleanly once Docs editing lands."
+> "Google Docs isn't supported yet: the connectors available today can create documents but not edit them, so your brand couldn't actually be updated as we go. A local markdown folder works everywhere and moves over cleanly once Docs editing lands."
 
 **If md-folder:** no location question. The Storage Architect creates `brand/` at the root of the brand's project folder (workspace root if no projects are defined). This is also where the identity workstream's brand library lives later: one shared folder.
 
@@ -24,7 +24,7 @@ If a user asks for Google Docs specifically, say that plainly and offer the loca
 
 If the chosen backend needs an MCP connection, verify it now with one benign call. If unreachable:
 
-> "Brand OS needs access to [Notion / Google Drive] for that. Grant it in your agent's connector or MCP settings, then tell me — **or start in a local markdown folder now and switch later; nothing is lost in the move.**"
+> "Brand OS needs access to [Notion / Google Drive] for that. Grant it in your agent's connector or MCP settings, then tell me, **or start in a local markdown folder now and switch later; nothing is lost in the move.**"
 
 Never dead-end. The local folder is always available.
 
@@ -38,7 +38,7 @@ Never dead-end. The local folder is always available.
 
 The Architect renders the prefix into the space it builds, so it must be a confirmed decision *before* the deploy, not after. Ask it on its own:
 
-> "Your dimensions will be numbered `BRND-1` through `BRND-11`. Want a different prefix — your brand's initials, say — or is `BRND` fine?"
+> "Your dimensions will be numbered `BRND-1` through `BRND-11`. Want a different prefix, like your brand's initials, or is `BRND` fine?"
 
 Default `BRND` if the user has no preference. Categories and tags are Documents-area settings that don't affect the scaffold; they're confirmed in step 5.
 
@@ -49,7 +49,7 @@ Deploy `agents/storage-architect.md` for the non-interactive work:
 - **Mission `scaffold`** for a new space (google-docs, md-folder)
 - **Mission `discover` + `verify`** for an existing one (a Notion template the user duplicated, or a folder that already exists)
 
-Pass: the storage choice, project scope, the confirmed prefix from step 3, and the paths to `workspace-config.md`, this skill's `assets/dimensions/`, and `references/adapters/`. Receive the structured hand-back (locator + verification report). If it hands back open questions (say, two candidate databases), relay them to the user, then continue or re-deploy.
+Pass: the storage choice, project scope, the confirmed prefix from step 3, and the paths to `workspace-config.md`, this skill's `../assets/dimensions/`, and `adapters/`. Receive the structured hand-back (locator + verification report). If it hands back open questions (say, two candidate databases), relay them to the user, then continue or re-deploy.
 
 *(Harness without agent deployment: execute the Storage Architect file's instructions inline yourself.)*
 

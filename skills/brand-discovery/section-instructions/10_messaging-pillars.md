@@ -30,8 +30,12 @@ This dimension is the messaging layer on top of BRND-5 (Brand Positioning) and i
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing messaging? A messaging framework, key value propositions, marketing copy you keep reusing, a pitch deck with your main selling points, or a 'three reasons to choose us' list."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing messaging? A messaging framework, key value propositions, marketing copy you keep reusing, a pitch deck with your main selling points, or a 'three reasons to choose us' list.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -45,7 +49,7 @@ This dimension is the messaging layer on top of BRND-5 (Brand Positioning) and i
 *Extract: The 3–5 things this brand says over and over — the claims that show up across every channel, whether or not they've been formalized.*
 
 - If you could only tell a prospective customer three things about your brand (and those three things had to be true, provable, and different from what your competitors say), what would they be?
-- Look at your positioning statement from BRND-5. What are the distinct claims embedded in it? The unique value, the market category choice, the audience truth: each of these might be a pillar.
+- Your positioning statement says [positioning statement from BRND-5]. What are the distinct claims embedded in it? The unique value, the market category choice, the audience truth: each of these might be a pillar.
 - When your best customers refer someone to you, what do they say? Not your words: theirs. What claim are they making on your behalf?
 - Is there a claim you make that competitors could also make, but you'd back it up differently? That's still a valid pillar if your proof is stronger.
 
@@ -93,7 +97,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Proof test: does every pillar have at least one proof point that's externally verifiable: not just self-asserted? Pillars without proof are assertions, not messaging.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'Pillar 2 — 'We build lasting brands' — doesn't have any provable evidence yet. It's a strong claim, but without a case study, a metric, or a specific example, it's an assertion your competitors could also make. Do you have proof we haven't surfaced, or should we swap it for a claim you can already back up?']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'Pillar 2, 'We build lasting brands,' doesn't have any provable evidence yet. It's a strong claim, but without a case study, a metric, or a specific example, it's an assertion your competitors could also make. Do you have proof we haven't surfaced, or should we swap it for a claim you can already back up?']"
 - Feels solid: write it
 - Let me revisit [element]
 

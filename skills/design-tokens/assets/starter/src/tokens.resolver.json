@@ -1,0 +1,52 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "version": "2025.10",
+  "description": "Brand first, then the sub-brand's Intent, then the theme's Patterns. A context whose file is absent is skipped.",
+  "sets": {
+    "brand": {
+      "sources": [
+        {
+          "$ref": "brand.tokens.json"
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "brand": {
+      "default": "main",
+      "contexts": {
+        "main": [
+          {
+            "$ref": "intent.main.tokens.json"
+          }
+        ]
+      }
+    },
+    "theme": {
+      "default": "light",
+      "contexts": {
+        "light": [
+          {
+            "$ref": "patterns.light.tokens.json"
+          }
+        ],
+        "dark": [
+          {
+            "$ref": "patterns.dark.tokens.json"
+          }
+        ]
+      }
+    }
+  },
+  "resolutionOrder": [
+    {
+      "$ref": "#/sets/brand"
+    },
+    {
+      "$ref": "#/modifiers/brand"
+    },
+    {
+      "$ref": "#/modifiers/theme"
+    }
+  ]
+}

@@ -1,0 +1,902 @@
+{
+  "brand": {
+    "$description": "Brand: the raw values, one mode for every sub-brand and theme. Named by what they are: a specified brand color by its brand name, every other ramp by a Tailwind-style hue. Only Intent and, for groups with no Intent, Patterns point here.",
+    "$extensions": {
+      "brand-os": {
+        "placeholder": [
+          "color.gray",
+          "color.blue",
+          "font.family",
+          "font-size",
+          "layout",
+          "radius",
+          "shadow",
+          "motion"
+        ]
+      }
+    },
+    "color": {
+      "$type": "color",
+      "gray": {
+        "50": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.975,
+              0,
+              89.88
+            ],
+            "hex": "#f7f7f7"
+          }
+        },
+        "100": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.945,
+              0,
+              89.88
+            ],
+            "hex": "#ededed"
+          }
+        },
+        "200": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.895,
+              0,
+              89.88
+            ],
+            "hex": "#dcdcdc"
+          }
+        },
+        "300": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.825,
+              0,
+              89.88
+            ],
+            "hex": "#c5c5c5"
+          }
+        },
+        "400": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.735,
+              0,
+              89.88
+            ],
+            "hex": "#a9a9a9"
+          }
+        },
+        "500": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.635,
+              0,
+              89.88
+            ],
+            "hex": "#8a8a8a"
+          },
+          "$description": "The anchor's step. Chosen #808080, snapped to the curve."
+        },
+        "600": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.535,
+              0,
+              89.88
+            ],
+            "hex": "#6d6d6d"
+          }
+        },
+        "700": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.44,
+              0,
+              89.88
+            ],
+            "hex": "#525252"
+          }
+        },
+        "800": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.35,
+              0,
+              89.88
+            ],
+            "hex": "#3a3a3a"
+          }
+        },
+        "900": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.265,
+              0,
+              89.88
+            ],
+            "hex": "#252525"
+          }
+        },
+        "950": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.19,
+              0,
+              89.88
+            ],
+            "hex": "#141414"
+          }
+        },
+        "$extensions": {
+          "brand-os": {
+            "ramp": {
+              "anchor": "#808080",
+              "anchorStep": 500,
+              "pinned": false,
+              "chromaShare": 0,
+              "hue": 89.88,
+              "space": "oklch"
+            },
+            "starter": true
+          }
+        }
+      },
+      "blue": {
+        "50": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.975,
+              0,
+              89.88
+            ],
+            "hex": "#f7f7f7"
+          }
+        },
+        "100": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.945,
+              0,
+              89.88
+            ],
+            "hex": "#ededed"
+          }
+        },
+        "200": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.895,
+              0,
+              89.88
+            ],
+            "hex": "#dcdcdc"
+          }
+        },
+        "300": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.825,
+              0,
+              89.88
+            ],
+            "hex": "#c5c5c5"
+          }
+        },
+        "400": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.735,
+              0,
+              89.88
+            ],
+            "hex": "#a9a9a9"
+          }
+        },
+        "500": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.635,
+              0,
+              89.88
+            ],
+            "hex": "#8a8a8a"
+          }
+        },
+        "600": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.535,
+              0,
+              89.88
+            ],
+            "hex": "#6d6d6d"
+          },
+          "$description": "The anchor's step. Chosen #808080, snapped to the curve."
+        },
+        "700": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.44,
+              0,
+              89.88
+            ],
+            "hex": "#525252"
+          }
+        },
+        "800": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.35,
+              0,
+              89.88
+            ],
+            "hex": "#3a3a3a"
+          }
+        },
+        "900": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.265,
+              0,
+              89.88
+            ],
+            "hex": "#252525"
+          }
+        },
+        "950": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.19,
+              0,
+              89.88
+            ],
+            "hex": "#141414"
+          }
+        },
+        "$extensions": {
+          "brand-os": {
+            "ramp": {
+              "anchor": "#808080",
+              "anchorStep": 600,
+              "pinned": false,
+              "chromaShare": 0,
+              "hue": 89.88,
+              "space": "oklch"
+            },
+            "starter": true
+          }
+        }
+      }
+    },
+    "font": {
+      "family": {
+        "$type": "fontFamily",
+        "sans": {
+          "$value": [
+            "system-ui",
+            "sans-serif"
+          ],
+          "$description": "Placeholder. Replace with the brand's typeface and its fallbacks."
+        }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "regular": {
+          "$value": 400
+        },
+        "medium": {
+          "$value": 500
+        },
+        "bold": {
+          "$value": 700
+        }
+      }
+    },
+    "tracking": {
+      "$type": "number",
+      "$description": "Letter spacing in em.",
+      "tight": {
+        "$value": -0.02
+      },
+      "snug": {
+        "$value": -0.01
+      },
+      "normal": {
+        "$value": 0
+      },
+      "wide": {
+        "$value": 0.02
+      },
+      "caps": {
+        "$value": 0.06
+      }
+    },
+    "radius": {
+      "$type": "dimension",
+      "none": {
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "xs": {
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "sm": {
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "md": {
+        "$value": {
+          "value": 6,
+          "unit": "px"
+        }
+      },
+      "lg": {
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "xl": {
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "2xl": {
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "full": {
+        "$value": {
+          "value": 9999,
+          "unit": "px"
+        }
+      }
+    },
+    "stroke": {
+      "$type": "dimension",
+      "$description": "Rule weights: the hairline, the focus ring and its offset, and any rim a brand sets. Add a step only when the brand uses it.",
+      "hairline": {
+        "$value": {
+          "value": 1,
+          "unit": "px"
+        }
+      },
+      "focus": {
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "focus-offset": {
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "$description": "The gap between a control and its focus ring"
+      }
+    },
+    "shadow": {
+      "$type": "shadow",
+      "sm": {
+        "$value": {
+          "color": "{brand.color.gray.950}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 3,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "brand-os": {
+            "alpha": 0.1
+          }
+        }
+      },
+      "lg": {
+        "$value": {
+          "color": "{brand.color.gray.950}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 32,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -8,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "brand-os": {
+            "alpha": 0.16
+          }
+        }
+      }
+    },
+    "duration": {
+      "0": {
+        "$value": {
+          "value": 0,
+          "unit": "ms"
+        }
+      },
+      "100": {
+        "$value": {
+          "value": 100,
+          "unit": "ms"
+        }
+      },
+      "150": {
+        "$value": {
+          "value": 150,
+          "unit": "ms"
+        }
+      },
+      "200": {
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        }
+      },
+      "300": {
+        "$value": {
+          "value": 300,
+          "unit": "ms"
+        }
+      },
+      "350": {
+        "$value": {
+          "value": 350,
+          "unit": "ms"
+        }
+      },
+      "500": {
+        "$value": {
+          "value": 500,
+          "unit": "ms"
+        }
+      },
+      "$type": "duration"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "enter": {
+        "$value": [
+          0.2,
+          0,
+          0,
+          1
+        ],
+        "$description": "Decelerates. For anything arriving."
+      },
+      "exit": {
+        "$value": [
+          0.4,
+          0,
+          1,
+          1
+        ],
+        "$description": "Accelerates. For anything leaving."
+      },
+      "standard": {
+        "$value": [
+          0.2,
+          0,
+          0.2,
+          1
+        ],
+        "$description": "Eases both ways. For movement that starts and ends on screen."
+      },
+      "linear": {
+        "$value": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "$description": "No curve. For a change of color, where position never moves."
+      }
+    },
+    "font-size": {
+      "0": {
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "1": {
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 25,
+          "unit": "px"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 31,
+          "unit": "px"
+        }
+      },
+      "4": {
+        "$value": {
+          "value": 39,
+          "unit": "px"
+        }
+      },
+      "5": {
+        "$value": {
+          "value": 49,
+          "unit": "px"
+        }
+      },
+      "6": {
+        "$value": {
+          "value": 61,
+          "unit": "px"
+        }
+      },
+      "7": {
+        "$value": {
+          "value": 76,
+          "unit": "px"
+        },
+        "$extensions": {
+          "brand-os": {
+            "fluid": {
+              "min": 39
+            }
+          }
+        }
+      },
+      "8": {
+        "$value": {
+          "value": 95,
+          "unit": "px"
+        },
+        "$extensions": {
+          "brand-os": {
+            "fluid": {
+              "min": 49
+            }
+          }
+        }
+      },
+      "$type": "dimension",
+      "$extensions": {
+        "brand-os": {
+          "scale": {
+            "ratio": 1.25,
+            "base": 16,
+            "unit": 4,
+            "rounding": "every step to the nearest 1px",
+            "reason": "Placeholder. Replace with the brand's own base and ratio."
+          }
+        }
+      },
+      "n2": {
+        "$value": {
+          "value": 10,
+          "unit": "px"
+        }
+      },
+      "n1": {
+        "$value": {
+          "value": 13,
+          "unit": "px"
+        }
+      }
+    },
+    "line-height": {
+      "0": {
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "1": {
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 36,
+          "unit": "px"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 44,
+          "unit": "px"
+        }
+      },
+      "4": {
+        "$value": {
+          "value": 48,
+          "unit": "px"
+        }
+      },
+      "5": {
+        "$value": {
+          "value": 60,
+          "unit": "px"
+        }
+      },
+      "6": {
+        "$value": {
+          "value": 64,
+          "unit": "px"
+        }
+      },
+      "7": {
+        "$value": {
+          "value": 76,
+          "unit": "px"
+        }
+      },
+      "8": {
+        "$value": {
+          "value": 96,
+          "unit": "px"
+        }
+      },
+      "$type": "dimension",
+      "n2": {
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "n1": {
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      }
+    },
+    "spacing": {
+      "0": {
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "1": {
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "2": {
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "3": {
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "4": {
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "5": {
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "6": {
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "8": {
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        }
+      },
+      "10": {
+        "$value": {
+          "value": 40,
+          "unit": "px"
+        }
+      },
+      "12": {
+        "$value": {
+          "value": 48,
+          "unit": "px"
+        }
+      },
+      "16": {
+        "$value": {
+          "value": 64,
+          "unit": "px"
+        }
+      },
+      "20": {
+        "$value": {
+          "value": 80,
+          "unit": "px"
+        }
+      },
+      "24": {
+        "$value": {
+          "value": 96,
+          "unit": "px"
+        }
+      },
+      "32": {
+        "$value": {
+          "value": 128,
+          "unit": "px"
+        }
+      },
+      "$type": "dimension",
+      "$extensions": {
+        "brand-os": {
+          "unit": 4
+        }
+      },
+      "gutter": {
+        "$value": {
+          "value": 64,
+          "unit": "px"
+        },
+        "$description": "The page margin. Fluid: 16px at viewport.min, growing to 64px at viewport.max",
+        "$extensions": {
+          "brand-os": {
+            "fluid": {
+              "min": 16
+            }
+          }
+        }
+      },
+      "section": {
+        "$value": {
+          "value": 128,
+          "unit": "px"
+        },
+        "$description": "A section's own block padding. Fluid: 64px at viewport.min, growing to 128px at viewport.max",
+        "$extensions": {
+          "brand-os": {
+            "fluid": {
+              "min": 64
+            }
+          }
+        }
+      }
+    },
+    "container": {
+      "$type": "dimension",
+      "$description": "Widths content is set to. Tailwind reads them as max-w-content and max-w-prose",
+      "content": {
+        "$value": {
+          "value": 1200,
+          "unit": "px"
+        }
+      },
+      "prose": {
+        "$value": {
+          "value": 640,
+          "unit": "px"
+        },
+        "$description": "The reading measure, about 65 characters of body text"
+      }
+    },
+    "breakpoint": {
+      "$type": "dimension",
+      "$description": "Where the layout changes. Tailwind's names and defaults. A media query cannot read a custom property, so DESIGN.md states the breakpoint a layout turns on as a literal",
+      "sm": {
+        "$value": {
+          "value": 640,
+          "unit": "px"
+        }
+      },
+      "md": {
+        "$value": {
+          "value": 768,
+          "unit": "px"
+        }
+      },
+      "lg": {
+        "$value": {
+          "value": 1024,
+          "unit": "px"
+        }
+      },
+      "xl": {
+        "$value": {
+          "value": 1280,
+          "unit": "px"
+        }
+      },
+      "2xl": {
+        "$value": {
+          "value": 1536,
+          "unit": "px"
+        }
+      }
+    },
+    "viewport": {
+      "$type": "dimension",
+      "$description": "The range a fluid value grows across: its minimum at min, its full value at max",
+      "min": {
+        "$value": {
+          "value": 360,
+          "unit": "px"
+        }
+      },
+      "max": {
+        "$value": {
+          "value": 1280,
+          "unit": "px"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "patterns": {
+    "color": {
+      "$type": "color",
+      "bg": {
+        "page": {
+          "$value": "{intent.color.neutral.50}"
+        },
+        "surface": {
+          "$value": "{intent.color.neutral.100}"
+        },
+        "raised": {
+          "$value": "{intent.color.neutral.50}"
+        },
+        "sunken": {
+          "$value": "{intent.color.neutral.200}"
+        },
+        "inverse": {
+          "$value": "{intent.color.neutral.900}"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "{intent.color.neutral.900}"
+        },
+        "secondary": {
+          "$value": "{intent.color.neutral.700}"
+        },
+        "disabled": {
+          "$value": "{intent.color.neutral.400}"
+        },
+        "inverse": {
+          "$value": "{intent.color.neutral.50}"
+        },
+        "on-accent": {
+          "$value": "{intent.color.neutral.50}"
+        }
+      },
+      "border": {
+        "subtle": {
+          "$value": "{intent.color.neutral.200}"
+        },
+        "default": {
+          "$value": "{intent.color.neutral.500}"
+        },
+        "strong": {
+          "$value": "{intent.color.neutral.900}"
+        },
+        "separator": {
+          "$value": "{intent.color.neutral.200}"
+        },
+        "focus": {
+          "$value": "{intent.color.accent.600}"
+        }
+      },
+      "accent": {
+        "bg-subtle": {
+          "$value": "{intent.color.accent.100}"
+        },
+        "border": {
+          "$value": "{intent.color.accent.300}"
+        },
+        "bg": {
+          "$value": "{intent.color.accent.600}"
+        },
+        "bg-hover": {
+          "$value": "{intent.color.accent.700}"
+        },
+        "bg-pressed": {
+          "$value": "{intent.color.accent.800}"
+        },
+        "text": {
+          "$value": "{intent.color.accent.700}"
+        }
+      },
+      "action": {
+        "bg": {
+          "$value": "{intent.color.accent.600}"
+        },
+        "bg-hover": {
+          "$value": "{intent.color.accent.700}"
+        },
+        "bg-pressed": {
+          "$value": "{intent.color.accent.800}"
+        },
+        "bg-disabled": {
+          "$value": "{intent.color.neutral.200}"
+        },
+        "secondary-bg-hover": {
+          "$value": "{intent.color.neutral.200}"
+        },
+        "secondary-bg-pressed": {
+          "$value": "{intent.color.neutral.300}"
+        },
+        "text": {
+          "$value": "{intent.color.neutral.50}"
+        },
+        "text-disabled": {
+          "$value": "{intent.color.neutral.500}"
+        }
+      },
+      "$extensions": {
+        "brand-os": {
+          "starter": true
+        }
+      }
+    },
+    "$description": "Patterns: where each meaning is applied, for one theme. The only layer work references. A color role points at Intent; a group with no Intent (type, motion, elevation) points at Brand.",
+    "type": {
+      "$type": "typography",
+      "display": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.7}",
+          "fontWeight": "{brand.font.weight.medium}",
+          "lineHeight": "{brand.line-height.7}",
+          "letterSpacing": "{brand.tracking.tight}"
+        }
+      },
+      "heading": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.5}",
+          "fontWeight": "{brand.font.weight.medium}",
+          "lineHeight": "{brand.line-height.5}",
+          "letterSpacing": "{brand.tracking.tight}"
+        }
+      },
+      "subheading": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.3}",
+          "fontWeight": "{brand.font.weight.medium}",
+          "lineHeight": "{brand.line-height.3}",
+          "letterSpacing": "{brand.tracking.snug}"
+        }
+      },
+      "body-l": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.1}",
+          "fontWeight": "{brand.font.weight.regular}",
+          "lineHeight": "{brand.line-height.1}",
+          "letterSpacing": "{brand.tracking.normal}"
+        }
+      },
+      "body": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.0}",
+          "fontWeight": "{brand.font.weight.regular}",
+          "lineHeight": "{brand.line-height.0}",
+          "letterSpacing": "{brand.tracking.normal}"
+        }
+      },
+      "body-s": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.n1}",
+          "fontWeight": "{brand.font.weight.regular}",
+          "lineHeight": "{brand.line-height.n1}",
+          "letterSpacing": "{brand.tracking.normal}"
+        }
+      },
+      "label": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.n1}",
+          "fontWeight": "{brand.font.weight.medium}",
+          "lineHeight": "{brand.line-height.n1}",
+          "letterSpacing": "{brand.tracking.wide}"
+        }
+      },
+      "caption": {
+        "$value": {
+          "fontFamily": "{brand.font.family.sans}",
+          "fontSize": "{brand.font-size.n2}",
+          "fontWeight": "{brand.font.weight.regular}",
+          "lineHeight": "{brand.line-height.n2}",
+          "letterSpacing": "{brand.tracking.wide}"
+        }
+      }
+    },
+    "motion": {
+      "feedback": {
+        "$type": "duration",
+        "duration": {
+          "$value": "{brand.duration.150}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.150}"
+            }
+          }
+        },
+        "duration-exit": {
+          "$value": "{brand.duration.100}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.100}"
+            }
+          }
+        }
+      },
+      "component": {
+        "$type": "duration",
+        "duration": {
+          "$value": "{brand.duration.300}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.0}"
+            }
+          }
+        },
+        "duration-exit": {
+          "$value": "{brand.duration.200}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.0}"
+            }
+          }
+        }
+      },
+      "layout": {
+        "$type": "duration",
+        "duration": {
+          "$value": "{brand.duration.500}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.0}"
+            }
+          }
+        },
+        "duration-exit": {
+          "$value": "{brand.duration.350}",
+          "$extensions": {
+            "brand-os": {
+              "reduced-motion": "{brand.duration.0}"
+            }
+          }
+        }
+      },
+      "easing": {
+        "$type": "cubicBezier",
+        "enter": {
+          "$value": "{brand.easing.enter}"
+        },
+        "exit": {
+          "$value": "{brand.easing.exit}"
+        },
+        "standard": {
+          "$value": "{brand.easing.standard}"
+        },
+        "linear": {
+          "$value": "{brand.easing.linear}"
+        }
+      }
+    },
+    "elevation": {
+      "$type": "shadow",
+      "raised": {
+        "$value": "{brand.shadow.sm}"
+      },
+      "overlay": {
+        "$value": "{brand.shadow.lg}"
+      }
+    }
+  }
+}

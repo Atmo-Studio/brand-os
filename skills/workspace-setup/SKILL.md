@@ -10,7 +10,7 @@ description: Guides users through designing and building their Claude project
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.4.0"
 ---
 
 # `workspace-setup`
@@ -38,7 +38,7 @@ This skill layers workspace architecture expertise on top of the host agent's pe
 
 **Always true:**
 - **Ask 3–5 questions at a time.** Group them logically. Wait for answers.
-- **Don't narrate.** No step commentary. Do the work; surface what they need to act on.
+- **Don't narrate the mechanics.** No step commentary. Do that work; surface what they need to act on, and say why when you make a decision.
 - **Push back on vague answers.** "Business stuff" is not a project. If an answer is too vague to write instructions from, say so and ask for a concrete example.
 - **Challenge thinking that doesn't hold up.** Redundant projects, goals that don't connect: name them.
 
@@ -88,6 +88,7 @@ Extract for immediate use before opening with the user:
 
 *End of Phase 1 (architecture confirmed):*
 - Create `workspace-config.md` at workspace root from `workspace-config.template.md`
+- Create the workspace memory, per **Workspace Memory** below
 - Set: `schema_version`, `created_at`, `last_updated`, `workspace_entry`, `workspace`
 - Populate `projects` list with all confirmed projects (`instructions.written: false` for all)
 - Set `setup_progress.phase_2_build_loop.projects_remaining` to all project IDs
@@ -119,9 +120,9 @@ Extract for immediate use before opening with the user:
 
 If no `workspace-config.md` exists, open with:
 
-> "Welcome. I'm going to help you set up your agent workspace (projects, custom instructions, and context documents) so every conversation feels like talking to someone who already knows your situation.
+> "Let's build you a workspace that already knows your situation, so every conversation starts ahead instead of from a blank page. I'll help you map the projects, instructions, and context that make that true.
 >
-> Before we design anything, tell me: what are the main areas of your work and life you want help with? Give me a rough list: doesn't need to be polished. If you have a map, diagram, or notes, share those too."
+> Start with the rough cut: what are the main areas of your work and life you want this to cover? Doesn't need to be polished. Got a map, a diagram, scattered notes? Hand them over. I'll find the structure that's already there."
 
 Wait for the user's response. Then proceed to Phase 1.
 
@@ -140,6 +141,7 @@ Surface the natural options based on their state:
 - Add a new project
 - Update an existing project's instructions
 - Re-run the architecture design (Phase 1) if they want to revisit the overall structure
+- Create the workspace memory, if the workspace has none (see **Workspace Memory**)
 
 **If the user chooses "Update an existing project":** Ask which project. Read its current instructions from the path recorded in `workspace-config.md`. Present them in chat with: *"Here's what's currently in [project name]. What do you want to change?"* Get their answer, then route to Phase 2 Step C (gap check), treating the existing instructions as the starting draft. Do not re-run Steps A or B.
 
@@ -182,7 +184,7 @@ Ask which projects are a top priority right now. Start with those in Phase 2.
 
 Before starting any project, ask:
 
-> "How much time do you want to put into setting up [project name] right now? Most projects take around 30 minutes to do well — but we can do a lighter pass if time is short, and come back later to go deeper."
+> "How much time do you want to put into setting up [project name] right now? Most projects take around 30 minutes to do well, but we can do a lighter pass if time is short, and come back later to go deeper."
 
 Set a time budget. Flag actively when spending more time on a particular step is recommended. Keep the pace aligned with the time the user has given.
 
@@ -192,7 +194,7 @@ Set a time budget. Flag actively when spending more time on a particular step is
 
 Ask:
 
-> "Are you moving context over from another AI assistant — ChatGPT, Gemini, or anything else? If you have relevant past conversations about [this project's domain], you can extract a summary now and I'll use it as starting context."
+> "Are you moving context over from another AI assistant: ChatGPT, Gemini, or anything else? If you have relevant past conversations about [this project's domain], you can extract a summary now and I'll use it as starting context."
 
 If yes: provide a targeted extraction prompt for the user to run in their other tool. The prompt should ask the AI to compile a structured summary of everything it knows about the user's situation in this domain: goals, decisions made, preferences, challenges, key context. It should say "not discussed" for any section it doesn't have context on rather than making things up.
 
@@ -240,19 +242,19 @@ Write the custom instructions using this structure:
 
 ```
 ## Role
-[Who Claude is in this project — specific expert type, not generic]
+[Who Claude is in this project: a specific expert type, not generic]
 
 ## Context
-[Key facts about the user's situation — stage, goals, constraints, relevant details]
+[Key facts about the user's situation: stage, goals, constraints, relevant details]
 
 ## Goals & Priorities
 [What they're working toward, with timeframes if discussed]
 
 ## How to Work With Me
-[Behavioral rules — how Claude should think, respond, challenge, and support in this specific domain]
+[Behavioral rules: how Claude should think, respond, challenge, and support in this specific domain]
 
 ## Anti-Patterns
-[Things Claude should NOT do in this project — be specific]
+[Things Claude should NOT do in this project. Be specific.]
 ```
 
 **Rules for writing instructions:**
@@ -260,6 +262,8 @@ Write the custom instructions using this structure:
 - Include concrete details from the interview: names, numbers, dates, specific goals.
 - Keep it under 1,500 words. These get read every conversation: they need to be dense and high-signal.
 - Do not repeat anything that's already in the user's universal profile or workspace-level context.
+- If the workspace has a memory file, the instructions open with one line above `## Role`: read that
+  file at the start of every session, named by its real path.
 
 Present the draft. Ask for feedback. Make adjustments until they confirm it's ready.
 
@@ -337,7 +341,7 @@ context-captured:
     [paste project table from Phase 1]
 next-task: Continue building [next-project]. Pick up at Phase 2 Step A.
 read-first:
-  1. workspace-config.md — resume state, remaining project queue, and architecture
+  1. workspace-config.md: resume state, remaining project queue, and architecture
 ```
 
 The `session-handover` skill will write the session log and print a resume prompt.
@@ -348,7 +352,7 @@ The `session-handover` skill will write the session log and print a resume promp
 
 *Reached when all projects in the architecture are built, or when the user asks about connecting tools. This is the natural "what's next" — not an interruption mid-loop.*
 
-If a brand-signal project was encountered in Phase 2 and the user deferred: mention it here. *"Earlier you had [project] — this is where Brand OS would connect."*
+If a brand-signal project was encountered in Phase 2 and the user deferred: mention it here. *"Earlier you had [project]. This is where Brand OS would connect."*
 
 Present the available modules:
 
@@ -365,9 +369,23 @@ Present the available modules:
 
 **If they want Brand OS, run the storage step now, in this session:**
 
-1. Check `workspace-config.md → modules.brand_os` for an entry for this project (an entry with `notion_db_id` and no `storage` field is `storage: notion`). **If the matched entry has a non-null locator, Brand OS is already active** — tell them to invoke `brand-discovery`. **If the entry exists but its locator is null, the brand is staged, not connected** (see `../brand-discovery/references/storage-resolution.md` §2), treat this the same as no entry and continue to step 2, not step 3.
+1. Check `workspace-config.md → modules.brand_os` for an entry for this project (an entry with `notion_db_id` and no `storage` field is `storage: notion`). **If the matched entry has a non-null locator, Brand OS is already active** — speak the *already connected* handoff below. **If the entry exists but its locator is null, the brand is staged, not connected** (see `../brand-discovery/references/storage-resolution.md` §2), treat this the same as no entry and continue to step 2, not step 3.
 2. Otherwise, load `../brand-discovery/references/storage-setup.md` and run it end to end: it asks where the brand should live, deploys the Storage Architect for the scaffolding or discovery, writes the `modules.brand_os` entry, and locks the locator.
-3. When it returns, tell them to invoke `brand-discovery` to begin the interview.
+3. When it returns, speak the *newly connected* handoff below.
+
+**Handoff to `brand-discovery`.** Name the invocation the way this host does it; if you cannot tell, write the skill name plainly and say it is a skill. Do not explain how discovery works: it opens with its own orientation, and repeating it here makes the founder hear the same thing twice.
+
+*Newly connected* (step 3):
+
+> "Your brand knowledge base is live in [Notion / your `brand/` folder].
+>
+> When you're ready, run [brand-discovery] to begin working through your brand's foundations: purpose, vision, mission, and values."
+
+*Already connected* (step 1):
+
+> "Brand knowledge base found for [project name]. Start [brand-discovery] to pick up where you left off."
+
+*`[project name]` is the project's display name from `projects[]`, not its `project_id`.*
 
 **If they want Agent Persona:**
 Tell them to invoke the `agent-persona` skill: it runs the archetype interview and writes the persona to SOUL.md.
@@ -384,6 +402,20 @@ Use the widget at path-selection moments: where the user's choice has materially
 Path-selection moments: returning user routing (Phase 0 Step C), module selection (Phase 3), and any step where the answer sends the session in a materially different direction.
 
 If the tool is unavailable, present the same options as inline text. Core behaviors must function as plain conversation in any agentic environment.
+
+---
+
+## Workspace Memory
+
+Every workspace gets one memory, created beside `workspace-config.md` at the end of Phase 1:
+`memory/MEMORY.md` from `MEMORY.template.md` in this skill's directory, and an empty
+`memory/sessions/`, where `session-handover` writes its logs.
+
+**Adopt, never duplicate.** If the workspace already keeps a memory file, `MEMORY.md` or
+`memory.md` at the root or in `memory/`, use it and create nothing. Another agent may depend on that
+file where it is.
+
+**Without file access,** print the template for the user to save as `memory/MEMORY.md`.
 
 ---
 
@@ -405,4 +437,4 @@ Re-running `workspace-setup` is the update mechanism. There is no separate updat
 
 For the shape an update like this should take, `notion-connect`'s deprecation is the worked example. In v0.3 it was deprecated in favor of in-flow storage connection and kept as a redirect rather than disappearing outright; it was removed after that one release of runway. A future rename or removal of any skill or config field should follow the same pattern: keep the old name or shape working long enough to redirect users to the new one, give it exactly one release of runway, then remove it.
 
-Whatever form the update takes, it must never touch three things: `workspace-config.md`'s `Notes` section, which is append-only and user-editable by the existing rule in `workspace-config.template.md` ("The Notes section is append-only — newest entry first. Users may edit Notes freely; do not modify other sections outside of the defined write points"); any brand data written by Brand OS or its adapters; and any handover history. An update touches wiring and schema shape, never the record of what the user has already built.
+Whatever form the update takes, it must never touch three things: `workspace-config.md`'s `Notes` section, which is append-only and user-editable by the existing rule in `workspace-config.template.md` ("The Notes section is append-only, newest entry first. Users may edit Notes freely; do not modify other sections outside of the defined write points"); any brand data written by Brand OS or its adapters; and any handover history. An update touches wiring and schema shape, never the record of what the user has already built.

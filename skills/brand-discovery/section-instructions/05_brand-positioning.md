@@ -28,8 +28,12 @@ This dimension synthesizes BRND-3 (ICPs) and BRND-4 (Competitive Landscape). Bef
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing positioning work? A positioning statement, a pitch deck slide that says 'unlike [competitor], we...', a one-liner you use in sales, or even a draft you're not happy with."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing positioning work? A positioning statement, a pitch deck slide that says 'unlike [competitor], we...', a one-liner you use in sales, or even a draft you're not happy with.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -89,14 +93,15 @@ This dimension synthesizes BRND-3 (ICPs) and BRND-4 (Competitive Landscape). Bef
 
 ## Gap Check
 
-Run all three internally. Surface the single strongest concern.
+Run all four internally. Surface the single strongest concern.
 
 - [ ] Substitution test: replace the brand name in the positioning statement with a competitor's. Does it still hold? If yes, the unique value or differentiation isn't specific enough.
 - [ ] Category test: does the market category frame set the brand up to win, or to compete on ground where it's weakest? Would a customer recognize the category without explanation?
 - [ ] Coherence test: does the positioning statement trace cleanly back to the ICPs (BRND-3) and competitive landscape (BRND-4)? If the audience or alternatives in the statement don't match what was established in those dimensions, something is disconnected.
+- [ ] Foundations test: read BRND-1 (Purpose, Vision & Mission) and BRND-2 (Brand Values). This is a one-time read for this check, not an Upstream Dependency. Does the positioning statement contradict either one? A brand can position itself accurately against the market and still stake out ground its own purpose or values rule out. If the statement pulls against what the brand said it's for, name the conflict rather than letting positioning quietly override foundations.
 
 `AskUserQuestion`
-> "Before we lock this in — [state the single strongest concern as a direct question, e.g., 'If I swap your brand name for [competitor X] in this positioning statement, it still reads as true. That tells me the differentiation isn't sharp enough yet. What's the one thing you do that they genuinely cannot?']"
+> "Before we lock this in: [state the single strongest concern as a direct question, e.g., 'If I swap your brand name for [competitor X] in this positioning statement, it still reads as true. That tells me the differentiation isn't sharp enough yet. What's the one thing you do that they genuinely cannot?']"
 - Feels solid: write it
 - Let me revisit [element]
 

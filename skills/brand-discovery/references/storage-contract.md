@@ -1,7 +1,7 @@
 # Brand OS: Storage Contract
-**Contract version: 1.0**
+**Last changed in:** 0.4.0
 
-**The tool-agnostic definition of how Brand OS stores, reads, and writes brand intelligence. Adapters implement this contract; no module may depend on a specific backend. Runtime sources: op implementations live in `skills/brand-discovery/references/adapters/`, the setup/migration agent in `agents/storage-architect.md` — this document is the design spec they conform to.**
+**The tool-agnostic definition of how Brand OS stores, reads, and writes brand intelligence. Adapters implement this contract; no module may depend on a specific backend. Runtime sources: op implementations live in `skills/brand-discovery/references/adapters/`, the setup/migration agent in `agents/storage-architect.md`. This document is the design spec they conform to.**
 
 ## Why
 
@@ -45,10 +45,10 @@ One of the **11 framework units**. A dimension is **logical**; its physical unit
 Order is section-scoped (first digit = section, second = position) and doubles as a stable sort key. The per-dimension content spec (what each dimension holds, in what structure) lives in the section-instructions **Fill Targets** tables (one normative home; this contract does not duplicate them). The canonical structural skeletons live in `skills/brand-discovery/assets/dimensions/`.
 
 ### Status
-`Not started`, `In progress`, `Complete` — canonical values. Adapters may store a different spelling (md-folder uses kebab-case frontmatter) but must present and accept the canonical values at the contract surface. Status drives session resume and is **the one designed structural write**.
+`Not started`, `In progress`, `Complete` are the canonical values. Adapters may store a different spelling (md-folder uses kebab-case frontmatter) but must present and accept the canonical values at the contract surface. Status drives session resume and is **the one designed structural write**.
 
 ### Document
-Agent-generated output (briefs, strategies, guidelines, reports). Every backend provides a **Documents-equivalent** — the default write target for everything that is not dimension content. Metadata (category, tags, client/project links) is written where the backend supports it and dropped silently where it doesn't.
+Agent-generated output (briefs, strategies, guidelines, reports). Every backend provides a **Documents-equivalent**, the default write target for everything that is not dimension content. Metadata (category, tags, client/project links) is written where the backend supports it and dropped silently where it doesn't.
 
 ### Resume state
 Two layers, in priority order:
@@ -65,11 +65,11 @@ Seven operations. Every adapter implements all seven; implementations live in `s
 | Op | Contract | notion | google-docs | md-folder |
 |---|---|---|---|---|
 | `verify-space` | Confirm the locator points at a well-formed brand space; report what's missing without fixing it | DB carries property signature `Name, Section, Order, Status` | folder contains Index doc + 4 section docs | folder contains 11 dimension files |
-| `list-dimensions` | Return the 11-dimension status map (Order, name, section, status) in **one logical read**, asserting its integrity (below) before returning | query DB rows | read the Index doc table | glob the brand folder + read frontmatter |
+| `list-dimensions` | Return the 11-dimension status map (Order, name, section, status) in **one logical read**, asserting its integrity (below) before returning | query DB rows | read the Index doc table | glob the brand folder's numbered files (`[0-9][0-9]_*.md`) + read frontmatter |
 | `read-dimension` | Return one dimension's full content | fetch the page | read its heading span in its section doc | read the file |
 | `write-dimension` | Write confirmed content into the dimension's **existing structure**; never create or delete dimensions | update page blocks | write within the heading span | write the file body below frontmatter |
 | `set-status` | Set a dimension's status | `Status` property | update its Index doc row | update `status:` frontmatter |
-| `write-document` | Create a new document in the Documents area, with metadata where supported | Documents DB row (Category, Tags, relations) | new doc in `Documents/` subfolder | `documents/YYYY-MM-DD_[slug].md` with frontmatter |
+| `write-document` | Create a new document in the Documents area, with metadata where supported | Documents DB row (Category, Tags, relations) | new doc in `Documents/` subfolder | `documents/YYMMDD_[slug].md` with frontmatter |
 | `list-documents` | Enumerate existing documents | query Documents DB | list the subfolder | glob `documents/` |
 
 **Consumers reference operations by these names.** A skill instruction reads "write the confirmed content (`write-dimension`) and mark it `Complete` (`set-status`)": never "update the Notion page."
@@ -83,7 +83,7 @@ Every adapter's `list-dimensions` asserts the following before returning:
 | Assertion | Catches |
 |---|---|
 | Exactly 11 dimensions returned | rows added, deleted, or filtered out by a view |
-| Order values are exactly `{11, 12, 21, 22, 23, 31, 32, 41, 42, 43, 44}` — all present, no nulls, no duplicates | an ordering home that is empty or hand-edited |
+| Order values are exactly `{11, 12, 21, 22, 23, 31, 32, 41, 42, 43, 44}`: all present, no nulls, no duplicates | an ordering home that is empty or hand-edited |
 | Status values are within `Not started, In progress, Complete` | a renamed backend status option |
 | Section values are within the four canonical sections | a renamed or misassigned section |
 
@@ -103,7 +103,7 @@ Generalized from the Brand OS write rules (maintainer doc, not packaged):
 
 ## Canonical element vocabulary
 
-Dimension content is expressed in these elements. Each adapter maps them to the **highest-fidelity native affordance available** — the goal is that a dimension reads the same on every backend, with the documented fallback only where nothing closer exists. Rendering tables live in each adapter file.
+Dimension content is expressed in these elements. Each adapter maps them to the **highest-fidelity native affordance available**. The goal is that a dimension reads the same on every backend, with the documented fallback only where nothing closer exists. Rendering tables live in each adapter file.
 
 | Element | Meaning | Fallback when unsupported |
 |---|---|---|
@@ -127,13 +127,13 @@ Storage behaves like an app permission, not an installer:
 
 ### The canonical in-flow resolution step
 
-Consumer skills point at step 1's shipped runtime copy (`storage-resolution.md`, alongside this file) rather than restating it (as of v0.3.1; before this, five skills each carried their own copy and drifted, see ATMO-115). This document is the normative definition; `storage-resolution.md` is the runtime procedure that implements it. Both ship. Steps 2–5 ship as `storage-setup.md`, loaded only when nothing resolves: recurring sessions never pay for setup they don't need.
+Consumer skills point at step 1's runtime copy, `storage-resolution.md` alongside this file, and never restate it. This document defines what a compliant backend must do; `storage-resolution.md` is the procedure that runs. Steps 2–5 live in `storage-setup.md`, loaded only when nothing resolves, so a recurring session never pays for setup.
 
 1. **Resolve silently**, in order: handover cache (`Storage:` + `Locator:`; legacy `Brand OS database ID:` ⇒ `notion`) → `workspace-config.md` entry for the current project scope (`storage` + locator; legacy entry with `notion_db_id` and no `storage` ⇒ `notion`) → a URL/path the user provided at session start. On success: load `skills/brand-discovery/references/adapters/{storage}.md`, lock the locator, continue. No user interaction.
-   - **Page-prefix resolution (v0.3.1):** the brand's configured `page_prefix` is authoritative once set; `BRND` is the default only when unset. Every writer of a dimension reference (handovers, briefs, documents) uses the resolved prefix, never a hardcoded `BRND-N`. Full rule: shipped file §4.
-   - **Freshness rule (v0.3.1):** a resolved handover's cached status map is trusted for routing without a fresh read: that's the point of caching it. Before any `write-dimension`/`set-status`, re-verify the specific dimension(s) via `read-dimension` or `list-dimensions`. Read-only consumers (`brand-filter`, `on-voice`, `brand-brief`) never write, so this doesn't bind them. Full rule: shipped file §5.
-2. **Nothing resolves →** ask (AskUserQuestion where available, plain text otherwise): *"Where should your brand knowledge base live?"* — **Notion** (rich template, databases), **Google Docs** (lives in Drive alongside your docs), **Local markdown folder** (zero dependencies, works everywhere, easy to move later).
-3. **Chosen backend needs an unreachable MCP →** the grant ask: *"Brand OS needs access to [Notion / Google Drive]. Grant it in your agent's connector or MCP settings, then tell me — **or start in a local markdown folder now and switch later.**"*
+   - **Page-prefix resolution:** the brand's configured `page_prefix` is authoritative once set; `BRND` is the default only when unset. Every writer of a dimension reference (handovers, briefs, documents) uses the resolved prefix, never a hardcoded `BRND-N`. Full rule: shipped file §4.
+   - **Freshness rule:** a resolved handover's cached status map is trusted for routing without a fresh read: that's the point of caching it. Before any `write-dimension`/`set-status`, re-verify the specific dimension(s) via `read-dimension` or `list-dimensions`. Read-only consumers (`brand-filter`, `on-voice`, `brand-brief`) never write, so this doesn't bind them. Full rule: shipped file §5.
+2. **Nothing resolves →** ask (AskUserQuestion where available, plain text otherwise): *"Where should your brand knowledge base live?"*: **Notion** (rich template, databases), **Google Docs** (lives in Drive alongside your docs), **Local markdown folder** (zero dependencies, works everywhere, easy to move later).
+3. **Chosen backend needs an unreachable MCP →** the grant ask: *"Brand OS needs access to [Notion / Google Drive]. Grant it in your agent's connector or MCP settings, then tell me, **or start in a local markdown folder now and switch later.**"*
 4. **Deploy the Storage Architect** (`agents/storage-architect.md`) with a mission (`verify` an existing space, `scaffold` a new one, or `discover` candidates), plus the storage choice, project scope, and the config/scaffold/adapter paths. Receive the structured hand-back (locator + verification report + open questions). Ambiguity (e.g. two candidate databases) → relay to the user, then continue or re-deploy. **Harness without agent deployment → execute the agent file's instructions inline.**
 5. **Customize and lock:** confirm prefix/categories/tags defaults, write the config entry, lock the locator, continue the host skill's flow.
 
@@ -141,9 +141,9 @@ Consumer skills point at step 1's shipped runtime copy (`storage-resolution.md`,
 
 `agents/storage-architect.md` is a deployable agent: skills deploy it for **bounded, non-interactive** work and it hands back a structured result to the session that deployed it. Missions: `verify`, `scaffold`, `discover`, `migrate`.
 
-- **Interactive halves stay in the main session** — deployed agents can't converse mid-run. Choices, grants, and confirmations belong to the consumer skill; the architect receives decisions, never makes them for the user.
+- **Interactive halves stay in the main session.** Deployed agents can't converse mid-run. Choices, grants, and confirmations belong to the consumer skill; the architect receives decisions, never makes them for the user.
 - **The agent file doubles as the inline brief.** On a harness with no agent mechanism, the main session follows the same instructions itself. Same protocol as every other Claude-feature fallback in this plugin.
-- **The architect never generates runtime references into the user's workspace.** Adapters and scaffold ship with the plugin and update with releases: generated copies go stale (the Notion-attachment lesson from v0.2.3).
+- **The architect never generates runtime references into the user's workspace.** Adapters and scaffold ship with the plugin and update with releases: generated copies go stale.
 
 ## Switching storage (migration)
 
@@ -185,7 +185,7 @@ What discovery does when a backend misbehaves. These are contract-level; adapter
   connected_at: "YYYY-MM-DD"
 ```
 
-**Back-compat reader rule (all consumers):** an entry with `notion_db_id` and no `storage` field is `storage: notion`. Existing configs (including the live Claus workspace) resolve without edits. Handover documents likewise: `Storage:` + `Locator:` going forward; the legacy `Brand OS database ID:` field is read as `storage: notion`.
+**Back-compat reader rule (all consumers):** an entry with `notion_db_id` and no `storage` field is `storage: notion`. Existing configs resolve without edits. Handover documents likewise: `Storage:` + `Locator:` going forward; the legacy `Brand OS database ID:` field is read as `storage: notion`.
 
 ## Adapter conformance checklist
 
@@ -200,21 +200,6 @@ A new adapter ships when all of these hold:
 - [ ] Rendering table maps every canonical element (native or documented fallback)
 - [ ] Honors all five write rules
 - [ ] `verify-space` reports missing structure without fixing it
-- [ ] Scaffold path defined for the architect (from `assets/dimensions/`, rendered per backend)
+- [ ] Scaffold path defined for the architect (from `../assets/dimensions/`, rendered per backend)
 - [ ] Degradation notes: what unreachable/read-only/slow look like on this backend
 - [ ] No hardcoded IDs, URLs, or prefixes; brand-neutral examples only
-
-## Known future moves (recorded, not built)
-
-- Adapters + scaffold live in `skills/brand-discovery/` because discovery is the only interview-time consumer in v0.3. When the operational layer and the identity workstream land as heavy readers, consider graduating them to a shared module folder; until then, cross-skill reads are the pattern: from a consumer skill's own folder, `../brand-discovery/references/adapters/` and (as of v0.3.1) `../brand-discovery/references/storage-resolution.md`.
-- The identity workstream's "artifact home" (reference page + local `brand/` library) is expressible today: the dimension-32 upgrade is a `write-dimension`, and the library shares the fixed `brand/` destination: for md-folder brands it is literally the same folder. No contract change needed.
-
----
-
-## Contract changelog
-
-Bump the version stamp at the top of this file when the contract changes.
-
-| Version | Date | Change |
-|---|---|---|
-| 1.0 | 2026-07-16 | Initial contract. Entities, seven operations, write rules, integrity assertions, degradation rules, workspace-config schema v1.2, adapter conformance checklist. Shipped with the plugin as of 2026-08-22; previously maintainer-only. |

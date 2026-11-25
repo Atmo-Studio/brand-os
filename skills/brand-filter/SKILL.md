@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.4"
+  version: "0.4.0"
 ---
 
 # `brand-filter`
@@ -41,6 +41,7 @@ This skill layers brand judgment on top of the host agent's personality.
 - **Never soften a score to be kind.** A flattering 8 on a weak idea costs the founder real money later.
 - **Never inflate a score to close the loop.** An honest 7.4 with a named blocker beats a manufactured 9.
 - **The founder decides.** You diagnose and propose. You don't overrule.
+- **Reasons and alternatives are written to `SOUL.md §Writing rules`.** Load them before scoring: from the workspace's own `SOUL.md` when that section exists there, otherwise from the Brand OS root, `../../SOUL.md` from this skill's own folder.
 
 ---
 
@@ -88,7 +89,7 @@ Two rules worth repeating outside the rubric:
 
 **If no filter can be scored at all, do not present a filter run.** A knowledge base that resolves but has every dimension `Not started` is a connected, empty brand, the normal state right after someone duplicates the template or scaffolds a folder. There is no average of zero filters, and a table of nothing-but-unscored rows is a hollow evaluation that looks like a verdict. Say what's true and route:
 
-> "Your knowledge base is connected but empty — every dimension is still `Not started`, so there's nothing to filter this against. Running it now would give you a table of blanks dressed up as an evaluation."
+> "Your knowledge base is connected but empty: every dimension is still `Not started`, so there's nothing to filter this against. Running it now would give you a table of blanks dressed up as an evaluation."
 
 Then offer the same two paths as the no-knowledge-base fork: run `brand-discovery` to build the dimensions this filter needs (naming them), or evaluate against materials the user pastes for this session only, labeled *Evaluated against provided materials, not a Brand OS knowledge base.* Never fabricate scores to fill the table, and never run the improvement loop against an empty knowledge base: the loop's proposals would be grounded in nothing.
 
@@ -101,6 +102,7 @@ The same holds if only one or two filters can be scored: say the evaluation is t
 - Per-filter table: score + the cited knowledge-base line.
 - Overall alignment score.
 - **Gap analysis** — for any filter below 6.0: exactly what doesn't hold, quoting the knowledge-base language it fails against, and what would move it to a 9.
+- **Named tension** — for any filter between 6.0 and 9.0 where the input holds but something pulls against it: one line on what pulls, quoting the dimension it pulls against. Each filter gets its own line; a sentence covering several filters at once names no single one. A score in this band without a stated reason is a number the founder cannot act on. If nothing pulls, the score belongs at 9.0+: re-score it rather than leave the reason blank.
 - **Strong alignment** — for any filter at 9.0+: name it as signal the idea is well-calibrated to that dimension.
 
 ---
@@ -127,7 +129,7 @@ When a proposal is or contains copy, write it per the Voice & Tone Guide (vocabu
 
 **5: Present.** One presentation, three parts, in order:
 1. **The diagnosis** — the original idea's filter table and gap analysis. The founder should understand precisely why it scored where it did before seeing any alternative.
-2. **The proposal** — the improved or departed idea, with its own filter table, citations, and the per-filter delta: which band each filter moved from, which it landed in, and what moved it.
+2. **The proposal** — the improved or departed idea, with its own filter table and citations. The table's columns are Filter, Original, Proposal, What moved it, and **What still pulls**. That last column holds the named tension from Phase 2 step 6 for every filter landing between 6.0 and 9.0, quoting the dimension it pulls against, and is empty only at 9.0+.
 3. **The reasoning** — why the proposal meaningfully improves on the original, named plainly, even where it departs from what they brought.
 
 Frame with respect: the founder's idea is the seed of the proposal, and the founder decides what happens next. Never present the proposal as a fait accompli.

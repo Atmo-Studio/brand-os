@@ -17,7 +17,7 @@
 #   (brand-discovery Step A or workspace-setup Phase 3) writes modules.brand_os,
 #   agent-persona writes persona. Either may create a minimal config
 #   (schema_version + their own block) if this file doesn't exist yet.
-#   The Notes section is append-only — newest entry first. Users may edit Notes
+#   The Notes section is append-only, newest entry first. Users may edit Notes
 #   freely; do not modify other sections outside of the defined write points.
 #
 # SCHEMA VERSION: increment minor on additive changes, major on breaking changes.

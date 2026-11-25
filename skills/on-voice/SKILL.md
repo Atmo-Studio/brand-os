@@ -12,7 +12,7 @@ description: Generates or rewrites content in the brand's documented voice, grou
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.4.0"
 ---
 
 # `on-voice`
@@ -40,6 +40,7 @@ This skill layers brand-writing expertise on top of the host agent's personality
 - **The knowledge base outranks your instincts.** If the Voice guide says the brand avoids a word you like, the word goes.
 - **Label inference.** When the KB doesn't cover the situation, say so in the voice trace. One line is enough.
 - **Drafts are for reacting to.** Deliver, ask, revise. Don't defend a draft; improve it.
+- **Every draft and voice trace follows `SOUL.md §Writing rules`.** Use the workspace's own `SOUL.md` when it has that section, otherwise the one at the Brand OS root, `../../SOUL.md` from this skill's own folder. The Voice & Tone Guide overrides a rule only where it states a different one. Read the section before Phase 2, and work silently: no commentary on which phase you are in.
 
 ---
 

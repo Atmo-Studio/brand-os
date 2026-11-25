@@ -44,7 +44,7 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 
 ```
         ┌─────────┐
-        │   WHY   │  ← Purpose — start here
+        │   WHY   │  ← Purpose: start here
         ├─────────┤
         │   HOW   │  ← Process / values
         ├─────────┤
@@ -95,14 +95,14 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 │                                      │
 │  Core Purpose     Core Values        │
 │  (the guiding     (the behavioral    │
-│   star — never     principles —      │
+│   star, never      principles,       │
 │   fully reached)   never negotiated) │
 └──────────────────────────────────────┘
                     +
 ┌──────────────────────────────────────┐
 │                 BHAG                 │
 │  Big Hairy Audacious Goal            │
-│  (10–30 year stretch goal —          │
+│  (10–30 year stretch goal:           │
 │   clear, compelling, unifying)       │
 └──────────────────────────────────────┘
 ```
@@ -144,16 +144,16 @@ Reference document for Brand OS discovery interviews. Each framework is tagged w
 ┌─────────────────┬──────────────────────────────────────────────────┐
 │ Core Values     │ Deeply held, authentic, non-negotiable           │
 │                 │ The brand would be willing to be punished for     │
-│                 │ holding these — even when inconvenient            │
+│                 │ holding these, even when inconvenient             │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Aspirational    │ Values the brand wishes it had but doesn't yet   │
 │ Values          │ Danger: listing these as core = performative      │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Permission-to-  │ Behaviors any decent company should have          │
-│ Play Values     │ (integrity, respect) — table stakes, not identity │
+│ Play Values     │ (integrity, respect): table stakes, not identity  │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Accidental      │ Emerged from the team's personality, not intent  │
-│ Values          │ Fine to have — but not the same as core values    │
+│ Values          │ Fine to have, but not the same as core values     │
 └─────────────────┴──────────────────────────────────────────────────┘
 ```
 
@@ -601,7 +601,7 @@ A visual identity is a **system, not a logo** — a coordinated set of elements 
 | Color | Anchor color(s) + governing rule (role, dosage, temperature) |
 | Typography | Type voice: what the letterforms say before the words do |
 | Imagery | Asset base + selection direction (what's ruled in and out) |
-| Signature device | The repeatable move beyond logo-color-type that makes work recognizable |
+| Brand motifs | Which distinct, repeated visual patterns (a mark, a pattern, a texture, a type treatment, and on digital surfaces a web effect or shader) the brand commits to owning, and where each recurs; sometimes called a "brand signature" in the field |
 
 ### Wheeler's Ideals (test any identity direction against these)
 Vision, Meaning, Authenticity, Differentiation, Durability, Coherence, Flexibility, Commitment, Value. For a BRND-7 gap check, the four that decide the outcome are **meaning** (expresses the strategy), **differentiation** (couldn't be a competitor's), **coherence** (elements agree with each other), and **flexibility** (survives contexts it wasn't designed for).
@@ -648,7 +648,7 @@ The brand is not the hero. The customer is the hero. The brand is the guide. Eve
 ### The 7-Part Structure
 
 ```
-1. CHARACTER       The hero — who the customer is and what they want
+1. CHARACTER       The hero: who the customer is and what they want
         ↓
 2. PROBLEM         External (the tangible problem)
                    Internal (how it makes them feel)
@@ -697,11 +697,11 @@ The oldest narrative structure humans respond to: a character leaves the ordinar
 ### The Compressed Arc (three acts, not twelve beats)
 
 ```
-DEPARTURE      The ordinary world and its quiet dissatisfaction —
+DEPARTURE      The ordinary world and its quiet dissatisfaction:
                the customer's status quo, and the call that disrupts it
-INITIATION     Trials and the mentor's aid — the struggle, the brand's
+INITIATION     Trials and the mentor's aid: the struggle, the brand's
                entrance, the ordeal where the old way visibly fails
-RETURN         Transformation made permanent — who the customer has
+RETURN         Transformation made permanent: who the customer has
                become, and what they now carry that others don't
 ```
 
@@ -750,7 +750,7 @@ When a reader is "transported" into a story (absorbed enough to lose evaluation 
 
 ### Core Premise
 
-A usable voice guide defines each voice attribute as a **bounded spectrum**, not a word: "confident — but never arrogant," "warm — but never chummy." The bound does the work. Any writer can claim "confident"; the guardrail tells them where confident tips into something off-brand.
+A usable voice guide defines each voice attribute as a **bounded spectrum**, not a word: "confident, but never arrogant," "warm, but never chummy." The bound does the work. Any writer can claim "confident"; the guardrail tells them where confident tips into something off-brand.
 
 ### Structure
 
@@ -876,7 +876,7 @@ Messaging pillars are the 3–5 core claims a brand repeats consistently across 
 ├─────────────────────────────────────────────────────┤
 │  CHANNEL EXPRESSIONS                                │
 │  How this pillar shows up on homepage / sales deck  │
-│  / social / email — same claim, different register  │
+│  / social / email: same claim, different register   │
 └─────────────────────────────────────────────────────┘
 ```
 

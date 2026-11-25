@@ -1,0 +1,21 @@
+{
+  "name": "brand-tokens",
+  "version": "0.1.0",
+  "description": "The brand's design tokens. Edit src/ only, then run the build.",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./tokens.js",
+    "./css": "./tokens.css",
+    "./json": "./tokens.json",
+    "./tailwind": "./tailwind.css"
+  },
+  "files": ["src", "tokens.css", "tokens.json", "tokens.js", "tailwind.css", "fonts.css"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node scripts/build.mjs && node scripts/check.mjs && node scripts/build.mjs --verify",
+    "sheet": "node scripts/sheet.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

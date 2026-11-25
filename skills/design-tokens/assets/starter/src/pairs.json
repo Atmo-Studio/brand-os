@@ -1,0 +1,152 @@
+{
+  "$description": "Every foreground and background pair the build measures, in every theme. floor is the WCAG 2.2 ratio the pair has to clear: 4.5 for text, 3 for large text, marks and boundaries. exempt names a pair WCAG leaves out, such as disabled controls, and says why. An optional adjacent list, [{ \"a\", \"b\", \"floor\" }], names grounds that sit side by side; without one the check holds the main grounds and fills 2:1 apart.",
+  "contrast": [
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.bg.page",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.secondary",
+      "bg": "patterns.color.bg.page",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.bg.surface",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.secondary",
+      "bg": "patterns.color.bg.surface",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.bg.raised",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.secondary",
+      "bg": "patterns.color.bg.raised",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.bg.sunken",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.secondary",
+      "bg": "patterns.color.bg.sunken",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.inverse",
+      "bg": "patterns.color.bg.inverse",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.accent.text",
+      "bg": "patterns.color.bg.page",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.accent.text",
+      "bg": "patterns.color.accent.bg-subtle",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.on-accent",
+      "bg": "patterns.color.accent.bg",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.text",
+      "bg": "patterns.color.action.bg",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.bg",
+      "bg": "patterns.color.bg.page",
+      "floor": 3,
+      "note": "A filled control against the page ground"
+    },
+    {
+      "fg": "patterns.color.text.on-accent",
+      "bg": "patterns.color.accent.bg-hover",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.text",
+      "bg": "patterns.color.action.bg-hover",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.bg-hover",
+      "bg": "patterns.color.bg.page",
+      "floor": 3,
+      "note": "A filled control against the page ground"
+    },
+    {
+      "fg": "patterns.color.text.on-accent",
+      "bg": "patterns.color.accent.bg-pressed",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.text",
+      "bg": "patterns.color.action.bg-pressed",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.action.bg-pressed",
+      "bg": "patterns.color.bg.page",
+      "floor": 3,
+      "note": "A filled control against the page ground"
+    },
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.action.secondary-bg-hover",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.text.primary",
+      "bg": "patterns.color.action.secondary-bg-pressed",
+      "floor": 4.5
+    },
+    {
+      "fg": "patterns.color.border.default",
+      "bg": "patterns.color.bg.page",
+      "floor": 3,
+      "note": "A control boundary"
+    },
+    {
+      "fg": "patterns.color.border.focus",
+      "bg": "patterns.color.bg.page",
+      "floor": 3,
+      "note": "The focus ring"
+    },
+    {
+      "fg": "patterns.color.border.strong",
+      "bg": "patterns.color.bg.page",
+      "floor": 3
+    },
+    {
+      "fg": "patterns.color.text.disabled",
+      "bg": "patterns.color.bg.page",
+      "floor": 4.5,
+      "exempt": "Disabled text. WCAG 2.2 SC 1.4.3 exempts inactive components"
+    },
+    {
+      "fg": "patterns.color.action.text-disabled",
+      "bg": "patterns.color.action.bg-disabled",
+      "floor": 4.5,
+      "exempt": "A disabled control. WCAG 2.2 SC 1.4.3 exempts inactive components"
+    }
+  ],
+  "unpaired": {
+    "patterns.color.border.subtle": "A hairline that decorates. It marks no boundary a person has to find",
+    "patterns.color.border.separator": "A hairline that decorates. It marks no boundary a person has to find",
+    "patterns.color.accent.border": "A hairline that decorates. It marks no boundary a person has to find"
+  }
+}

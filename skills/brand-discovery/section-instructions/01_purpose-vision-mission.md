@@ -17,8 +17,12 @@
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have anything relevant to purpose, vision, or mission? An existing mission statement, founding story, about page, pitch deck, or rough notes on why you started this."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have anything relevant to purpose, vision, or mission? An existing mission statement, founding story, about page, pitch deck, or rough notes on why you started this.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -77,7 +81,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Coherence test: does the mission directly serve the purpose? Does achieving it move the brand toward the vision?
 
 `AskUserQuestion`
-> "Before we lock this in — [state the strongest concern as a direct question]."
+> "Before we lock this in: [state the strongest concern as a direct question]."
 - Feels solid: write it
 - Let me revisit [purpose / vision / mission]
 

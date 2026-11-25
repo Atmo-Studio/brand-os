@@ -17,8 +17,12 @@
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have anything that describes your customers or audience? Personas, sales call notes, customer interviews, support tickets, an ideal client description, even a pitch deck slide. Anything."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have anything that describes your customers or audience? Personas, sales call notes, customer interviews, support tickets, an ideal client description, even a pitch deck slide. Anything.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -77,7 +81,7 @@ Before Round 1, establish scope. Most brands have 1–3 meaningfully distinct cu
 - What's the thing they'd never say in a meeting but absolutely think?
 
 **Technique**
-*Founder ventriloquism:* Founders often speak for their customers in their own language, not the customer's. If the quote sounds like marketing copy, push: "That sounds like something you'd write about them. What would they actually say — probably less polished, maybe a little frustrated?" The best quotes are slightly raw.
+*Founder ventriloquism:* Founders often speak for their customers in their own language, not the customer's. If the quote sounds like marketing copy, push: "That sounds like something you'd write about them. What would they actually say? Probably less polished, maybe a little frustrated." The best quotes are slightly raw.
 
 *Advance when: the quote sounds like something a real person would say in conversation — not a testimonial, not a tagline. It should carry the emotional and functional tension of the job.*
 
@@ -99,7 +103,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Real-person test: is each ICP grounded in someone the founder has actually served or spoken to: not an invented persona? If the founder can't name a specific person or story behind the profile, it's aspirational.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'ICP 2 and ICP 3 have nearly identical functional jobs — the difference seems to be industry, not what they're trying to accomplish. Should we merge them and sharpen the distinction on ICP 1 vs. ICP 2?']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'ICP 2 and ICP 3 have nearly identical functional jobs. The difference seems to be industry, not what they're trying to accomplish. Should we merge them and sharpen the distinction on ICP 1 vs. ICP 2?']"
 - Looks solid: write it
 - Let me revisit [ICP]
 

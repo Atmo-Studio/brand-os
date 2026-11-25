@@ -31,6 +31,14 @@ The 3–5 core claims this brand repeats across every channel, with proof and ex
 
 *[Same structure.]*
 
+## Calls to action
+
+The labels on the brand's actions, each with the reader it is for. Evergreen, like the pillars.
+
+| Label | For | Pillar |
+|---|---|---|
+| | | |
+
 ## How to use this page
 
 Audit pillars with these questions: (1) Are these claims still differentiated? (2) Are the proof points still current? (3) Do they still connect to the positioning?

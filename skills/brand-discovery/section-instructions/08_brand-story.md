@@ -28,8 +28,12 @@ This dimension draws heavily from BRND-3 (ICPs) and BRND-5 (Brand Positioning). 
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing brand narrative? An 'about us' page, a pitch deck narrative, a founder story, a homepage you like, even an elevator pitch you use in conversation."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing brand narrative? An 'about us' page, a pitch deck narrative, a founder story, a homepage you like, even an elevator pitch you use in conversation.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -42,12 +46,12 @@ This dimension draws heavily from BRND-3 (ICPs) and BRND-5 (Brand Positioning). 
 **Round 1: The Character & The Problem**
 *Extract: Who the customer is (as a narrative character), what they want, and the three layers of their problem — external, internal, philosophical.*
 
-- We defined your ICP in BRND-3. Let's turn that into a story character. When this person wakes up in the morning, what's the thing they're trying to accomplish? What does "winning" look like for them?
+- You said your ICP's functional job is [functional job from BRND-3], and underneath it they feel [emotional job from BRND-3]. Let's turn that person into a story character. When they wake up in the morning, what's the thing they're trying to accomplish? What does "winning" look like for them?
 - What's the external problem: the tangible, observable obstacle they'd describe in a work context?
 - What's the internal problem: the frustration, self-doubt, or anxiety they wouldn't put in a Slack message but definitely feel? What keeps them up at night about this?
 - Is there a philosophical problem: a "this shouldn't be this hard" or "this isn't right" feeling? A sense that the way things work is fundamentally unfair or broken?
 
-*Technique, the three-layer problem:* Miller's framework distinguishes external (tangible), internal (emotional), and philosophical (moral) problems. Founders almost always start with the external problem because it's the easiest to articulate. Push for the internal: "Your customer can describe the external problem in a meeting. But when they're frustrated at 9pm — what are they actually feeling? Is it 'I look incompetent,' 'I'm wasting my time,' 'I shouldn't have to figure this out alone'?"
+*Technique, the three-layer problem:* Miller's framework distinguishes external (tangible), internal (emotional), and philosophical (moral) problems. Founders almost always start with the external problem because it's the easiest to articulate. Push for the internal: "Your customer can describe the external problem in a meeting. But when they're frustrated at 9pm, what are they actually feeling? Is it 'I look incompetent,' 'I'm wasting my time,' 'I shouldn't have to figure this out alone'?"
 
 *The philosophical problem is optional but powerful. It's the "people deserve better than this" claim. Not every brand has one. If it doesn't surface naturally, don't force it — note it as absent and move on.*
 
@@ -97,7 +101,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Internal problem test: is the internal problem distinct from the external one, and does the guide's empathy specifically address it? If the empathy statement only addresses the external problem, the emotional connection is missing.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'The success vision describes what your product delivers, not how the customer's life changes. Can you describe what's different about their Tuesday morning after working with you — not your outputs, but their experience?']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'The success vision describes what your product delivers, not how the customer's life changes. Can you describe what's different about their Tuesday morning after working with you: not your outputs, but their experience?']"
 - Feels solid: write it
 - Let me revisit [element]
 

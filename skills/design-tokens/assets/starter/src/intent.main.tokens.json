@@ -1,0 +1,83 @@
+{
+  "$description": "Intent: what each Brand value means, for one sub-brand. Every Intent file holds the same names. Patterns points here, never at Brand.",
+  "intent": {
+    "color": {
+      "$type": "color",
+      "$extensions": {
+        "brand-os": {
+          "starter": true
+        }
+      },
+      "accent": {
+        "50": {
+          "$value": "{brand.color.blue.50}"
+        },
+        "100": {
+          "$value": "{brand.color.blue.100}"
+        },
+        "200": {
+          "$value": "{brand.color.blue.200}"
+        },
+        "300": {
+          "$value": "{brand.color.blue.300}"
+        },
+        "400": {
+          "$value": "{brand.color.blue.400}"
+        },
+        "500": {
+          "$value": "{brand.color.blue.500}"
+        },
+        "600": {
+          "$value": "{brand.color.blue.600}"
+        },
+        "700": {
+          "$value": "{brand.color.blue.700}"
+        },
+        "800": {
+          "$value": "{brand.color.blue.800}"
+        },
+        "900": {
+          "$value": "{brand.color.blue.900}"
+        },
+        "950": {
+          "$value": "{brand.color.blue.950}"
+        }
+      },
+      "neutral": {
+        "50": {
+          "$value": "{brand.color.gray.50}"
+        },
+        "100": {
+          "$value": "{brand.color.gray.100}"
+        },
+        "200": {
+          "$value": "{brand.color.gray.200}"
+        },
+        "300": {
+          "$value": "{brand.color.gray.300}"
+        },
+        "400": {
+          "$value": "{brand.color.gray.400}"
+        },
+        "500": {
+          "$value": "{brand.color.gray.500}"
+        },
+        "600": {
+          "$value": "{brand.color.gray.600}"
+        },
+        "700": {
+          "$value": "{brand.color.gray.700}"
+        },
+        "800": {
+          "$value": "{brand.color.gray.800}"
+        },
+        "900": {
+          "$value": "{brand.color.gray.900}"
+        },
+        "950": {
+          "$value": "{brand.color.gray.950}"
+        }
+      }
+    }
+  }
+}

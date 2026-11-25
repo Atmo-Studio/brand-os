@@ -2,7 +2,7 @@
 
 Brand OS is a modular brand operating system. It structures brand intelligence across the tools founders already use, so the brand becomes something the team can speak with, filter decisions through, and create from at scale. A living system that compounds as the brand grows.
 
-This version ships the brand's foundation and its first working layer: workspace configuration, a knowledge base built through guided discovery, and skills that put the brand to work in daily decisions and content.
+This version ships the brand's foundation, its first working layer and its visual identity: workspace configuration, a knowledge base built through guided discovery, skills that put the brand to work in daily decisions and content, and a brand folder any person or agent can build from.
 
 ![Brand OS](docs/brand-os_hero_2x1.png)
 
@@ -36,6 +36,18 @@ The brand develops conviction and starts acting on it. Worldview runs on the kno
 
 *Skills: brand-filter, on-voice, brand-brief*
 
+&nbsp;
+
+### Identity
+
+The brand takes a visible form. Identity turns what the knowledge base holds into color, type, motifs and motion, each decided with you in rounds you can see. It then assembles a brand folder: a design standard in Google Labs' DESIGN.md format, a token library your code can install, and a standards sheet generated from those tokens. An identity a designer already made is packaged the same way, as it was delivered.
+
+*Skills: visual-identity, design-tokens, design-md, brand-library*
+
+*Agents: design-director*
+
+*Connections: Figma, optional*
+
 ---
 
 ## Getting Started
@@ -52,7 +64,7 @@ Drag `brand-os.plugin` into Cowork's plugin browser or use **Install from file**
 
 ### Option B: Universal (manual)
 
-Copy all folders from `skills/` into your agent's skills directory. Most harnesses use `.claude/skills/`.
+Copy the contents of the Brand OS folder into your agent's configuration folder, `.claude/` for most harnesses, so `skills/` lands in its skills directory and `SOUL.md` sits beside it. Keep the layout: the skills read their writing rules from `SOUL.md` two folders up, so a skill copied or linked on its own loses them.
 
 Brand OS also ships a baseline agent character in `SOUL.md`. If you don't already have your own agent workspace, copy `SOUL.md` into your agent's workspace-level context so the skills have a personality layer to run on. If you already have a CLAUDE.md/AGENTS.md of your own, skip this: your setup takes precedence and the skills layer on top.
 
@@ -74,7 +86,9 @@ Press **Duplicate** to add it to your Notion workspace. You don't need to copy a
 
 ### Start
 
-Run **workspace-setup** to configure your agent environment (optional if you already have one). Then run **brand-discovery** to connect your storage and begin building your brand's memory. Once the knowledge base is complete, the Worldview skills run on it: **brand-filter**, **on-voice**, and **brand-brief**.
+Run **workspace-setup** to configure your agent environment (optional if you already have one). Then run **brand-discovery** to connect your storage and begin building your brand's memory. Once the knowledge base is complete, the Worldview skills run on it: **brand-filter**, **on-voice**, and **brand-brief**. When you are ready for the brand's look, run **visual-identity**. It starts from what discovery recorded and ends in a `brand/` folder in your project.
+
+The Identity skills build and check their files with Node.js 18 or later, and print the standards sheet with a Chromium-family browser such as Chrome. Where either is missing, the skill says what it could not make and carries on.
 
 ---
 
@@ -87,6 +101,8 @@ See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
 ## About
 
 Built by [Atmo Studio](https://atmo.studio). Brand OS is an Atmo product.
+
+Stuck, or need something Brand OS doesn't cover? Email hello@atmo.studio.
 
 ## License
 

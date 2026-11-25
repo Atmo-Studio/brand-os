@@ -1,5 +1,54 @@
 # Changelog
 
+## v0.4.0 — Visual Identity Module
+
+Brand OS can now build a high-quality visual identity from scratch, and make an existing one ready for agentic production. Four new skills, a design agent and a library of design expertise take a brand from its first direction to a production-ready kit, built on your brand knowledge base.
+
+### New
+
+**Bring your brand strategy to life with a foundational visual identity.** Start from scratch, or pull in the references and assets you already have. Anything you have already decided is kept exactly, and the result is a brand ready for humans and agents to design from.
+
+**`visual-identity` walks you through the whole identity, from first direction to finished kit.** Like brand discovery, it works in rounds: it asks for references, settles color, type, space, motifs, motion and a starting wordmark with you, and shows each decision on a real surface so you judge it in use. It opens with a map of where your brand stands, and picks up wherever you left off.
+
+**Prefer a designer? Choose that path, and the brief is written for you.** visual-identity turns everything decided so far into a designer brief, and when you have no designer yet it drafts the inquiry to Atmo Studio. When the designer delivers, the identity is taken in exactly as delivered and checked against the brief, so you see what is still missing.
+
+**Brand OS now carries a library of written design expertise.** Standards for color, type, layout, motifs and motion, each grounded in cited sources and Atmo's own practice, sit inside Brand OS for any skill or agent to load when the work calls for them. It sets the standard floor for any agent doing visual design, so your agents work from the same knowledge a practitioner would.
+
+**`design-director` is the first agent to work from that library.** It develops concepts, builds the foundations and critiques work other agents make, and it can tell good design from AI slop.
+
+**`design-md` writes a DESIGN.md any agent can build from.** It builds on the industry standard set by Google Labs, and every value in it points to a token.
+
+**`design-tokens` builds a token library ready for production, in code and in Figma.** One source covers color, type, spacing, radius, stroke, elevation, layout and motion, and publishes to CSS, JSON, JavaScript and a Tailwind theme. Point it at an existing site or codebase and it finds every value typed by hand, swaps in the matching token and lists the tokens nothing uses.
+
+**`brand-library` assembles everything into one production-ready folder you can share with your team.** Tokens, DESIGN.md, logo and motif files and a standards sheet PDF sit together, with a readme that routes any agent to the right file. The sheet is generated from your tokens, so it stays in step with them.
+
+**Sync your design system to Figma.** With the Figma MCP connected, brand-library builds a Figma file with your variables, type styles, logo components and standards sheet, for visual reference and further iteration. Without it, the kit is still complete.
+
+**Bring an existing brand into Brand OS, or bring an older one up to date.** brand-library takes in a live site, a designer's files or a body of work as decided, and sends only the missing parts back to visual-identity to work out with you. A kit built on an earlier Brand OS release is upgraded with your own changes kept, and `workspace-setup` now gives every workspace a memory, adopting any memory file it already has.
+
+### Improvements
+- **`design-tokens` builds fail on low contrast.** Every text color and button state is measured against its background, dark sections on a light site included.
+- **`design-tokens` libraries support multiple sub-brands and themes that share the same primitives.**
+- **Built components carry their interactive states.** `design-md` defines hover, pressed and focus for each, and `design-tokens` measures them like everything else.
+- **`brand-library` checks each change to an existing brand against the decisions already locked in.** You see what it would reopen, and its impact, before anything changes.
+- **`brand-library`'s standards sheet draws every logo misuse and your primary color pairs with their contrast.** A logo still set in live text is caught before it ships.
+- **`design-tokens` builds color ramps in OKLCH, so each step reads at the same weight in every hue.** The light steps keep their color, and a pinned brand color blends into its neighbors. The expertise library documents carrying your colors into RGB, HSL, CMYK and the other notations screen and print use.
+- **The Visual Identity step in `brand-discovery` now leads straight into the identity work.** Finishing it offers visual-identity by name, and once the identity exists the page becomes a short introduction to your brand folder.
+- **The Notion template is updated to match local storage.** Its Visual Identity and Messaging Pillars pages carry the same sections as a local brand folder.
+- **Signature Device is now Brand Motifs in `brand-discovery`.** A brand can record several, web effects included, and a knowledge base that still says Signature Device keeps working.
+- **A local brand folder can hold identity files beside your dimensions.** `brand-discovery` reads only the numbered dimension files.
+- **Brand OS now writes to codified standards that cut AI slop.** Interview questions, templates and drafts drop em dashes, stock phrases, service filler and borrowed metaphors like "load-bearing."
+- **Saved documents follow one naming system, YYMMDD_slug.** Files sort by date and read at a glance, so the one you want is faster to find. Documents saved earlier keep their names.
+- **Resumed `brand-discovery` sessions name the dimension and section they pick up, and why.**
+- **`brand-discovery` asks each section's opening question exactly as written.**
+- **`brand-filter`'s mid-range scores now name the tension behind them.** Only scores below 6 or above 9 carried a reason before.
+- **`session-handover` ends on the log's location and the resume prompt.** Anything left to tidy waits in the log.
+- **Manual installs copy the whole Brand OS folder,** so skills keep their writing rules.
+
+### Fixed
+- **`brand-filter`'s improved proposals say what still pulls against each mid-range score,** not only what moved it.
+- **`on-voice` drafts, `brand-brief` briefs and `brand-filter` reasons follow Brand OS's writing rules on plugin installs,** which never loaded them before.
+
 ## v0.3.4 — Every skill loads
 
 Four skills in v0.3.3 never loaded, so asking for one by name did nothing. This release fixes that and changes nothing else.

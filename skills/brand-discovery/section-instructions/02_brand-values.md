@@ -16,7 +16,7 @@ Brand values are not founder values. This distinction matters and it will blur c
 
 The interview questions are designed to surface what the brand has *actually paid a price to hold*: not what the founder believes as a person. Keep this distinction active throughout. When founder values and brand values overlap (they often will), that's fine, but the test is always whether the *organization* has demonstrated it, not whether the founder lives it privately.
 
-If the interview starts pulling into personal territory, reorient: *"That sounds like something you personally hold — has the organization ever been tested on it? Has it cost the business something?"*
+If the interview starts pulling into personal territory, reorient: *"That sounds like something you personally hold. Has the organization ever been tested on it? Has it cost the business something?"*
 
 ---
 
@@ -31,8 +31,12 @@ If the interview starts pulling into personal territory, reorient: *"That sounds
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have anything written that touches on your values? Culture doc, hiring criteria, founding principles, team norms, anything."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have anything written that touches on your values? Culture doc, hiring criteria, founding principles, team norms, anything.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -50,7 +54,7 @@ Present them to the founder as chat text:
 
 > "Before we start the interview, based on what you told me about your purpose and vision, I'm already seeing a few potential core values. Let me show you what I mean:
 >
-> - **[Candidate value 1]** — [one sentence on where you saw it in BRND-1, e.g., "You said you built this because the existing options all cut corners on X — that suggests X matters enough to protect."]
+> - **[Candidate value 1]** — [one sentence on where you saw it in BRND-1, e.g., "You said you built this because the existing options all cut corners on X. That suggests X matters enough to protect."]
 > - **[Candidate value 2]** — [same]
 > - **[Candidate value 3]** — [same if applicable]
 >
@@ -126,7 +130,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Definition test: is the "this means" answer specific enough that a new hire could actually use it to make a decision? Is the "this doesn't mean" answer a genuine exclusion: not just "we don't take this too far"?
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'Integrity appears on almost every company's values list. Can you walk me through a moment holding it actually cost you something? That's what will make the definition sharp enough to be useful.']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'Integrity appears on almost every company's values list. Can you walk me through a moment holding it actually cost you something? That's what will make the definition sharp enough to be useful.']"
 - Looks solid. Write it.
 - Let me revisit [value].
 

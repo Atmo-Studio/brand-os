@@ -1,7 +1,7 @@
 {
   "name": "brand-os",
-  "version": "0.3.4",
-  "description": "Your brand's brain. Brand OS extracts your brand thinking and structures it as infrastructure your team and agents can operate from. The brand works when you're not in the room. This version includes the Core, Memory, and Worldview modules.",
+  "version": "0.4.0",
+  "description": "Your brand's brain. Brand OS extracts your brand thinking and structures it as infrastructure your team and agents can operate from. The brand works when you're not in the room. This version includes the Core, Memory, Worldview and Identity modules.",
   "author": {
     "name": "Atmo Studio"
   },
@@ -11,6 +11,10 @@
     "brand-strategy",
     "notion",
     "brand-discovery",
-    "workspace-setup"
+    "workspace-setup",
+    "visual-identity",
+    "design-tokens",
+    "design-md",
+    "brand-guidelines"
   ]
 }

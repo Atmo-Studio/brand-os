@@ -9,7 +9,7 @@ status: not-started
 
 **Phase:** brief *(brief → developed → delivered; date last advanced)*
 
-> **Source of Truth** — This dimension holds the decisions and constraints. When a design file or brand library exists, it is the source of truth for production-ready assets, components, and specs. Link it here.
+> **Source of Truth** — This dimension holds the decisions and constraints. Once the `brand/` folder exists, `brand/DESIGN.md` is the standard and this page is the short way in. Link the design file here too, when there is one.
 
 ## Concept
 
@@ -30,9 +30,9 @@ status: not-started
 
 *Fill only what the founder has actually decided; mark the rest "open". A decision reads as locked; anything unexamined is a fork.*
 
-## Signature Device
+## Brand Motifs
 
-[The repeatable move beyond logo-color-type the brand could own, flagged as a hypothesis for generation/design to realize, or "none yet, generate options."]
+[The distinct, repeated visual patterns beyond logo-color-type the brand could own: a mark, a pattern, a texture, a type treatment, or on digital surfaces a web effect or shader. A brand usually carries more than one. Each flagged as a hypothesis for generation/design to realize, with a placement rule where possible, or "none yet, generate options."]
 
 ## System Logic
 
@@ -52,6 +52,6 @@ status: not-started
 
 ## Assets
 
-*(At `brief`: pre-existing material only — leave empty for a from-scratch brand, never delete the heading. At `delivered`: the asset manifest.)*
+*(At `brief`: pre-existing material only. Leave it empty for a from-scratch brand, and never delete the heading. At `delivered`: the asset manifest.)*
 
 [What exists, where it lives, and, per item, deliberate or inherited.]

@@ -28,8 +28,12 @@ This dimension builds directly on BRND-6 (Brand Personality) and BRND-8 (Brand S
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing writing samples or voice guidance? A style guide, a 'how we write' doc, examples of copy you're proud of, even emails or social posts that feel like the brand at its best."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing writing samples or voice guidance? A style guide, a 'how we write' doc, examples of copy you're proud of, even emails or social posts that feel like the brand at its best.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -44,6 +48,7 @@ This dimension builds directly on BRND-6 (Brand Personality) and BRND-8 (Brand S
 **Round 1: Voice Character**
 *Extract: A prose description of the brand's consistent voice — what any reader would say after encountering the brand's writing across different touchpoints.*
 
+- You described this brand's personality as [personality summary from BRND-6]. If that character had to write to you, sentence by sentence, what would it sound like on the page?
 - If someone read five different pieces of your content (a website page, an email, a social post, a support reply, an internal doc) and had to describe how your brand "sounds," what would they say?
 - What's the one quality of your writing that should be non-negotiable: the trait that, if it disappeared, would make the writing stop feeling like you?
 - When your writing is at its best, what's the effect on the reader? Not what they learn: how they feel. Informed? Energized? Reassured? Challenged?
@@ -73,7 +78,7 @@ This dimension builds directly on BRND-6 (Brand Personality) and BRND-8 (Brand S
 - When you're teaching or onboarding someone (explaining how something works), what does that tone sound like? Patient? Efficient? Conversational?
 - Is there a context where urgency matters: deadlines, time-sensitive decisions? How does the writing adapt without losing the brand's character?
 
-*Technique, the "sounds like / doesn't sound like" pairing:* For each tone mode, push for both sides. "Celebratory sounds like 'genuine excitement shared with the reader' — not 'hype, exclamation marks, or self-congratulation.'" The "doesn't sound like" is where the real guidance lives: it prevents the most common misinterpretation of each mode.
+*Technique, the "sounds like / doesn't sound like" pairing:* For each tone mode, push for both sides. "Celebratory sounds like 'genuine excitement shared with the reader,' not 'hype, exclamation marks, or self-congratulation.'" The "doesn't sound like" is where the real guidance lives: it prevents the most common misinterpretation of each mode.
 
 *Advance when: you have 3–4 modes, each with a name, a "when" context, a "sounds like" example, and a "doesn't sound like" guardrail. The modes should feel like a range within the same voice — not like different brands.*
 
@@ -98,7 +103,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Writer usability test: could a new writer (someone who's never met the founder) read this page and write a first draft that wouldn't need a full rewrite? If not, what's missing? Usually it's the before/after examples.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'The voice description says 'direct and no-nonsense' but two of your tone modes call for warmth and patience. That's not a contradiction — but a writer will need to know which wins when they conflict. Is directness the floor, with warmth layered on top? Or does warmth sometimes override directness?']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'The voice description says 'direct and no-nonsense' but two of your tone modes call for warmth and patience. That's not a contradiction, but a writer will need to know which wins when they conflict. Is directness the floor, with warmth layered on top? Or does warmth sometimes override directness?']"
 - Feels solid: write it
 - Let me revisit [element]
 

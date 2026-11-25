@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "date": "YYYY-MM",
+  "copy": {
+    "display": "The brand's shortest strong line: a tagline or the positioning in a phrase",
+    "heading": "A messaging pillar's headline",
+    "subheading": "A supporting line in the brand's voice",
+    "body": "Two or three sentences of real brand copy, from the story or the positioning",
+    "label": "A short label the brand would really use",
+    "cta": "The brand's own call to action",
+    "nav": ["Three", "real", "sections"],
+    "ticket": "Two or three facts / each with its unit",
+    "figure": "A measured number",
+    "figureUnit": "What it measures",
+    "roles": {}
+  },
+  "accepted": [],
+  "images": {
+    "cover": "assets/images/[file]",
+    "hero": "assets/images/[file]",
+    "gallery": ["assets/images/[file]"]
+  }
+}

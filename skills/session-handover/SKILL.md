@@ -10,7 +10,7 @@ description: Writes a session log and prints a resume prompt. Use at the end of
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.3"
+  version: "0.4.0"
 ---
 
 # `session-handover`
@@ -75,10 +75,8 @@ rather than asking the user to repeat them. Where a workspace has no answer, ski
 say so.
 
 **Gather before you write.** Checks 1, 3, and 4 all read state. Collect them in one pass, then
-write. Interleaving reads and writes turns a three-step close into a dozen.
-
-**Gather in as few passes as the environment allows.** Checks 1, 3, and 4 all read state and
-nothing else. Batch them. A handover that takes longer than the work it closes gets skipped.
+write. Interleaving reads and writes turns a three-step close into a dozen, and a handover that
+takes longer than the work it closes gets skipped.
 
 ### Now
 
@@ -134,7 +132,7 @@ if it doesn't exist. Don't fail, and don't ask where to put the file.
 The template is canonical, so don't invent new sections. One exception: where the host workspace
 defines its own session log template, mirror that instead. The workspace's format wins.
 
-**If no file write tools are available** (non-Cowork environment): skip the
+**If no file write tools are available:** skip the
 file write. Print the full log content as a markdown code block in chat,
 clearly labeled: *"No file write available, copy this to memory/sessions/[filename]:"*
 Then proceed to Step 3.
@@ -173,7 +171,13 @@ here invites the session to keep working instead of ending.
 **The block has to stand alone.** The next session has its own startup context and this block, and
 nothing else. Anything it needs that is in neither has to be in here.
 
-Where there is no `## Next Session` section, print item 1 and stop.
+Where there is no `## Next Session` section, print item 1, then close with one line:
+
+> No handoff prompt created. Every running thread in this session has been fully closed.
+
+This is the skill working as intended, the same as a clean run of any other check in this
+workspace: silence after item 1 reads as a step skipped rather than a session that genuinely had
+nothing left open, so say the second outcome plainly instead of leaving it to be inferred.
 
 ---
 
@@ -188,7 +192,7 @@ Run checks 5 and 6 from Step 0. Both needed the log to exist.
 | Capability | With file tools | Without file tools |
 |---|---|---|
 | Write session log | Write to `memory/sessions/` | Print as code block for manual save |
-| Print resume prompt | Always | Always |
+| Print resume prompt, or say there isn't one | Always | Always |
 | AskUserQuestion widget | Use if available | Use plain text |
 
 The skill must produce useful output in any environment. The session log content
@@ -201,11 +205,8 @@ is the constant. Only the delivery mechanism varies.
 - Do not ask the user to summarize the session. Derive it from the conversation.
 - Do not ask which files to list in "Read first." Pick the most relevant ones
   from what was worked on.
-- Do not write the resume prompt to the session log file. The log is the record;
-  the prompt is a chat deliverable.
 - Do not include meta-commentary about the handover process in chat. Write the
-  log, print the prompt, stop. Findings from the workspace close-out are an
-  exception: those the user needs.
+  log, print the prompt or the no-prompt line, stop.
 - Do not skip the workspace close-out because the session felt small. If the
   workspace defines a checklist, it runs.
 - Do not edit an existing session log. Write a new file.

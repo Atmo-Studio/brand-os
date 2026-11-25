@@ -42,11 +42,11 @@ Discovering this after the folder is built means the user has a scaffolded, perm
 
 ```
 [Brand OS folder]                       ← drive_folder_id
-├── Brand OS — Index                    ← status registry (normative)
-├── Brand OS — 1 · Foundations          ← dimensions 11, 12
-├── Brand OS — 2 · Audience & Market    ← dimensions 21, 22, 23
-├── Brand OS — 3 · Brand Character      ← dimensions 31, 32
-├── Brand OS — 4 · Voice & Messaging    ← dimensions 41, 42, 43, 44
+├── Brand OS: Index                     ← status registry (normative)
+├── Brand OS: 1. Foundations            ← dimensions 11, 12
+├── Brand OS: 2. Audience & Market      ← dimensions 21, 22, 23
+├── Brand OS: 3. Brand Character        ← dimensions 31, 32
+├── Brand OS: 4. Voice & Messaging      ← dimensions 41, 42, 43, 44
 └── Documents/                          ← default write target
 ```
 
@@ -83,8 +83,8 @@ Write within the dimension's content span only: preserve the H1 and the heading 
 Update the dimension's row in the Index table: `In progress` when its interview begins, `Complete` when confirmed content is written.
 
 ### `write-document`
-Create a new Google Doc inside `Documents/`, titled `YYYY-MM-DD_[slug]`, for example
-`2026-09-02_designer-handoff`. This is the same form the `md-folder` adapter writes, so a brand
+Create a new Google Doc inside `Documents/`, titled `YYMMDD_[slug]`, for example
+`260902_designer-handoff`. This is the same form the `md-folder` adapter writes, so a brand
 reads the same whichever backend holds it. Open with a one-line metadata header
 (`Category: …, Tags: …, Client/Project: …`): Drive has no structured metadata fields, so the
 header carries it.
@@ -113,8 +113,8 @@ Preserve the Notion template's formatting as closely as Docs allows, reaching fo
 
 ## Backend notes
 
-- **Scaffolding** is fully programmatic (architect `scaffold` mission): create the folder, render the 4 section docs from `assets/dimensions/` skeletons via the table above, create the Index with all rows `Not started`, create `Documents/`. No template duplication step exists or is needed.
-- **Discovery:** search Drive for a folder containing a doc named `Brand OS — Index`. Multiple matches go to the user with folder-path context.
+- **Scaffolding** is fully programmatic (architect `scaffold` mission): create the folder, render the 4 section docs from `../../assets/dimensions/` skeletons via the table above, create the Index with all rows `Not started`, create `Documents/`. No template duplication step exists or is needed.
+- **Discovery:** search Drive for a folder containing a doc named `Brand OS: Index`. Multiple matches go to the user with folder-path context.
 - **Status drift risk:** the Index is the one normative status home: never mark status inside a section doc. If a user hand-edits statuses, the Index is still authoritative.
 - **Slow/unreachable:** same contract degradation as everywhere: handover cache at startup, chat-only paste blocks + handover status map when Drive is unreachable, sync next connected session.
 - **Multi-brand:** one folder per brand, resolved by project scope. Never mix folders in a session.

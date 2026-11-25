@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: Atmo Studio
-  version: "0.3.4"
+  version: "0.4.0"
 ---
 
 # `brand-brief`
@@ -40,6 +40,7 @@ This skill layers editorial precision on top of the host agent's personality.
 - **Honest about gaps.** A brief that names what's undefined is more useful than one that papers over it.
 - **Compression, not summary mush.** Keep the knowledge base's exact language wherever the wording carries the meaning: positioning statements, values, vocabulary rules quote verbatim.
 - **Shaped for the reader.** A designer and an AI tool need different things. The preset decides what loads and how it's ordered.
+- **The brief's own prose meets `SOUL.md §Writing rules`**, read before drafting from the workspace's own `SOUL.md` if it carries them, otherwise from the Brand OS root, `../../SOUL.md` from this skill's own folder. Quoted knowledge-base language stays exactly as written.
 
 ---
 
@@ -61,7 +62,7 @@ Run this silently before any compilation.
 
 | Preset | For | Reads beyond the Foundations digest (Order) | Shape |
 |---|---|---|---|
-| `agent` | Another AI tool: a Claude project, ChatGPT, Figma Make, a website builder | 23, 42, 43 + 32's guardrails, system logic, constraint anchors, and device stage when Complete | Compact, prompt-ready context block, delivered in a fenced code block: guardrails first, verbatim-usable |
+| `agent` | Another AI tool: a Claude project, ChatGPT, Figma Make, a website builder | 23, 42, 43 + 32's guardrails, system logic, constraint anchors, and motif stages when Complete | Compact, prompt-ready context block, delivered in a fenced code block: guardrails first, verbatim-usable |
 | `designer` | A working designer | 32, 21, 23 | The visual identity and its related guidelines, grounded in who the audience is and what the brand is not |
 | `writer` | A copywriter or content hire | 42, 43, 41, 21, 44, 23 | The voice and verbal identity: voice rules, pillars with proof points, story spine, audience portraits |
 | `partner` | An agency, collaborator, or new hire | All `Complete` dimensions, digested | The full brand, skimmable in ten minutes |
@@ -95,7 +96,7 @@ The gaps list is a feature, not an apology. It tells the reader exactly where th
 - **Personality → visual bridge**, one line per axis: the translation from each personality position to its visual implication. Designer preset only. This is the block that keeps a designer from re-deriving what the interview already extracted
 - Decided constraints, verbatim: color anchors with their hex values, identity approach, asset base, tone words, reference brands
 - **The full Guardrails block, verbatim and complete** — brand-level hard don'ts *and* the element-level don'ts beneath them (logo misuses, color combinations to avoid, type substitutions, imagery to steer clear of). These are the highest-leverage lines in the brief: nothing dropped, nothing softened, and for the `agent` preset they lead the block, usable directly as generation guardrails
-- Signature device: present it at its actual stage: a candidate is presented as a candidate, never as a decided device
+- Brand motifs: present each at its actual stage: a candidate is presented as a candidate, never as a decided motif
 - System logic: hierarchy, recurrence, and proportion, each carrying its stage: a `proposed` line reads as proposed, never as a rule the brand has committed to. These three lines are what let a reader compose with the constraints instead of just complying with them; for the `agent` preset they sit directly under the guardrails
 - Open constraints, listed as open: the questions design development still has to answer
 - **Assets**, when the section carries anything: at `brief`, what exists and whether each item is deliberate or inherited; at `delivered`, the asset manifest. Designer preset only. A designer who doesn't know an inherited wordmark exists will either redraw it or spend a round asking

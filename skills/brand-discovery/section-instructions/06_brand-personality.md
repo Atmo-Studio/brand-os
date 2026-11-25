@@ -28,8 +28,12 @@ This dimension benefits from BRND-1 (Purpose, Vision, Mission) and BRND-2 (Brand
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing descriptions of your brand's personality? A brand guidelines doc, a moodboard, a list of personality traits, a 'this but not that' list, even informal notes like 'we want to sound like X but not Y'?"
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing descriptions of your brand's personality? A brand guidelines doc, a moodboard, a list of personality traits, a 'this but not that' list, even informal notes like 'we want to sound like X but not Y'?
+```
+
 - I have something to share
 - Starting fresh
 
@@ -58,10 +62,10 @@ Walk through each axis. For each one, ask the founder to place the brand and exp
 
 1. **Casual ↔ Formal** — "When you write to a customer or show up in public, where do you land? Are you first-name-basis-from-day-one, or is there a professional register you maintain?"
 2. **Earnest ↔ Irreverent** — "Do you take your subject matter seriously and expect others to as well? Or do you use humor and irreverence to cut through the noise?"
-3. **Grounded ↔ Visionary** — "Do you lead with what's real and proven today — or with where things are going? Practical and here-now, or aspirational and future-facing?"
+3. **Grounded ↔ Visionary** — "Do you lead with what's real and proven today, or with where things are going? Practical and here-now, or aspirational and future-facing?"
 4. **Quiet confidence ↔ Bold & declarative** — "Do you let the work speak for itself, or do you make strong public claims? Understated or high-volume?"
-5. **Approachable ↔ Expert authority** — "Do you want to feel like a peer who happens to know a lot — or a recognized expert people defer to?"
-6. **Community-first ↔ Thought leader** — "Do you build community and platform others — or do you lead with your own point of view and expect people to follow?"
+5. **Approachable ↔ Expert authority** — "Do you want to feel like a peer who happens to know a lot, or a recognized expert people defer to?"
+6. **Community-first ↔ Thought leader** — "Do you build community and platform others, or do you lead with your own point of view and expect people to follow?"
 
 *Technique: the "never go past" marker:* For each axis, after placing the brand, ask: "Is there a point on this spectrum where the brand should never go? A line where it stops feeling like you?" This captures the guardrail, not just the position. Some brands have tight ranges; others are comfortable flexing across most of the spectrum depending on context.*
 
@@ -89,7 +93,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Actionability test: could a new hire (a copywriter, a designer, a social media manager) read this page and know how to make a judgment call about tone, visual treatment, or language? If not, the description is too abstract.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'The personality description feels warm and approachable, but the brand values emphasize rigor and precision. That's not a contradiction — but it's a tension a designer would struggle with. Which side wins when they conflict? Does the warmth soften the precision, or does the precision anchor the warmth?']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'The personality description feels warm and approachable, but the brand values emphasize rigor and precision. That's not a contradiction, but it's a tension a designer would struggle with. Which side wins when they conflict? Does the warmth soften the precision, or does the precision anchor the warmth?']"
 - Feels solid: write it
 - Let me revisit [element]
 

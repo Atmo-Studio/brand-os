@@ -17,8 +17,12 @@
 
 ## Context Check
 
-`AskUserQuestion`
-> "Before we start — do you have any existing competitive analysis? A pitch deck slide with competitors, a comparison doc, a list of alternatives you track, even notes from sales calls where a competitor came up."
+`AskUserQuestion`, exact text:
+
+```
+Before we start, do you have any existing competitive analysis? A pitch deck slide with competitors, a comparison doc, a list of alternatives you track, even notes from sales calls where a competitor came up.
+```
+
 - I have something to share
 - Starting fresh
 
@@ -31,7 +35,7 @@
 **Round 1: Identifying the Real Alternatives**
 *Extract: The full set of things a customer would do if this brand didn't exist, including non-obvious alternatives.*
 
-- When a potential customer decides not to go with you, what do they do instead? Not just other companies: what's the real alternative? Doing nothing? A spreadsheet? Hiring someone?
+- When we mapped [ICP], you said that without you they'd [alternative from BRND-3]. What else is competing for that same decision?
 - Who do you actually lose deals to? Not who you'd like to compete against: who shows up in the same conversations?
 - Is there anyone outside your immediate category who's starting to solve the same problem from a different angle? An adjacent player moving into your territory?
 - Are there any brands your customers compare you to that surprise you: comparisons that feel wrong but keep happening?
@@ -81,7 +85,7 @@ Run all three internally. Surface the single strongest concern.
 - [ ] Strategic read test: does the strategic read interpret the map (what it means, what's ownable) or just describe it (who's where)? The read should make a claim about where this brand should plant its flag: not just report what the map shows.
 
 `AskUserQuestion`
-> "Before we write this — [state the single strongest concern as a direct question, e.g., 'Every competitor you named clusters in the same quadrant — premium and full-service. The accessible-but-expert space is completely empty. Is that because there's no demand there, or because no one's tried? That distinction matters for where we position you.']"
+> "Before we write this: [state the single strongest concern as a direct question, e.g., 'Every competitor you named clusters in the same quadrant: premium and full-service. The accessible-but-expert space is completely empty. Is that because there's no demand there, or because no one's tried? That distinction matters for where we position you.']"
 - Looks solid: write it
 - Let me revisit [element]
 

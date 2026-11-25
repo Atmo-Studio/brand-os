@@ -54,7 +54,7 @@ Before writing anything, assemble:
 `Brand OS database ID:` workspace field. Step 0 in SKILL.md still reads those:
 treat `Brand OS database ID` as `storage: notion` + locator. Handovers written
 before `Project:` existed carry no project stamp, and Step 0 falls back to
-matching on `Locator:` — which is why the locator stays in the block rather than
+matching on `Locator:`. That is why the locator stays in the block rather than
 being replaced by the project stamp. New handovers always use the format below.)*
 
 *(`Project:` is the `project_id` of the `workspace-config.md → projects[]` entry
@@ -83,9 +83,9 @@ Either way, proceed to Step 2. Do not continue into the next section.
 
 | Section completed | Close line |
 |---|---|
-| Foundations | "Foundations are done — purpose, vision, mission, and values are in the knowledge base. That's the core of everything that follows. Next up: Audience & Market." |
-| Audience & Market | "Audience & Market done — ICPs, competitive landscape, and positioning are locked. You know who this brand is for and where it stands. Next up: Brand Character." |
-| Brand Character | "Brand Character done — personality and visual identity are in. The brand has a shape now. Final section: Voice & Messaging." |
+| Foundations | "Foundations are done: purpose, vision, mission, and values are in the knowledge base. That's the core of everything that follows. Next up: Audience & Market." |
+| Audience & Market | "Audience & Market done: ICPs, competitive landscape, and positioning are locked. You know who this brand is for and where it stands. Next up: Brand Character." |
+| Brand Character | "Brand Character done: personality and visual identity are in. The brand has a shape now. Final section: Voice & Messaging." |
 
 If trigger is `section-complete` AND `sections-complete` is 4 (Voice &
 Messaging just finished, full knowledge base complete): skip this step. Do
@@ -99,7 +99,7 @@ If trigger is `mid-section-pause`: skip this step and go directly to Step 2.
 
 ## Step 2: Write the handover document
 
-Write a markdown file into **the current project's folder** — the folder for the
+Write a markdown file into **the current project's folder**: the folder for the
 brand this session is scoped to, not the workspace root and not the knowledge
 base backend. This matters in multi-brand workspaces: SKILL.md Step 0 searches
 the project folder for `*_brand-os-handover-*.md` and deliberately does not search
@@ -124,32 +124,32 @@ mechanism changes.
 
 ```markdown
 # Brand OS — Session Handover
-[section] · [Date]
+[section], [Date]
 
 ## Workspace
 Project: [project_id]
 Storage: [storage]
 Locator: `[locator]`
 Page prefix: [page-prefix]
-(Future sessions can use this directly — no need to re-run storage resolution.)
+(Future sessions can use this directly, with no need to re-run storage resolution.)
 
 ## Completed this session
-[section] — all dimensions complete and written to the knowledge base.
-Dimensions: [dimensions-completed as ID · Dimension Name list]
+[section]: all dimensions complete and written to the knowledge base.
+Dimensions: [dimensions-completed, each as ID and Dimension Name]
 
 ## Current state
 [sections-complete] of 4 sections complete.
 Sections remaining: [sections-remaining in order]
 
 ## Status Map
-[Render status-map verbatim — one line per dimension, e.g.:]
-[prefix]-1 · Purpose, Vision & Mission: Complete
-[prefix]-2 · Brand Values: Complete
+[Render status-map verbatim, one line per dimension, e.g.:]
+[prefix]-1 Purpose, Vision & Mission: Complete
+[prefix]-2 Brand Values: Complete
 ...
 
 ## Confirmed drafts (not yet written to the knowledge base)
 [For each item in confirmed-drafts:]
-### [ID] · [Dimension Name]
+### [ID] [Dimension Name]
 [confirmed content]
 
 [Omit this section entirely if confirmed-drafts is empty]
@@ -165,45 +165,45 @@ Omit this section entirely if conversation-notes is empty.]
 
 Paste this into a new Brand OS session to pick up where you left off:
 
-> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [first item in sections-remaining], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
+> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off: [first item in sections-remaining], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
 ```
 
 **Template, mid-section pause:**
 
 ```markdown
 # Brand OS — Session Handover
-[section] · [Date] · Session paused mid-section
+[section], [Date]. Session paused mid-section
 
 ## Workspace
 Project: [project_id]
 Storage: [storage]
 Locator: `[locator]`
 Page prefix: [page-prefix]
-(Future sessions can use this directly — no need to re-run storage resolution.)
+(Future sessions can use this directly, with no need to re-run storage resolution.)
 
 ## Completed this session
-Dimensions completed: [dimensions-completed as ID · Dimension Name list]
-Dimensions remaining in this section: [dimensions-remaining as ID · Dimension Name list]
+Dimensions completed: [dimensions-completed, each as ID and Dimension Name]
+Dimensions remaining in this section: [dimensions-remaining, each as ID and Dimension Name]
 
 ## Current state
 Section [sections-complete + 1] of 4 in progress.
 [count of dimensions-completed] of [total dimensions in section] complete.
 
 ## Status Map
-[Render status-map verbatim — one line per dimension, e.g.:]
-[prefix]-1 · Purpose, Vision & Mission: Complete
-[prefix]-2 · Brand Values: Complete
+[Render status-map verbatim, one line per dimension, e.g.:]
+[prefix]-1 Purpose, Vision & Mission: Complete
+[prefix]-2 Brand Values: Complete
 ...
 
 ## Confirmed drafts (not yet written to the knowledge base)
-[Same as above — omit section if empty]
+[Same as above, omitting the section if empty]
 
 ## Dimensions skipped
-[Same as above — omit if empty]
+[Same as above, omitted if empty]
 
 ## Context for next session
 [Render conversation-notes verbatim as key-value bullets.
-Mid-section pauses almost always carry conversation-notes — this section
+Mid-section pauses almost always carry conversation-notes. This section
 is critical for resuming an in-progress interview without losing state.
 Omit only if conversation-notes is empty.]
 
@@ -211,7 +211,7 @@ Omit only if conversation-notes is empty.]
 
 Paste this into a new Brand OS session to pick up where you left off:
 
-> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off — [section], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
+> "Resume Brand OS. Handover: [YYYY-MM-DD_brand-os-handover-[section-name-kebab].md]. Pick up where we left off: [section], [next-dimension]. Context from last session: [2–4 condensed bullets distilled from conversation-notes, inline; omit the 'Context from last session:' clause entirely if conversation-notes is empty]."
 ```
 
 ---
@@ -259,7 +259,7 @@ print empty placeholders. Replace it with a short closing block instead:
 ```markdown
 ## Brand OS complete
 All 11 dimensions across all 4 sections are Complete as of [Date].
-There is nothing left to resume — this document is the final state record.
+There is nothing left to resume. This document is the final state record.
 ```
 
 Everything above that block (Workspace, Status Map, etc.) is written as normal.
@@ -312,20 +312,20 @@ The knowledge base is built. The operational skills now run on it:
 - **brand-brief** — package the brand for a designer, a collaborator, or
   another AI tool; the visual identity direction can brief a designer (or
   Atmo) directly
+- **visual-identity** — turn the Visual Identity page into a working
+  identity: color, type, space, motifs and motion, reviewed in rounds, then
+  built into tokens and a `brand/` folder any agent can build from
 - Use the positioning and messaging pillars as the organizing structure of the website,
   pitch deck, and sales materials
 
-**4: Surface the menu, other Brand OS modules.**
-Introduce the Phase 2 and Phase 3 modules as the natural next step now that
-the knowledge base is built:
+**4: Mention what is coming.**
+One module is not built yet. Name it once, as something to expect rather
+than something to wait for:
 
-- **Linear module (Brand OS Phase 2)** — set up project and task management
-  wired to the brand context, so every project carries the brand thread
-- **Figma module (Brand OS Phase 3)** — set up the design system and
-  connect it to the brand foundation built here
+- **Linear module** — project and task management wired to the brand
+  context, so every project carries the brand thread
 
-Frame these as available when they're ready: not pressure. The brand
-knowledge base stands on its own; the modules extend it.
+The brand knowledge base stands on its own; the modules extend it.
 
 **Close.**
 End with a short line that hands the room back to the founder. Do not print a

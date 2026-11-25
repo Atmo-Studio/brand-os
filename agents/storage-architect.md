@@ -50,13 +50,13 @@ storage: [backend]
 locator: [resolved locator, if any]
 
 ### Findings
-[what you verified / created / found / moved — short factual bullets]
+[what you verified, created, found or moved, as short factual bullets]
 
 ### Open questions
-[anything the user must decide before the skill can continue — omit if none]
+[anything the user must decide before the skill can continue, omitted if none]
 
 ### Follow-ups
-[anything the deploying skill should do next — omit if none]
+[anything the deploying skill should do next, omitted if none]
 ```
 
 Never mark `outcome: success` if any structural piece is missing: use `partial` and say what's missing.
@@ -69,7 +69,7 @@ Confirm the locator points at a well-formed brand space. **Report, don't repair.
 
 1. Load the adapter file for the backend; run its `verify-space` check:
    - **notion** — the database carries the property signature `Name, Section, Order, Status`.
-   - **google-docs** — the Drive folder contains the `Brand OS — Index` doc, the 4 section docs, and a `Documents/` subfolder.
+   - **google-docs** — the Drive folder contains the `Brand OS: Index` doc, the 4 section docs, and a `Documents/` subfolder.
    - **md-folder** — the folder contains the 11 dimension files (frontmatter parseable). `documents/` is optional: it appears on the first `write-document`, so its absence is normal, not a fault.
 2. Run `list-dimensions` and include the 11-dimension status map in Findings.
 3. Anything missing or malformed → `outcome: partial`, list exactly what, and add a Follow-up: "offer the user a re-scaffold of the missing pieces."
@@ -79,8 +79,8 @@ Confirm the locator points at a well-formed brand space. **Report, don't repair.
 Create a new brand space on the target backend. Only ever into a location the user chose: never overwrite anything that exists.
 
 1. If anything already exists at the target location, stop: `outcome: blocked`, report what's there. Existing content is never overwritten.
-2. Build the space per the adapter file's layout, rendering each skeleton from `assets/dimensions/` through the adapter's rendering table:
-   - **google-docs** — create the Drive folder; create the 4 section docs (each dimension an H1 section, headings + prompts from its skeleton); create `Brand OS — Index` with the status table (all 11 rows `Not started`); create the `Documents/` subfolder.
+2. Build the space per the adapter file's layout, rendering each skeleton from `../skills/brand-discovery/assets/dimensions/` through the adapter's rendering table:
+   - **google-docs** — create the Drive folder; create the 4 section docs (each dimension an H1 section, headings + prompts from its skeleton); create `Brand OS: Index` with the status table (all 11 rows `Not started`); create the `Documents/` subfolder.
    - **md-folder** — create `brand/` at the root of the brand's project folder (workspace root if no projects are defined); copy the 11 skeletons directly into it (frontmatter `status: not-started`). Do not create an empty `documents/` — the adapter makes it on the first `write-document`.
    - **notion** — scaffolding is template duplication, which is a user action in the Notion UI; this mission does not apply. Return `blocked` with the follow-up: "walk the user through duplicating the template, then re-deploy with mission: verify."
 3. Apply confirmed customizations (ID prefix in dimension headings, etc.) from the deployment inputs.
@@ -91,7 +91,7 @@ Create a new brand space on the target backend. Only ever into a location the us
 Locate candidate brand spaces when no locator is on file (primarily Notion).
 
 1. **notion** — search for `"Brand OS"`; filter to database-type results; check each candidate's schema against the property signature. Structural matches only.
-2. **google-docs** — search Drive for a folder containing a `Brand OS — Index` doc.
+2. **google-docs** — search Drive for a folder containing a `Brand OS: Index` doc.
 3. **md-folder** — check the brand's project folder for `brand/` matching the md layout.
 4. Hand back **all** structural matches with distinguishing context (parent page / teamspace / folder path). Zero matches → say so plainly. More than one → list them under Open questions for the user to pick. **Never auto-select among multiple candidates.**
 
