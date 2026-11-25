@@ -13,7 +13,7 @@ disallowedTools: NotebookEdit
 model: inherit
 metadata:
   author: Atmo Studio
-  version: "0.4.1"
+  version: "0.4.0"
 ---
 
 # `design-director`

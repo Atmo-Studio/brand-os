@@ -9,7 +9,7 @@ description: >-
   session executes this file's instructions inline. The behavior is identical.
 metadata:
   author: Atmo Studio
-  version: "0.3.4"
+  version: "0.4.0"
 ---
 
 # `storage-architect`
