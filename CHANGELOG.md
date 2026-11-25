@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.4.0 — Visual Identity Module
+## v0.4.0 — Identity Module
 
 Brand OS can now build a high-quality visual identity from scratch, and make an existing one ready for agentic production. Four new skills, a design agent and a library of design expertise take a brand from its first direction to a production-ready kit, built on your brand knowledge base.
 
